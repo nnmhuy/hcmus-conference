@@ -1,16 +1,49 @@
 import React from 'react'
-import Banner from './Banner.js';
+import Banner from './Banner/Banner';
 import SponsorList from './SponsorList.js';
+import './style.css'
 
 const sponsorData = [
-  { type: 'gold', name: 'gianty group', image: '../../static/images/nha-tai-tro/gnt-gianty-group.png', link: 'https://www.gnt.com.vn/' },
-  { type: 'gold', name: 'sci edu', image: '../../static/images/nha-tai-tro/sci-e-01-01.png', link: 'http://sci.edu.vn/' },
-  { type: 'gold', name: 'itec', image: '../../static/images/nha-tai-tro/logo_icc.jpg', link: 'https://www.itec.edu.vn/' },
-  { type: 'silver', name: 'trung tam tin hoc', image: '../../static/images/nha-tai-tro/logo-tt-tin-hoc.jpg', link: 'https://csc.edu.vn/' },
-  { type: 'silver', name: 'tnic', image: '../../static/images/nha-tai-tro/sent-logo-tn.png', link: 'http://tnic.com.vn/' },
-  { type: 'silver', name: 'horiba', image: '../../static/images/nha-tai-tro/horiba.png', link: 'http://horiba.com.vn/' },
-  { type: 'copper', name: 'chemsol', image: '../../static/images/nha-tai-tro/logo-chemsol.jpg', link: 'http://www.chemsol.vn/' },
-  { type: 'copper', name: 'apc lab', image: '../../static/images/nha-tai-tro/apclab-01.png', link: '' }
+  { type: 'gold',
+    name: 'gianty group', 
+    image: 'https://www.designandhealth.org/wp-content/uploads/2018/01/500x441-1.jpg', 
+    link: 'https://www.gnt.com.vn/' 
+  },
+  { type: 'gold',
+    name: 'sci edu', 
+    image: 'https://www.designandhealth.org/wp-content/uploads/2018/01/500x441-1.jpg', 
+    link: 'http://sci.edu.vn/' 
+  },
+  { type: 'gold',
+    name: 'itec', 
+    image: 'https://www.designandhealth.org/wp-content/uploads/2018/01/500x441-1.jpg', 
+    link: 'https://www.itec.edu.vn/' 
+  },
+  { type: 'silver',
+    name: 'trung tam tin hoc', 
+    image: 'https://www.designandhealth.org/wp-content/uploads/2018/01/500x441-1.jpg', 
+    link: 'https://csc.edu.vn/' 
+  },
+  { type: 'silver',
+    name: 'tnic', 
+    image: 'https://www.designandhealth.org/wp-content/uploads/2018/01/500x441-1.jpg', 
+    link: 'http://tnic.com.vn/' 
+  },
+  { type: 'silver',
+    name: 'horiba', 
+    image: 'https://www.designandhealth.org/wp-content/uploads/2018/01/500x441-1.jpg', 
+    link: 'http://horiba.com.vn/' 
+  },
+  { type: 'copper',
+    name: 'chemsol', 
+    image: 'https://www.designandhealth.org/wp-content/uploads/2018/01/500x441-1.jpg', 
+    link: 'http://www.chemsol.vn/' 
+  },
+  { type: 'copper',
+    name: 'apc lab', 
+    image: 'https://www.designandhealth.org/wp-content/uploads/2018/01/500x441-1.jpg', 
+    link: ''
+   }
 ]
 
 const Home = (props) => {
@@ -22,7 +55,4 @@ const Home = (props) => {
   )
 }
 
-const styles={
-  
-}
 export default Home
