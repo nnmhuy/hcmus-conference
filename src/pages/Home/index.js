@@ -1,11 +1,15 @@
 import React from 'react'
+import Banner from './Banner.js';
 
 const Home = (props) => {
   return (
     <div>
-      Home
+      <Banner />
     </div>
   )
 }
 
+const styles={
+  
+}
 export default Home

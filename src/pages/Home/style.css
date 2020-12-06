@@ -1,0 +1,26 @@
+.image__bookholder {
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.image__book, .image__shadow, .image__book {
+  transition: all 0.5s;
+}
+
+.image__book {
+  transition: transform 0.5s;
+  cursor: pointer;
+  /* transform: translate(50px, -95px) !important; */
+}
+
+.image__bookholder .image__shadow {
+  opacity: 1;
+}
+
+.image__bookholder:hover .image__book {
+  transform: translateY(-20px) !important;
+}
+
+.image__bookholder:hover .image__shadow {
+  opacity: 0;
+}
