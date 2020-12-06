@@ -1,5 +1,6 @@
 {
   "name": "Presentation",
+  "plural": "presentations",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
