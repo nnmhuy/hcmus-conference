@@ -1,0 +1,73 @@
+.image__bookholder {
+  transition: transform 0.4s;
+  cursor: pointer;
+  position: relative;
+  width: 70px;
+  display: inline-block;
+  pointer-events: auto;
+}
+
+.book__bubble{
+  transition: all 0.4s;
+  animation: fromTop 2s; 
+}
+
+.image__book, .image__shadow, .image__book {
+  transition: all 0.4s;
+}
+
+.image__book {
+  transition: all 0.4s;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  position: relative;
+  animation: float-bubble 2s;
+}
+
+.image__shadow {
+  position: absolute;
+  width: 100%;
+  display: block;
+  bottom: 0;
+  right: -10px;
+}
+
+.image__bookholder .image__shadow {
+  opacity: 1;
+}
+
+.image__bookholder:hover .image__book {
+  transform: translateY(-20px) !important;
+}
+
+.image__bookholder:hover .image__shadow {
+  opacity: 0;
+}
+
+@keyframes fromTop {
+  0%   { 
+    opacity: 0.3;
+    transform: translateY(-60px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0px);
+   }
+}
+
+
+@keyframes float-bubble {
+  0%   { 
+    transform: scale(0);
+    opacity: 0
+  }
+  50%   { 
+    transform: scale(0.6);
+    opacity: 0
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1)
+   }
+}
