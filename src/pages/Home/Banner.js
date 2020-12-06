@@ -2,9 +2,8 @@ import { Image } from 'antd'
 import React from 'react'
 import './style.css'
 
-import firstRow from '../../static/images/ke-sach/first_row.png'
-import secondRow from '../../static/images/ke-sach/sec_row.png'
-import thirdRow from '../../static/images/ke-sach/third_row.png'
+import bookBubble from '../../static/images/book-bubble2@2x.png'
+
 import bookShadow from '../../static/images/ke-sach/shadow.png'
 
 // Cac tieu ban
@@ -26,37 +25,55 @@ const Banner = () => {
       <div style={styles.bannerQuote}>
 
       </div>
-
-      <div style={styles.bookCaseContainer}>
-        <div style={styles.bookCaseAbsolute}>
-          <div style={{ position: 'absolute', top: 0 }}>
-            <img src={firstRow} style={{ height: 240 }} />
-            <div style={{ position: 'absolute', bottom: 30 }}>
-              <div style={{ position: 'relative', width: 80, display:'inline-block', transform: 'translate(50px, -80px)'}} className='image__bookholder'>
-                <img className='image__shadow' src={bookShadow} style={{position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10}}/>
-                <img className='image__book' src={tieuBan1} style={{position: 'relative', width: '100%', display: 'block'}}/>
-              </div>
-              <img src={tieuBan2} style={{ height: 100, transform: 'translate(45px, -90px)' }} />
-              <img src={tieuBan3} style={{ height: 100, transform: 'translate(40px, -50px)' }} />
-              <img src={tieuBan4} style={{ height: 100, transform: 'translate(40px, -10px)' }} />
-            </div>
+      <div style={{ position: 'relative' }}>
+        <img src={bookBubble} style={{ width: '560px', display: 'block' }} /> 
+        <div style={{ position: 'absolute', top: 0, right: 0 }}>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-20px, -20px)' }} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan1} style={{ position: 'relative', width: '100%', display: 'block' }} />
+          </div>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-30px, 10px)' }} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan2} style={{ position: 'relative', width: '100%', display: 'block' }} />
+          </div>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-28px, 45px)' }} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan3} style={{ position: 'relative', width: '100%', display: 'block' }} />
+          </div>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-28px, 80px)'}} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan4} style={{ position: 'relative', width: '100%', display: 'block' }} />
           </div>
 
-          <div style={{ position: 'absolute', top: 135 }}>
-            <img src={secondRow} style={{ height: 240 }} />
-            <div style={{ position: 'absolute', bottom: 0, left: 65 }}>
-              <img src={tieuBan5} style={{ height: 100, transform: 'translate(50px, -130px)' }} />
-              <img src={tieuBan6} style={{ height: 100, transform: 'translate(45px, -90px)' }} />
-              <img src={tieuBan7} style={{ height: 100, transform: 'translate(40px, -50px)' }} />
-            </div>
+        </div>
+
+        <div style={{ position: 'absolute', top: 140, right: 0 }}>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-20px, -20px)'}} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan5} style={{ position: 'relative', width: '100%', display: 'block' }} />
           </div>
-          <div style={{ position: 'absolute', top: 270 }}>
-            <img src={thirdRow} style={{ height: 240 }} />
-            <div style={{ position: 'absolute', bottom: 0, left: 65 }}>
-              <img src={tieuBan8} style={{ height: 100, transform: 'translate(50px, -130px)' }} />
-              <img src={tieuBan9} style={{ height: 100, transform: 'translate(45px, -90px)' }} />
-              <img src={tieuBan10} style={{ height: 100, transform: 'translate(40px, -50px)' }} />
-            </div>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-28px, 10px)'}} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan6} style={{ position: 'relative', width: '100%', display: 'block' }} />
+          </div>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-28px, 45px)'}} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan7} style={{ position: 'relative', width: '100%', display: 'block' }} />
+          </div>
+        </div>
+
+        <div style={{ position: 'absolute', top: 242, right: 0 }}>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-25px, -25px)'}} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan8} style={{ position: 'relative', width: '100%', display: 'block' }} />
+          </div>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-28px, 10px)'}} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan9} style={{ position: 'relative', width: '100%', display: 'block' }} />
+          </div>
+          <div style={{ position: 'relative', width: 70, display: 'inline-block', transform: 'translate(-28px, 45px)'}} className='image__bookholder'>
+            <img className='image__shadow' src={bookShadow} style={{ position: 'absolute', width: '100%', display: 'block', bottom: 0, right: -10 }} />
+            <img className='image__book' src={tieuBan10} style={{ position: 'relative', width: '100%', display: 'block' }} />
           </div>
         </div>
       </div>
@@ -67,16 +84,13 @@ const Banner = () => {
 const styles = {
   bannerContainer: {
     display: 'flex',
-    width: '90%',
-    margin: '0 auto',
     justifyContent: 'space-around',
     alignItems: 'center',
-    padding: '60px 0 50px 0'
+    padding: '60px 0px'
   },
   bookCaseAbsolute: {
-    height: 500,
     position: 'relative',
-    width: 350
+    width: '100%'
   },
   bannerQuote: {
     background: 'red',
