@@ -2,16 +2,16 @@
 var admin = require("./admin");
 var sessionData = require("./sessionData");
 var presentationData = require("./presentationData");
-const { find } = require("./presentationData");
+const sponsorData = require("./sponsorData");
 
 module.exports = function (app) {
   var Account = app.models.Account;
   var Session = app.models.Session;
   var Presentation = app.models.Presentation;
+  var Sponsor = app.models.Sponsor;
   console.log("running initialization");
 
-  function createDefaultSuperAdmin() {
-    console.log("Accounts");
+  function createDefaultAdmin() {
     Account.create(
       {
         username: admin.username,
@@ -27,14 +27,14 @@ module.exports = function (app) {
 
   function createDefaultPresentation(sessions) {
     presentationData.forEach((item) => {
-      item.session = sessions.find(
+      item.sessionId = sessions.find(
         (session) =>
           session.startDate <= item.startDate && session.endDate >= item.endDate
       ).id;
     });
     Presentation.create(presentationData, function (err, presentations) {
       if (err) throw err;
-      console.log("create presentations", presentations);
+      console.log("create presentations", presentations.length);
     });
   }
 
@@ -47,18 +47,27 @@ module.exports = function (app) {
   }
 
   function createDefaultSession() {
-    Session.create(sessionData, {
+    Session.create(sessionData, 
       function(err, sessions) {
         if (err) throw err;
-        console.log("create sessions", sessions);
+        console.log("create sessions", sessions.length);
         checkPrensentation(sessions);
       },
-    });
+    );
+  }
+
+  function createDefaultSponsor() {
+    Sponsor.create(sponsorData, 
+      function(err, sponsors) {
+        if (err) throw err;
+        console.log("create sponsors", sponsors.length);
+      },
+    );
   }
 
   Account.find({}, (err, accounts) => {
     if (!accounts || !accounts[0]) {
-      createDefaultSuperAdmin();
+      createDefaultAdmin();
     }
   });
 
@@ -69,4 +78,10 @@ module.exports = function (app) {
       checkPrensentation(sessions);
     }
   });
+
+  Sponsor.find({}, (err, sponsors) => {
+    if (!sponsors || !sponsors[0]) {
+      createDefaultSponsor();
+    }
+  })
 };

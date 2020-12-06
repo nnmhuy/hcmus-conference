@@ -11,9 +11,12 @@
       "type": "string",
       "required": true
     },
-    "url": {
+    "type": {
       "type": "string",
       "required": true
+    },
+    "url": {
+      "type": "string"
     },
     "image": {
       "type": "string",
