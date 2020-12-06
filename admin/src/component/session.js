@@ -9,7 +9,7 @@ export const SessionList = (props) => (
             <TextField source="id" />
             <DateField source="start_date" />
             <DateField source="end_date" />
-            <EditButton basePath="/sessions" />
+            <EditButton basePath="/presentations" />
         </Datagrid>
     </List>
 );
