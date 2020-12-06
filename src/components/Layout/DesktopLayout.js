@@ -29,7 +29,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   appBar: {
-    background: theme.palette.primary.lighter,
+    backgroundImage: `linear-gradient(45deg, ${theme.palette.primary.main}, black)`,
+    // backgroundColor: 'red',
     boxShadow: 'none'
   },
   mainTitle: {

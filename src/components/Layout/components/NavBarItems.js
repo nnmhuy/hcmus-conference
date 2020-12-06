@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   },
   nav_bar_item: {
     marginRight: 20,
+    height: 60,
     fontWeight: 'bold',
     '&:hover': {
       boxShadow: 'none',

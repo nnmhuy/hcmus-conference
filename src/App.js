@@ -10,19 +10,29 @@ import './App.css';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      lighter: '#eef6e9',
+      lighter: '#4cc9f0',
       light: '#6fbf73',
-      main: '#4caf50',
-      littleDark: '#5da62b',
-      dark: '#357a38',
+      main: '#4895ef',
+      littleDark: '#3f37c9',
+      dark: '#3a0ca3', 
       contrastText: '#fff',
     },
     secondary: {
       light: '#f2a18b',
-      main: '#ef8a6f',
+      main: '#7209b7',
       dark: '#a7604d',
       contrastText: '#000',
     },
+    white: {
+      dark: '#464646',
+      main: '#fff',
+    },
+    dark: {
+      lighter: '#eff1f5',
+    },
+    error: {
+      main: '#f0443c',
+    }
   }
 })
 
