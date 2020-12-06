@@ -10,3 +10,5 @@ const major = [
   "Khoa học và Công nghệ Vật liệu",
   "Kỹ thuật hạt nhân và Vật lý Y khoa",
 ];
+
+module.exports = major;

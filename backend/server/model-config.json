@@ -42,5 +42,13 @@
   "Presentation": {
     "dataSource": "conferrence-hcmus",
     "public": true
+  },
+  "Account": {
+    "dataSource": "conferrence-hcmus",
+    "public": true
+  },
+  "Sponsor": {
+    "dataSource": "conferrence-hcmus",
+    "public": true
   }
 }

@@ -1,5 +1,6 @@
 {
   "name": "Presentation",
+  "plural": "presentations",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -58,6 +59,18 @@
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
       "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",  
+      "permission": "ALLOW",        
+      "property": "initData"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",  
+      "permission": "ALLOW",        
+      "property": "getAllData"
     }
   ],
   "methods": {}
