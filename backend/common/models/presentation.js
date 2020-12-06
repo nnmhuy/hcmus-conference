@@ -10,7 +10,7 @@ module.exports = function(Presentation) {
   }
 
   Presentation.getAllData = async function() {
-    let currentTime = Date.now()
+    let currentTime = new Date()
     if (cacheAllData && cacheAllData.expiredTime > currentTime) {
       return cacheAllData.data
     }
@@ -32,6 +32,14 @@ module.exports = function(Presentation) {
         'session': sessionData,
         'presentation': presentationDict,
         'sponsor': sponsorData
+      }
+
+      // update cache
+      let newExpiredTime = new Date()
+      newExpiredTime.setSeconds(newExpiredTime.getSeconds() + 30);
+      cacheAllData = {
+        'data': result,
+        'expiredTime': newExpiredTime
       }
       return result
     }
