@@ -9,7 +9,7 @@
 
 .book__bubble{
   transition: all 0.4s;
-  animation: fromTop 2s; 
+  animation: fromTop 1.8s; 
 }
 
 .image__book, .image__shadow, .image__book {
@@ -20,17 +20,18 @@
   transition: all 0.4s;
   cursor: pointer;
   width: 100%;
+  min-width: 70px;
   display: block;
-  position: relative;
-  animation: float-bubble 2s;
+  position: absolute;
+  animation: float-bubble 1.8s;
 }
 
 .image__shadow {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   display: block;
   bottom: 0;
-  right: -10px;
+  transform: translate(10px, 90px);
 }
 
 .image__bookholder .image__shadow {
@@ -43,6 +44,19 @@
 
 .image__bookholder:hover .image__shadow {
   opacity: 0;
+}
+
+.hover__text {
+  position: absolute;
+  transform: rotate(27deg);
+  font-size: 1.2em;
+  text-transform: uppercase;
+  right: 20px;
+  bottom: 115px;
+  width: 100%;
+  color: #4041D2;
+  pointer-events: none;
+  text-align: right
 }
 
 @keyframes fromTop {
