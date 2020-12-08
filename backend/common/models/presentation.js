@@ -1,5 +1,6 @@
 'use strict';
 var initFunction = require('../../server/init-data/init')
+var majorData = require('../../../constant/major.json')
 var cacheAllData = null
 
 module.exports = function(Presentation) {
@@ -20,18 +21,36 @@ module.exports = function(Presentation) {
         Presentation.find({order: 'startDate ASC'}),
         Presentation.app.models.Sponsor.find()
       ])
+      let numberOfPresentation = presentationData.length
+      let numberOfAuthor = 0
+      let authorDict = {}
 
       // cluster presentation to major
       let presentationDict = {}
       presentationData.forEach(element => {
-        if (!presentationDict[element.major])
-          presentationDict[element.major] = []
-        presentationDict[element.major].push(element)
+        if (!authorDict[element.author]) {
+          numberOfAuthor ++
+          authorDict[element.author] = true
+        }
+
+        if (!presentationDict[element.majorId])
+          presentationDict[element.majorId] = []
+        presentationDict[element.majorId].push(element)
       });
+
+      // stat
+      let statisData = {
+        numberOfMajor: majorData.length,
+        numberOfPresentation,
+        numberOfAuthor,
+      }
+      statisData.major
+
       let result = {
         'session': sessionData,
         'presentation': presentationDict,
-        'sponsor': sponsorData
+        'sponsor': sponsorData,
+        'statis': statisData
       }
 
       // update cache
