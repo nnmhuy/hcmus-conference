@@ -1,6 +1,8 @@
 import React from 'react'
 import Banner from './Banner/Banner';
+import CourseList from './CourseList';
 import SponsorList from './SponsorList.js';
+import Statistics from './Statistics';
 import './style.css'
 
 const sponsorData = [
@@ -50,6 +52,8 @@ const Home = (props) => {
   return (
     <div>
       <Banner />
+      <CourseList/>
+      <Statistics/>
       <SponsorList sponsorData={sponsorData}/>
     </div>
   )

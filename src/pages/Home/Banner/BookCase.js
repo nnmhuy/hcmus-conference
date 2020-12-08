@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import BookItem from './BookItem'
 import bookBubble from '../../../static/images/book-bubble2@2x.png'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 const bookCaseData = {
   row1: [
@@ -94,29 +95,23 @@ export default function BookCase() {
 
   return (
     <div style={{ position: 'relative' }}>
+      <ScrollAnimation animateIn="fadeIn">
+        
+        
         <img className="book__bubble" src={bookBubble} style={{ width: '560px', display: 'block' }} alt=''/> 
-        <div style={{position:'absolute', top: 0, right: 0, pointerEvents: 'none'}}>
+        </ScrollAnimation>
+        <div style={{position:'absolute', top: "-45px", right: 0, pointerEvents: 'none'}}>
           { renderBookRow('row1') }
         </div>
 
-        <div style={{position:'absolute', top: 140, right: 0, pointerEvents: 'none'}}>
+        <div style={{position:'absolute', top: 95, right: 0, pointerEvents: 'none'}}>
           { renderBookRow('row2') }
         </div>
 
-        <div style={{position:'absolute', top: 242, right: 0, pointerEvents: 'none'}}>
+        <div style={{position:'absolute', top: 197, right: 0, pointerEvents: 'none'}}>
           { renderBookRow('row3') }  
         </div>
-        <div style={{
-          position: 'absolute',
-          transform: 'rotate(27.5deg)',
-          fontSize: '1.2em',
-          textTransform: 'uppercase',
-          right: 20,
-          bottom: 120,
-          width: '100%',
-          color: '#4041D2',
-          textAlign: 'right'
-        }}>
+        <div className='hover__text'>
           {renderHoverText()}
         </div>
       </div>
