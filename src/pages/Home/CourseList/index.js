@@ -24,6 +24,7 @@ const CourseContainer = styled.div`
     grid-gap: 20px;
   }
 `
+
 const CourseHeading = styled.h3`
   color: #01458E;
   font-weight: 500;

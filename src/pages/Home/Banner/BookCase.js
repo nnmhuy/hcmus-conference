@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import BookItem from './BookItem'
 import bookBubble from '../../../static/images/book-bubble2@2x.png'
-import ScrollAnimation from 'react-animate-on-scroll'
 
 const bookCaseData = {
   row1: [
@@ -95,11 +94,7 @@ export default function BookCase() {
 
   return (
     <div style={{ position: 'relative' }}>
-      <ScrollAnimation animateIn="fadeIn">
-        
-        
         <img className="book__bubble" src={bookBubble} style={{ width: '560px', display: 'block' }} alt=''/> 
-        </ScrollAnimation>
         <div style={{position:'absolute', top: "-45px", right: 0, pointerEvents: 'none'}}>
           { renderBookRow('row1') }
         </div>
