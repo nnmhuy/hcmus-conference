@@ -8,25 +8,28 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
   },
-  paper: {
-    padding: '6px 16px',
-  },
-  secondaryTail: {
-    backgroundColor: theme.palette.secondary.main,
+  timelineRoot: {
+    padding: '0px 16px',
+    margin: 0,
   },
 }))
 
+
+// TODO: scroll to active presentation
 const PresentationList = (props) => {
   const classes = useStyles()
   const { presentationList } = props
 
   return (
     <div className={classes.root}>
-      <Timeline align="left">
+      <Timeline align="left" className={classes.timelineRoot}>
         {
           presentationList.map((presentation, index) => {
             return (
-              <PresentationItem key={`presentation-item-${index}`} presentation={presentation}/>
+              <PresentationItem 
+                key={`presentation-item-${index}`} 
+                presentation={presentation}  
+              />
             )
           })
         }

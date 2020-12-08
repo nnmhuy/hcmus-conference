@@ -10,8 +10,9 @@ import PresentationList from './PresentationList'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '85%',
+    width: '80%',
     margin: 'auto',
+    border: '1px solid #F4F5F8',
   },
 }))
 

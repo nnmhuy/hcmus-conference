@@ -4,23 +4,21 @@ import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
-import TimelineDot from '@material-ui/lab/TimelineDot';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import Paper from '@material-ui/core/Paper';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider'
 import Collapse from '@material-ui/core/Collapse'
 import { makeStyles } from '@material-ui/core/styles'
-import AddToCalendarHOC from 'react-add-to-calendar-hoc';
 import moment from 'moment'
 
+import TimelineDotIcon from './TimelineDotIcon'
+import ZoomButton from './ZoomButton'
+import AddToCalendarButton from './AddToCalendarButton'
+import getMajorInfos from '../../../helpers/getMajorInfos'
 
 import ClockIcon from '@material-ui/icons/AccessTime';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import CalendarIcon from '@material-ui/icons/Today';
-import ZoomIcon from '../../../static/images/zoom-icon.png'
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -29,89 +27,106 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: '6px 16px',
   },
-  secondaryTail: {
-    backgroundColor: theme.palette.secondary.main,
+  timelineConnector: {
+    background: '#F4F5F8',
+    width: 1,
   },
   summaryRoot: {
     cursor: 'pointer'
+  },
+  timeContainer: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  clockIcon: {
+    color: '#707070',
+    width: 13,
+    height: 13,
+  },
+  timeText: {
+    fontSize: 12,
+    marginLeft: 5,
+    color: '#4041D2',
+    fontWeight: 600,
+  },
+  titleContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  expandIcon: {
+    color: "#4041D2",
+  },
+  buttonContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  majorText: {
+    lineHeight: 2,
+    color: '#FFFFFF',
+    fontSize: 10,
+    fontWeight: 600,
+    borderRadius: 5,
+    background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  descriptionText: {
+    fontSize: 12,
+    color: '#707070'
+  },
+  authorText: {
+    color: '#4041D2',
+    fontSize: 10,
+    marginTop: 5,
   }
 }))
-
-const AddToCalendarButton = (props) => {
-  const addToCalendarEl = React.useRef(null);
-
-  const { title, author, description, startDate, endDate, linkZoom } = props
-  let icon = { 'calendar-plus-o': 'left' };
-  let event = {
-    title: `${title} (${author})`,
-    description,
-    location: linkZoom,
-    startTime: startDate,
-    endTime: endDate,
-  };
-
-  return ( 
-    null
-  )
-}
 
 const PresentationItem = (props) => {
   const classes = useStyles()
   const { presentation } = props
-  const { major, startDate, endDate, title, description, linkZoom, author } = presentation
+  const { majorId, startDate, endDate, title, description, linkZoom, author } = presentation
+
+  const { majorName, majorIcon } = getMajorInfos(majorId)
 
   const [isExpanded, setIsExpanded] = React.useState(false)
 
   return (
     <TimelineItem>
-      <TimelineOppositeContent style={{ flex: 0}}>
-      </TimelineOppositeContent>
+      <TimelineOppositeContent style={{ flex: 0}}/>
       <TimelineSeparator>
-        <TimelineDot color="primary">
-          {/* TODO: icon and color base on major */}
-          {/* TODO: blinding and color of past, current, future presentation */}
-          <LaptopMacIcon />
-        </TimelineDot>
-        <TimelineConnector />
+        <TimelineConnector className={classes.timelineConnector}/>
+        <TimelineDotIcon majorIcon={majorIcon} startDate={startDate} endDate={endDate}/>
+        <TimelineConnector className={classes.timelineConnector}/>
       </TimelineSeparator>
       <TimelineContent>
         <Paper elevation={0} className={classes.paper}>
           <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
             <div className={classes.timeContainer}>
-              <ClockIcon />
-              <span>{moment(startDate).format("k:mm A")}</span>
+              <ClockIcon className={classes.clockIcon}/>
+              <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")} - ${moment(endDate).format("k:mm A")}`}</span>
             </div>
-            <div>
-              <div>{title}</div>
-              <div>
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  size="small"
-                  startIcon={
-                    <IconButton size="small" >
-                      <img src={ZoomIcon} style={{ height: 25 }}/>
-                    </IconButton>}
-                    href={linkZoom}
-                    target="_blank"
-                    onClick={(e) => { e.stopPropagation() } }
-                  >
-                  Vào phòng Zoom
-                </Button>
-                <AddToCalendarButton {...presentation}/>
-                {isExpanded ? <ExpandLessIcon/> :<ExpandMoreIcon/>}
-              </div>
+            <div className={classes.titleContainer}>
+              <div className={classes.title}>{title}</div>
+              {isExpanded ? <ExpandLessIcon className={classes.expandIcon}/> : <ExpandMoreIcon className={classes.expandIcon}/>}
             </div>
-            <div>#{major}</div>
             <Divider />
           </div>
           <Collapse in={isExpanded}>
-            <div>
-              {description}
+            <div className={classes.buttonContainer}>
+              <div className={classes.majorText}>{majorName}</div>
+              <div>
+                <ZoomButton linkZoom={linkZoom}/>
+                <AddToCalendarButton {...presentation} />
+              </div>
             </div>
-            <div>
-              {author}
-            </div>
+            <div className={classes.descriptionText}>{description}</div>
+            <div className={classes.authorText}>{author}</div>
           </Collapse>
         </Paper>
       </TimelineContent>
