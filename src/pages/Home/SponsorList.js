@@ -72,7 +72,6 @@ const SponsorList = () => {
   const renderSponsorList = type => {
     return sponsorData.filter(item => item.type === type).map((sponsorItem, index) => {
       if (!sponsorItem.link || sponsorItem.link === '') {
-        console.log(type+index)
         return <img key={type+index} className={classes.img} src={sponsorItem.image} alt={sponsorItem.alt}/>
       }
       return (

@@ -95,7 +95,6 @@ const ButtonWhite = styled.button`
 `
 
 const BrandName = (props) => {
-  console.log('props', props);
   return (
     <BorderedContainer>
       <TimerContainer>

@@ -55,7 +55,7 @@ const CourseList = () => {
       <CourseContainer>
         {
           courseList.map((courseItem, index) => {
-          return <CourseText>{courseItem}</CourseText>
+          return <CourseText key={'courseItem'+index}>{courseItem}</CourseText>
           })
         }
       </CourseContainer>
