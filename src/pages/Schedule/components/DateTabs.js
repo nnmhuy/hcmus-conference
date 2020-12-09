@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
+import moment from 'moment'
 
 import { dateList } from '../../../constants/constants'
 
@@ -61,7 +62,7 @@ const DateTab = (props) => {
           {label}
         </div>
         <div className={clsx(classes.dateTabDate, isActive && classes.activeDateTabDate)}>
-          {date}
+          {moment(date).format("DD/MM/YYYY")}
         </div>
       </div>
       {isActive &&
@@ -82,7 +83,7 @@ const DateTabs = (props) => {
             <DateTab 
               key={name} label={name} date={date} 
               onClick={() => handleChangeActiveDate(date)}
-              isActive={activeDate === date}
+              isActive={moment(activeDate).isSame(moment(date), 'day')}
             />
           )
         })

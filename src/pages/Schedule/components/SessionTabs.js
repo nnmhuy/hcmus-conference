@@ -2,9 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { get, find } from 'lodash'
-
-import { dateList } from '../../../constants/constants'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,21 +23,18 @@ const useStyles = makeStyles(theme => ({
 
 const SessionTabs = (props) => {
   const classes = useStyles()
-  const { activeDate, activeSession, handleChangeActiveSession } = props
+  const { activeSession, sessionList, handleChangeActiveSession } = props
 
   const handleChange = (event, newValue) => {
     handleChangeActiveSession(newValue);
   };
-  const sessionList = get(find(dateList, { date: activeDate }), 'sessions', [])
 
   return (
     <div className={classes.root}>
-      <Tabs 
+      <Tabs
         value={activeSession} 
         onChange={handleChange} 
         className={classes.tabContainer}
-        // indicatorColor="primary"
-        // textColor="primary"
       >
         {
           sessionList.map(({ name }) => {

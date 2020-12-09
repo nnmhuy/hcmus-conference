@@ -26,7 +26,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Schedule = (props) => {
-  const { allPresentation } = props
+  const { allPresentation, allSession } = props
   const location = useLocation()
   const query = new URLSearchParams(location.search);
   const filter = JSON.parse(query.get('filter')) || { [-1]: true };
@@ -37,7 +37,11 @@ const Schedule = (props) => {
     <div className={classes.root}>
       <div className={classes.header}>Schedule</div>
       <FilterSection query={query} filter={filter}/>
-      <TimelineSection allPresentation={allPresentation} filter={filter}/>
+      <TimelineSection
+        allPresentation={allPresentation} 
+        allSession={allSession}  
+        filter={filter}
+      />
     </div>
   )
 }
@@ -45,6 +49,7 @@ const Schedule = (props) => {
 const mapStateToProps = ({ presentation, }) => {
   return {
     allPresentation: presentation.allPresentation,
+    allSession: presentation.allSession,
   }
 }
 

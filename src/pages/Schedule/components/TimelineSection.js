@@ -1,10 +1,13 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import moment from 'moment'
+import { get, filter } from 'lodash'
 
 import DateTabs from './DateTabs'
 import SessionTabs from './SessionTabs'
 import PresentationList from './PresentationList'
+
+import { dateList } from '../../../constants/constants'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,9 +17,14 @@ const useStyles = makeStyles(theme => ({
 
 const TimelineSection = (props) => {
   const classes = useStyles()
-  const { allPresentation, filter } = props
+  const { allSession, allPresentation, filter: majorFilter } = props
 
-  const [activeDate, setActiveDate] = React.useState(moment().isBefore(moment("2020-12-18")) ? moment("2020-12-18").format("DD/MM/YYYY") : moment().format("DD/MM/YYYY"));
+  const [activeDate, setActiveDate] = React.useState(
+    moment().isBefore(moment(dateList[0].date), 'day') 
+      || moment().isAfter(moment(dateList[dateList.length - 1].date), 'day') 
+    ? moment(dateList[0].date) 
+    : moment()
+  );
   const handleChangeActiveDate = (newActiveDate) => {
     setActiveDate(newActiveDate);
   };
@@ -26,11 +34,24 @@ const TimelineSection = (props) => {
     setActiveSession(newActiveSession)
   }
 
+  const sessionList = filter(allSession, session => 
+    moment(session.startDate).isSame(activeDate, 'day')
+  )
+    
   return (
     <div className={classes.root}>
       <DateTabs activeDate={activeDate} handleChangeActiveDate={handleChangeActiveDate}/>
-      <SessionTabs activeDate={activeDate} activeSession={activeSession} handleChangeActiveSession={handleChangeActiveSession}/>
-      <PresentationList allPresentation={allPresentation} filter={filter}/>
+      <SessionTabs 
+        sessionList={sessionList} 
+        activeSession={activeSession} 
+        handleChangeActiveSession={handleChangeActiveSession}
+      />
+      <PresentationList 
+        allPresentation={allPresentation} 
+        filter={majorFilter}
+        sessionStartDate={get(sessionList, `[${activeSession}].startDate`, '')}
+        sessionEndDate={get(sessionList, `[${activeSession}].endDate`, '')}
+      />
     </div>
   );
 }

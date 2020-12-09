@@ -9,18 +9,19 @@ import {
   getAllPresentationFail, 
 } from '../actions/presentationAction'
 
-// import { presentationList } from '../../constants/constants'
+import { sessionList, presentationList } from '../../constants/constants'
 
 function* getAllPresentationSaga() {
   try {
-    const getAllPresentationUrl = '/presentation/getAllData'
-    const response = yield call(restConnector.get, getAllPresentationUrl)
-    const data = get(response, 'data', {})
+    // const getAllPresentationUrl = '/presentation/getAllData'
+    // const response = yield call(restConnector.get, getAllPresentationUrl)
+    // const data = get(response, 'data', {})
 
-    yield put(getAllPresentationSuccess({ data }))
-    // yield put(getAllPresentationSuccess({ data: {
-    //   presentation: presentationList
-    // } }))
+    // yield put(getAllPresentationSuccess({ data }))
+    yield put(getAllPresentationSuccess({ data: {
+      session: sessionList,
+      presentation: presentationList,
+    } }))
   } catch (error) {
     yield put(getAllPresentationFail(error))
   }

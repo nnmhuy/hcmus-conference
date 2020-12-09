@@ -53,7 +53,7 @@ const MyButton = ({ children, onClick }) => {
       }
       onClick={onClick}
     >
-      {children}
+      Thêm vào lịch
     </CustomButton>
   )
 }
@@ -89,7 +89,7 @@ const AddToCalendarButton = (props) => {
 
   return (
     <AddToCalendarDropdown
-      buttonText="Thêm vào lịch"
+      // buttonText="Thêm vào lịch"
       event={event}
       className={classes.addToCalendarDropdown}
       linkProps={{
