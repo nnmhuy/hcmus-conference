@@ -1,29 +1,35 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
+import { get } from 'lodash'
+
+import restConnector from '../../connectors/RestConnector'
 
 import {
-  getPresentationList,
-  getPresentationListSuccess,
-  getPresentationListFail,
+  getAllPresentation,
+  getAllPresentationSuccess,
+  getAllPresentationFail, 
 } from '../actions/presentationAction'
 
-import { presentationList } from '../../constants/constants'
+// import { presentationList } from '../../constants/constants'
 
-function* getPresentationListSaga({ payload }) {
+function* getAllPresentationSaga() {
   try {
-    const { filter } = payload
-    // TODO: call api or filter here
-    // const response = yield call(restConnector.post, getStudentInfosUrl, { student_ids: [id] })
+    const getAllPresentationUrl = '/presentation/getAllData'
+    const response = yield call(restConnector.get, getAllPresentationUrl)
+    const data = get(response, 'data', {})
 
-    yield put(getPresentationListSuccess({ presentationList }))
+    yield put(getAllPresentationSuccess({ data }))
+    // yield put(getAllPresentationSuccess({ data: {
+    //   presentation: presentationList
+    // } }))
   } catch (error) {
-    yield put(getPresentationListFail(error))
+    yield put(getAllPresentationFail(error))
   }
 }
 
-function* getPresentationListWatcher() {
-  yield takeLatest(getPresentationList, getPresentationListSaga)
+function* getAllPresentationWatcher() {
+  yield takeLatest(getAllPresentation, getAllPresentationSaga)
 }
 
 export {
-  getPresentationListWatcher,
+  getAllPresentationWatcher,
 }

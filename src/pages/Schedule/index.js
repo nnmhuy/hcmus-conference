@@ -7,8 +7,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import FilterSection from './components/FilterSection'
 import TimelineSection from './components/TimelineSection'
 
-import { getPresentationList } from '../../redux/actions/presentationAction'
-
 const useStyles = makeStyles(theme => ({
   header: {
     fontSize: 34,
@@ -27,16 +25,11 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-// TODO: filter presentationList
 const Schedule = (props) => {
-  const { getPresentationListHandler, isLoading, presentationList } = props
+  const { allPresentation } = props
   const location = useLocation()
   const query = new URLSearchParams(location.search);
   const filter = JSON.parse(query.get('filter')) || { [-1]: true };
-
-  useEffect(() => {
-    getPresentationListHandler({ filter })
-  }, [location]);
 
   const classes = useStyles()
 
@@ -44,21 +37,18 @@ const Schedule = (props) => {
     <div className={classes.root}>
       <div className={classes.header}>Schedule</div>
       <FilterSection query={query} filter={filter}/>
-      <TimelineSection presentationList={presentationList}/>
+      <TimelineSection allPresentation={allPresentation} filter={filter}/>
     </div>
   )
 }
 
-
 const mapStateToProps = ({ presentation, }) => {
   return {
-    isLoading: presentation.isLoading,
-    presentationList: presentation.presentationList,
+    allPresentation: presentation.allPresentation,
   }
 }
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-  getPresentationListHandler: getPresentationList,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Schedule)

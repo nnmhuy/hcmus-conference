@@ -1,11 +1,16 @@
+import { useEffect } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import Layout from './components/Layout/index'
 import Home from './pages/Home'
 import Schedule from './pages/Schedule/index'
 
 import './App.css';
+
+import { getAllPresentation } from './redux/actions/presentationAction'
 
 const theme = createMuiTheme({
   palette: {
@@ -37,6 +42,10 @@ const theme = createMuiTheme({
 })
 
 const App = (props) => {
+  const { getAllPresentationHandler } = props
+  useEffect(() => {
+    getAllPresentationHandler()
+  }, [])
   return (
     <MuiThemeProvider theme={theme}>
       <Layout>
@@ -51,4 +60,14 @@ const App = (props) => {
   );
 }
 
-export default App;
+const mapStateToProps = ({ presentation, }) => {
+  return {
+    isLoadingAll: presentation.isLoadingAll,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  getAllPresentationHandler: getAllPresentation,
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

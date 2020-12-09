@@ -1,11 +1,11 @@
 import { createActions } from 'redux-actions'
 
 export const {
-  getPresentationList,
-  getPresentationListSuccess,
-  getPresentationListFail,
+  getAllPresentation,
+  getAllPresentationSuccess,
+  getAllPresentationFail,
 } = createActions(
-  'GET_PRESENTATION_LIST',
-  'GET_PRESENTATION_LIST_SUCCESS',
-  'GET_PRESENTATION_LIST_FAIL',
+  'GET_ALL_PRESENTATION',
+  'GET_ALL_PRESENTATION_SUCCESS',
+  'GET_ALL_PRESENTATION_FAIL',
 )

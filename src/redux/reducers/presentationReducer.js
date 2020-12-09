@@ -1,37 +1,44 @@
 import { handleActions } from 'redux-actions'
 
 import {
-  getPresentationList,
-  getPresentationListSuccess,
-  getPresentationListFail,
+  getAllPresentation,
+  getAllPresentationSuccess,
+  getAllPresentationFail,
 } from '../actions/presentationAction'
 
 let defaultState = {
-  isLoading: false,
-  presentationList: [],
+  isLoadingAll: false,
+  allPresentation: [],
+  allSession: [],
+  allSponsor: [],
+  statistic: {},
   error: null,
 }
 
 const presentationReducer = handleActions(
   {
-    [getPresentationList]: (state) => {
+    [getAllPresentation]: (state) => {
       return {
         ...state,
-        isLoading: true,
+        isLoadingAll: true,
       }
     },
-    [getPresentationListSuccess]: (state, { payload: { presentationList } }) => {
+    [getAllPresentationSuccess]: (state, { payload: { data } }) => {
+      const { session, presentation, sponsor, statis } = data
       return {
         ...state,
-        presentationList,
-        isLoading: false,
+        allSession: session,
+        allSponsor: sponsor,
+        allPresentation: presentation,
+        statistic: statis,
+        isLoadingAll: false,
       }
     },
-    [getPresentationListFail]: (state, { payload: { error } }) => {
+    [getAllPresentationFail]: (state, { payload }) => {
       return {
         ...state,
-        error,
-        isLoading: false
+        error: payload,
+        isLoadingAll: false
       }
     },
   },

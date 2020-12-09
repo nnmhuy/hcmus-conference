@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
 
 const TimelineSection = (props) => {
   const classes = useStyles()
-  const { presentationList } = props
+  const { allPresentation, filter } = props
 
   const [activeDate, setActiveDate] = React.useState(moment().isBefore(moment("2020-12-18")) ? moment("2020-12-18").format("DD/MM/YYYY") : moment().format("DD/MM/YYYY"));
   const handleChangeActiveDate = (newActiveDate) => {
@@ -30,7 +30,7 @@ const TimelineSection = (props) => {
     <div className={classes.root}>
       <DateTabs activeDate={activeDate} handleChangeActiveDate={handleChangeActiveDate}/>
       <SessionTabs activeDate={activeDate} activeSession={activeSession} handleChangeActiveSession={handleChangeActiveSession}/>
-      <PresentationList presentationList={presentationList}/>
+      <PresentationList allPresentation={allPresentation} filter={filter}/>
     </div>
   );
 }
