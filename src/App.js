@@ -45,6 +45,7 @@ const App = (props) => {
   const { getAllPresentationHandler } = props
   useEffect(() => {
     getAllPresentationHandler()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     

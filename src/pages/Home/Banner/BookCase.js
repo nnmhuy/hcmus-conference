@@ -168,7 +168,6 @@ export default function BookCase() {
 
   const renderBookRow = (rowIndex) => {
     return bookCaseData[rowIndex].map((book, index) => {
-      console.log(Number(index)+Number(rowIndex)*3)
       let idx = index
       if (rowIndex !== 0) idx = Number(index)+Number(rowIndex)*3+1
       return <BookItem key={'bookCaseItem'+index} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
@@ -176,7 +175,6 @@ export default function BookCase() {
   }
 
   const renderHoverText = (text, inState) => {
-    console.log(inState)
     let arrSplit = text.split('\n')
     if (inState) {
       setOpacity(1)

@@ -67,10 +67,6 @@ const DesktopLayout = (props) => {
     }
   }, [curPath])
 
-  useEffect(() => {
-    console.log(curPath)
-  }, [curPath])
-
   const classes = useStyles()
   const { children } = props
 
