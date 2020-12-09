@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch, BrowserRouter } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import Layout from './components/Layout/index'
@@ -37,16 +37,20 @@ const theme = createMuiTheme({
 })
 
 const App = (props) => {
+  console.log(props)
   return (
+    
     <MuiThemeProvider theme={theme}>
-      <Layout>
+      <BrowserRouter>
+      <Layout></Layout>
         <Router>
           <Switch>
             <Route path="/" exact component={Home}/>
             <Route path="/chuong-trinh" exact component={Schedule}/>
           </Switch>
         </Router>
-      </Layout>
+      
+      </BrowserRouter>
     </MuiThemeProvider>
   );
 }

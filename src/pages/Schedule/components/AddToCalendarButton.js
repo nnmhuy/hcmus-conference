@@ -14,7 +14,7 @@ const CustomButton = withStyles({
     },
     color: '#4041D2',
     '& .MuiButton-label': {
-      fontSize: 10,
+      fontSize: '0.7rem',
     },
   },
 })(Button);

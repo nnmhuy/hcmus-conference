@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     height: 13,
   },
   timeText: {
-    fontSize: 12,
+    fontSize: '0.8rem',
     marginLeft: 5,
     color: '#4041D2',
     fontWeight: 600,
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'space-between'
   },
   title: {
-    fontSize: 14,
+    fontSize: '1rem',
     fontWeight: 'bold',
   },
   expandIcon: {
@@ -65,24 +65,26 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
+    marginTop: 5
   },
   majorText: {
     lineHeight: 2,
     color: '#FFFFFF',
-    fontSize: 10,
+    fontSize: '0.8rem',
     fontWeight: 600,
-    borderRadius: 5,
+    borderRadius: 80,
     background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
     paddingLeft: 10,
     paddingRight: 10,
+    textAlign: 'center'
   },
   descriptionText: {
-    fontSize: 12,
+    fontSize: '1rem',
     color: '#707070'
   },
   authorText: {
     color: '#4041D2',
-    fontSize: 10,
+    fontSize: '0.8rem',
     marginTop: 5,
   }
 }))
