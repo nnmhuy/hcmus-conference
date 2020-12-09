@@ -49,8 +49,8 @@ const App = (props) => {
   return (
     
     <MuiThemeProvider theme={theme}>
-      <Layout/>
       <Router>
+      <Layout/>
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/chuong-trinh" exact component={Schedule}/>
