@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
     color: '#FFFFFF',
     borderRadius: 20,
     fontSize: 12,
+    cursor: 'pointer',
   },
   activeMajor: {
     background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
