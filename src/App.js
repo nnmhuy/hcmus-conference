@@ -47,15 +47,15 @@ const App = (props) => {
     getAllPresentationHandler()
   }, [])
   return (
+    
     <MuiThemeProvider theme={theme}>
-      <Layout>
-        <Router>
-          <Switch>
-            <Route path="/" exact component={Home}/>
-            <Route path="/chuong-trinh" exact component={Schedule}/>
-          </Switch>
-        </Router>
-      </Layout>
+      <Layout/>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Home}/>
+          <Route path="/chuong-trinh" exact component={Schedule}/>
+        </Switch>
+      </Router>
     </MuiThemeProvider>
   );
 }

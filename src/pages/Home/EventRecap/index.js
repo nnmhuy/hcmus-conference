@@ -14,14 +14,14 @@ const eventRecapData = [
   {
     type: 'sub',
     date: '18/12/2020',
-    title: 'Session 1',
+    title: 'Phiên 1',
     desc: 'Lorem ipsum dolor', 
     time: '8:30'
   },
   {
     type: 'sub',
     date: '18/12/2020',
-    title: 'Session 2',
+    title: 'Phiên 2',
     desc: 'Lorem ipsum dolor', 
     time: '8:30'
   },
@@ -35,14 +35,14 @@ const eventRecapData = [
   {
     type: 'sub',
     date: '19/12/2020',
-    title: 'Session 1',
+    title: 'Phiên 1',
     desc: 'Lorem ipsum dolor', 
     time: '8:30'
   },
   {
     type: 'sub',
     date: '19/12/2020',
-    title: 'Session 2',
+    title: 'Phiên 2',
     desc: 'Lorem ipsum dolor', 
     time: '8:30'
   },

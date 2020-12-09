@@ -2,10 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const MainCircleBordered = styled.div`
-  width: 28px;
-  height: 28px;
-  background-color: #fff;
-  border: 3px solid #4053EB;
+  width: 16px;
+  height: 16px;
+  background-color: #4053EB;
   border-radius: 50%;
 `
 
@@ -16,9 +15,9 @@ const RelativeContainer = styled.div`
 const TimeText = styled.h2`
   margin-bottom: 10px;
   line-height: 1.5rem;
-  color: #7B7B7B;
-  font-weight: 500;
-  font-size: 1.5rem;
+  color: #77787c;
+  font-weight: 400;
+  font-size: 1.2rem;
 `
 
 const DashedRoadPath = styled.div`
@@ -35,6 +34,7 @@ const SubEventContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 5px;
 `
 
 const RightAngleBox = styled.div`
@@ -50,7 +50,7 @@ const RightAngleBox = styled.div`
 
   position: absolute;
   top: 0;
-  transform: translate(-200px,-15%);
+  transform: translate(-200px, -12px);
   
   &:before {
     content:"";
@@ -67,8 +67,8 @@ const ParaDesc = styled.p`
   right: calc(100% + 150px + -100px);
   text-align: right;
   width: 150px;
-  top: 40px;
-  line-height: 1.2rem;
+  top: 35px;
+  line-height: 1.4rem;
 `
 
 const SubEvent = (props) => {

@@ -7,7 +7,6 @@ import MobileLayout from './MobileLayout'
 const Layout = (props) => {
   const isMobileLayout = useMediaQuery('(max-width:800px)');
   const { children } = props
-
   if (isMobileLayout) {
     return <MobileLayout>
       {children}

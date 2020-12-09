@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 20,
     height: 60,
     fontWeight: 'bold',
+    color: 'white',
     '&:hover': {
       boxShadow: 'none',
     },
@@ -33,7 +34,7 @@ const NavBarItem = (props) => {
           return (
             <Button 
               key={name} 
-              color="primary"
+              // color="primary"
               className={classes.nav_bar_item}
               href={path}
             >
