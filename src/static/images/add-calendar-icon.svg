@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="11.604" viewBox="0 0 12 11.604">
+  <g id="calendar" transform="translate(0 -8.44)">
+    <path id="Path_208" data-name="Path 208" d="M400.792,76.747l-1.319-.791.527,8.7h.791Z" transform="translate(-390.11 -65.934)" fill="#d1d1d1"/>
+    <path id="Path_209" data-name="Path 209" d="M0,76.747v7.912h9.89v-8.7Z" transform="translate(-0.001 -65.934)" fill="#eff1f5"/>
+    <path id="Path_210" data-name="Path 210" d="M82.879,185.67H76.154a.2.2,0,0,0-.2.2v3.956a.2.2,0,0,0,.2.2h6.923v-4.154A.2.2,0,0,0,82.879,185.67Zm-2.44.4v1.582H78.593v-1.582Zm-2.242,0v1.582H76.352v-1.582Zm-1.846,3.56v-1.582H78.2v1.582Zm2.242,0v-1.582H80.44v1.582Zm4.088,0H80.835v-1.582h1.846Zm-1.846-1.978v-1.582h1.846v1.582Z" transform="translate(-74.176 -173.076)" fill="#707070"/>
+    <path id="Path_211" data-name="Path 211" d="M389.8,8.44h-.791l-.791,1.582.791.791h.791Z" transform="translate(-379.121 0)" fill="#2a44bf"/>
+    <path id="Path_212" data-name="Path 212" d="M0,8.44v2.374H9.89V8.44Zm1.978,1.582a.4.4,0,1,1,.4-.4A.4.4,0,0,1,1.978,10.022Zm6.725,0a.4.4,0,1,1,.4-.4A.4.4,0,0,1,8.7,10.022Z" transform="translate(0 0)" fill="#4361ee"/>
+    <path id="Path_213" data-name="Path 213" d="M399.473,278.505v5.275a2.637,2.637,0,0,0,0-5.275Z" transform="translate(-390.11 -263.735)" fill="#4361ee"/>
+    <path id="Path_214" data-name="Path 214" d="M289.583,278.505c1.02,0,1.846,1.181,1.846,2.637s-.827,2.637-1.846,2.637a2.637,2.637,0,1,1,0-5.275Z" transform="translate(-280.221 -263.735)" fill="#4361ee"/>
+    <path id="Path_215" data-name="Path 215" d="M329.362,319.209h-.923v-.923a.4.4,0,0,0-.791,0v.923h-.923a.4.4,0,1,0,0,.791h.923v.923a.4.4,0,0,0,.791,0V320h.923a.4.4,0,1,0,0-.791Z" transform="translate(-318.681 -302.197)" fill="#fff"/>
+  </g>
+</svg>

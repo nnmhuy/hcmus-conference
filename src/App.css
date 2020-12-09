@@ -27,3 +27,7 @@
   font-family: 'LeagueSpartan';
   font-size: 16px;
 }
+
+@keyframes blinkBorder { 
+   60% { border-color: transparent; } 
+}

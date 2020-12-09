@@ -7,8 +7,8 @@
     "validateUpsert": true
   },
   "properties": {
-    "major": {
-      "type": "string",
+    "majorId": {
+      "type": "number",
       "required": true
     },
     "startDate": {

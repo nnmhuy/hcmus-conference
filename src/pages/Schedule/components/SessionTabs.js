@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { get, find } from 'lodash'
-import clsx from 'clsx'
 
 import { dateList } from '../../../constants/constants'
 
@@ -12,7 +11,13 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   tabContainer: {
-    background: theme.palette.dark.lighter,
+    background: 'rgba(231, 238, 255, 0.6)',
+    '& .Mui-selected': {
+      color: '#4041D2',
+    },
+    '& .MuiTabs-indicator': {
+      background: '#4041D2'
+    }
   },
   tabTitle: {
     fontWeight: 'bold',
@@ -34,8 +39,8 @@ const SessionTabs = (props) => {
         value={activeSession} 
         onChange={handleChange} 
         className={classes.tabContainer}
-        indicatorColor="primary"
-        textColor="primary"
+        // indicatorColor="primary"
+        // textColor="primary"
       >
         {
           sessionList.map(({ name }) => {

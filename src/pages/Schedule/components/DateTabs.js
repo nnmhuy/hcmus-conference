@@ -12,7 +12,6 @@ const useStyles = makeStyles(theme => ({
   dateTabRoot: {
     flex: 1,
     cursor: 'pointer',
-    border: '1px solid #e9e9e9',
   },
   dateTab: {
     display: 'flex',
@@ -22,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
   },
   activeDateTab: {
-    background: theme.palette.primary.main,
+    background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
   },
   activeTabDenote: {
     position: 'relative',
@@ -30,21 +29,21 @@ const useStyles = makeStyles(theme => ({
     height: 0,
     borderLeft: '15px solid transparent',
     borderRight: '15px solid transparent',
-    borderTop: `10px solid ${theme.palette.primary.main}`,
+    borderTop: `10px solid #403ECF`,
     margin: 'auto',
     zIndex: 100,
   },
   dateTabTitle: {
-    fontSize: 30,
+    fontSize: 22,
     fontWeight: 600,
-    color: theme.palette.primary.main,
+    color: '#4041D2',
   },
   activeDateTabTitle: {
     color: theme.palette.white.main,
   },
   dateTabDate: {
-    fontSize: 13,
-    color: '#8d93a0',
+    fontSize: 11,
+    color: '#ABA7B3',
   },
   activeDateTabDate: {
     color: theme.palette.white.main,
