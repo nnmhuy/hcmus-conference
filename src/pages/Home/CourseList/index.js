@@ -17,7 +17,7 @@ const courseList = [
 const CourseContainer = styled.div`
   display: inline-grid;
   grid-template-columns: repeat(2, auto);
-  grid-gap: 20px 40px;
+  grid-gap: 20px 90px;
   @media (max-width: 768px) {
     text-align: center;
     grid-template-columns: repeat(1, auto);
