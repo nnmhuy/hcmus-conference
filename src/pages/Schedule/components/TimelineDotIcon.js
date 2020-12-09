@@ -1,6 +1,5 @@
 import React from 'react'
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import { makeStyles } from '@material-ui/core/styles'
 import moment from 'moment'
 import clsx from 'clsx'
@@ -16,6 +15,9 @@ const useStyles = makeStyles(theme => ({
   },
   passedDot: {
     background: '#F5F5F5',
+    filter: 'gray', /* IE6-9 */
+    '-webkit-filter': 'grayscale(1)', /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: 'grayscale(1)', /* Microsoft Edge and Firefox 35+ */
   },
   liveDot: {
     animation: 'blinkBorder 0.75s step-end infinite alternate',
@@ -25,8 +27,8 @@ const useStyles = makeStyles(theme => ({
     background: '#D5DDFF',
   },
   icon: {
-    width: 17, 
-    height: 17,
+    width: 30, 
+    height: 30,
     margin: 'auto'
   }
 }))
@@ -55,8 +57,7 @@ const TimelineDotIcon = (props) => {
         status === 2 && classes.futureDot,
       )}
     >
-      {/* TODO: blinking and color of past, current, future presentation */}
-      <img src={majorIcon} className={classes.icon} />
+      <img src={majorIcon} className={classes.icon} alt="major-icon"/>
     </TimelineDot>
   )
 }

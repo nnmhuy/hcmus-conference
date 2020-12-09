@@ -2,22 +2,19 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import moment from 'moment'
 
-import { presentationList } from '../../../constants/constants'
-
 import DateTabs from './DateTabs'
 import SessionTabs from './SessionTabs'
 import PresentationList from './PresentationList'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: '80%',
-    margin: 'auto',
     border: '1px solid #F4F5F8',
   },
 }))
 
 const TimelineSection = (props) => {
   const classes = useStyles()
+  const { presentationList } = props
 
   const [activeDate, setActiveDate] = React.useState(moment().isBefore(moment("2020-12-18")) ? moment("2020-12-18").format("DD/MM/YYYY") : moment().format("DD/MM/YYYY"));
   const handleChangeActiveDate = (newActiveDate) => {

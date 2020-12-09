@@ -9,7 +9,7 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   timelineRoot: {
-    padding: '0px 16px',
+    padding: 0,
     margin: 0,
   },
 }))

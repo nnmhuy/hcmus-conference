@@ -3,16 +3,16 @@ const backendURL = process.env.REACT_APP_BACKEND_URL
 
 // TODO: icon without book
 const majorList = [
-  { id: 0, name: "Toán - Tin học", icon: require('../static/images/sach-tieu-ban/tieu-ban-1.png') },
-  { id: 1, name: "Vật lý - Địa cầu và Hải dương", icon: require('../static/images/sach-tieu-ban/tieu-ban-2.png') },
-  { id: 2, name: "Hóa học", icon: require('../static/images/sach-tieu-ban/tieu-ban-3.png') },
-  { id: 3, name: "Sinh học - Công nghệ sinh học", icon: require('../static/images/sach-tieu-ban/tieu-ban-4.png') },
-  { id: 4, name: "Địa chất và Tài nguyên Trái đất", icon: require('../static/images/sach-tieu-ban/tieu-ban-5.png') },
-  { id: 5, name: "Môi trường", icon: require('../static/images/sach-tieu-ban/tieu-ban-6.png') },
-  { id: 6, name: "Công nghệ Thông tin - Truyền thông", icon: require('../static/images/sach-tieu-ban/tieu-ban-7.png') },
-  { id: 7, name: "Điện tử - Viễn thông", icon: require('../static/images/sach-tieu-ban/tieu-ban-8.png') },
-  { id: 8, name: "Khoa học và Công nghệ Vật liệu", icon: require('../static/images/sach-tieu-ban/tieu-ban-9.png') },
-  { id: 9, name: "Kỹ thuật hạt nhân và Vật lý Y khoa", icon: require('../static/images/sach-tieu-ban/tieu-ban-10.png') },
+  { id: 0, name: "Toán - Tin học", icon: require('../static/images/major-icon/0.svg') },
+  { id: 1, name: "Vật lý - Địa cầu và Hải dương", icon: require('../static/images/major-icon/1.svg') },
+  { id: 2, name: "Hóa học", icon: require('../static/images/major-icon/2.svg') },
+  { id: 3, name: "Sinh học - Công nghệ sinh học", icon: require('../static/images/major-icon/3.svg') },
+  { id: 4, name: "Địa chất và Tài nguyên Trái đất", icon: require('../static/images/major-icon/4.svg') },
+  { id: 5, name: "Môi trường", icon: require('../static/images/major-icon/5.svg') },
+  { id: 6, name: "Công nghệ Thông tin - Truyền thông", icon: require('../static/images/major-icon/6.svg') },
+  { id: 7, name: "Điện tử - Viễn thông", icon: require('../static/images/major-icon/7.svg') },
+  { id: 8, name: "Khoa học và Công nghệ Vật liệu", icon: require('../static/images/major-icon/8.svg') },
+  { id: 9, name: "Kỹ thuật hạt nhân và Vật lý Y khoa", icon: require('../static/images/major-icon/9.svg') },
 ]
 
 const dateList = [
