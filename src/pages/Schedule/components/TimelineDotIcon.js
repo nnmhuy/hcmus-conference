@@ -34,8 +34,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const getStatus = (startDate, endDate) => {
-  if (moment().isAfter(endDate)) return 0
-  if (moment().isBefore(startDate)) return 2
+  if (moment().isAfter(moment(endDate))) return 0
+  if (moment().isBefore(moment(startDate))) return 2
   return 1
 }
 

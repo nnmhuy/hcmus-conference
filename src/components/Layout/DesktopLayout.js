@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
 import Logo from './components/Logo'
+import HideOnScroll from './components/HideOnScroll'
 import NavBarItems from './components/NavBarItems'
 
 const useStyles = makeStyles((theme) => ({
@@ -45,21 +46,23 @@ const DesktopLayout = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky" className={classes.appBar}>
-        <Toolbar>
-          <div className={classes.leftSection}>
-            <Logo href='/'/>
-          </div>
-          <div className={classes.centerSection}>
-            <div className={classes.mainTitle}>
-              Hội nghị khoa học lần thứ XII - 2020
+      <HideOnScroll {...props}>
+        <AppBar position="sticky" className={classes.appBar}>
+          <Toolbar>
+            <div className={classes.leftSection}>
+              <Logo href='/'/>
             </div>
-          </div>
-          <div className={classes.rightSection}>
-            <NavBarItems/>
-          </div>
-        </Toolbar>
-      </AppBar>
+            <div className={classes.centerSection}>
+              <div className={classes.mainTitle}>
+                Hội nghị khoa học lần thứ XII - 2020
+              </div>
+            </div>
+            <div className={classes.rightSection}>
+              <NavBarItems/>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
       <div className={classes.mainContainer}>
         {children}
       </div>

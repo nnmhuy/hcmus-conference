@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 import Logo from './components/Logo'
+import HideOnScroll from './components/HideOnScroll'
 import Sidebar from './components/SideBar'
 
 const useStyles = makeStyles((theme) => ({
@@ -55,26 +56,28 @@ const MobileLayout = (props) => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="sticky" className={classes.appBar}>
-        <Toolbar>
-          <div className={classes.leftSection}>
-            <IconButton 
-              edge="start" className={classes.menuButton} color="inherit" aria-label="menu"
-              onClick={toggleSidebar(!isSidebarOpen)}
-            >
-              <MenuIcon />
-            </IconButton>
-          </div>
-          <div className={classes.centerSection}>
-            <Logo href='/'/>
-            <div className={classes.mainTitle}>
-              Hội nghị khoa học lần thứ XII - 2020
+      <HideOnScroll>
+        <AppBar position="sticky" className={classes.appBar}>
+          <Toolbar>
+            <div className={classes.leftSection}>
+              <IconButton 
+                edge="start" className={classes.menuButton} color="inherit" aria-label="menu"
+                onClick={toggleSidebar(!isSidebarOpen)}
+              >
+                <MenuIcon />
+              </IconButton>
             </div>
-          </div>
-          <div className={classes.rightSection}>
-          </div>
-        </Toolbar>
-      </AppBar>
+            <div className={classes.centerSection}>
+              <Logo href='/'/>
+              <div className={classes.mainTitle}>
+                Hội nghị khoa học lần thứ XII - 2020
+              </div>
+            </div>
+            <div className={classes.rightSection}>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
       <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
       <div className={classes.mainContainer}>
         {children}
