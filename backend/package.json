@@ -6,7 +6,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "heroku:prebuild": "cp .env.dev .env",
+    "heroku-cleanup": "cp .env.dev .env",
     "lint": "eslint .",
     "start": "node .",
     "debug": "node .",
