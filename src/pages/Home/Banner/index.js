@@ -23,6 +23,9 @@ const OverlayContainer = styled.div`
     flex-direction: row;
     padding-bottom: 0;
   }
+  @media (max-width: 800px) {
+    margin-top: 30px;
+  }
 `
 
 const Banner = () => {

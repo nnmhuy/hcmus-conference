@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
     // backgroundImage: `linear-gradient(45deg, ${theme.palette.primary.main}, black)`,
     backgroundColor: 'transparent',
     boxShadow: 'none',
-    position: 'fixed'
   },
   mainTitle: {
     display: 'inline-block',
@@ -46,34 +45,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DesktopLayout = (props) => {
-  const { curPath } = props
-  const [themeColor, setTheme] = useState(true)  
-
-  useEffect(() => {
-    const listenScrollEvent = e => {
-      if (curPath === '/') {
-        setTheme(false)
-        if (window.scrollY > 100) {
-          setTheme(true)
-        }
-      }
-    }
-    if (curPath === '/') {
-      setTheme(false)
-      window.addEventListener('scroll', listenScrollEvent)
-      return () => {
-        window.removeEventListener('scroll', listenScrollEvent)
-      }
-    }
-  }, [curPath])
-
   const classes = useStyles()
-  const { children } = props
+  const { children, themeColor } = props
 
   return (
     <div className={classes.root}>
       <HideOnScroll {...props}>
-        <AppBar position="sticky" className={classes.appBar} style={{background: themeColor ? '#4053EB' : 'transparent'}}>
+        <AppBar className={classes.appBar} style={{background: themeColor ? '#4053EB' : 'transparent'}}>
           <Toolbar>
             <div className={classes.leftSection}>
               <Logo href='/'/>

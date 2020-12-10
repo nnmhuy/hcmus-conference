@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import DesktopLayout from './DesktopLayout'
@@ -8,12 +8,33 @@ import { withRouter } from 'react-router-dom';
 const Layout = (props) => {
   const isMobileLayout = useMediaQuery('(max-width:800px)');
   const { children, location } = props
+
+  const [themeColor, setTheme] = useState(true)
+
+  useEffect(() => {
+    const listenScrollEvent = e => {
+      if (location.pathname === '/') {
+        setTheme(false)
+        if (window.scrollY > 100) {
+          setTheme(true)
+        }
+      }
+    }
+    if (location.pathname === '/') {
+      setTheme(false)
+      window.addEventListener('scroll', listenScrollEvent)
+      return () => {
+        window.removeEventListener('scroll', listenScrollEvent)
+      }
+    }
+  }, [location])
+
   if (isMobileLayout) {
-    return <MobileLayout curPath={location.pathname}>
+    return <MobileLayout themeColor={themeColor}>
       {children}
     </MobileLayout>
   } else {
-    return <DesktopLayout curPath={location.pathname}>
+    return <DesktopLayout themeColor={themeColor}>
       {children}
     </DesktopLayout>
   }

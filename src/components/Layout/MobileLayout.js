@@ -34,7 +34,10 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: 'none'
   },
   mainTitle: {
-    display: 'inline-block'
+    display: 'inline-block',
+    fontWeight: 600,
+    marginLeft: 15,
+    textTransform: 'uppercase'
   },
   mainContainer: {
   }
@@ -42,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MobileLayout = (props) => {
   const classes = useStyles()
-  const { children } = props
+  const { children, themeColor } = props
 
   const [ isSidebarOpen, setIsSidebarOpen ] = useState(false)
 
@@ -57,7 +60,7 @@ const MobileLayout = (props) => {
   return (
     <div className={classes.root}>
       <HideOnScroll>
-        <AppBar position="sticky" className={classes.appBar}>
+        <AppBar className={classes.appBar} style={{ background: themeColor ? '#4053EB' : 'transparent' }}>
           <Toolbar>
             <div className={classes.leftSection}>
               <IconButton 
