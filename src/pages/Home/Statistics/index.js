@@ -6,11 +6,11 @@ import StatItem from './StatItem'
 
 const FlexRow = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 50px;
   z-index: 10;
-  @media (max-width: 576px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 `
 
@@ -26,6 +26,9 @@ const ParallaxBackground = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  @media (min-width: 1286px) {
+    min-height: 350px;
+  }
 `
 
 const Overlay = styled.div`
@@ -39,9 +42,9 @@ const Overlay = styled.div`
 
 const statData = {
   "major": 10,
-  "paper": 20,
-  "author": 79,
-  "perClick": 400,
+  "paper": 100,
+  "author": 287,
+  "perClick": 496,
 }
 
 
