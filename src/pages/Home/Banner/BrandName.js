@@ -7,7 +7,12 @@ const BorderedContainer = styled.fieldset`
   transform: translateY(-30%);
   position: relative;
   border: 1px solid #B1CCE6;
-  padding: 10px 20px 25px 20px;
+
+  padding: 10px 20px 10px 20px;
+
+  @media (min-width: 800px) {
+    padding: 10px 20px 25px 20px;
+  }
 `
 
 const TimerContainer = styled.legend`
@@ -26,6 +31,7 @@ const TimerItem = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 10px;
+  float: left;
 `
 
 const TimerNumber = styled.h3`
@@ -94,6 +100,10 @@ const ButtonWhite = styled.button`
   }
 `
 
+const ClearFloat = styled.div`
+  clear: both;
+`
+
 const BrandName = (props) => {
   return (
     <BorderedContainer>
@@ -114,6 +124,7 @@ const BrandName = (props) => {
           <TimerNumber>59</TimerNumber>
           <TimerText>giây</TimerText>
         </TimerItem>
+        <ClearFloat/>
       </TimerContainer>
       <EventName>
       HỘI NGHỊ KHOA HỌC

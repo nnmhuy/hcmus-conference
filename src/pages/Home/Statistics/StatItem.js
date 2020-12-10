@@ -1,17 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import Ticker from './Ticker'
 
 const CenteredText = styled.div`
   text-align: center;
-`
-
-const Counter = styled.h3`
-  font-size: 4rem;
-  color: white;
-  font-weight: 700;
-  margin-bottom: 0;
-  @media (max-width: 576px) {
-    font-size: 3.2rem;
+  width: 35vw;
+  @media (min-width: 800px) {
+    width: 15vw;
+  }
+  @media (min-width: 900px) {
+    width: 12vw;
+  }
+  @media (min-width: 1286px) {
+    width: 200px;
   }
 `
 
@@ -36,7 +37,7 @@ const StatItem = (props) => {
 
   return (
     <CenteredText>
-      <Counter>{count}</Counter>
+      <Ticker end={count}/>
       {renderName(id)}
     </CenteredText>
   )

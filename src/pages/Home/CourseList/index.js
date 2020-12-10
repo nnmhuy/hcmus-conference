@@ -17,21 +17,28 @@ const courseList = [
 
 const CourseContainer = styled.div`
   display: inline-grid;
-  grid-template-columns: repeat(2, auto);
-  grid-gap: 20px 90px;
-  @media (max-width: 768px) {
+  grid-template-columns: repeat(1, auto);
+  grid-gap: 20px;
+  @media (min-width: 568px) {
     text-align: center;
-    grid-template-columns: repeat(1, auto);
-    grid-gap: 20px;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 20px 90px;
+  }
+  @media (min-width: 1350px) {
+    grid-template-columns: repeat(3, auto);
   }
 `
 
 const CourseHeading = styled.h3`
   color: #01458E;
   font-weight: 500;
-  text-align: center;
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
+  @media (min-width: 568px) {
+    text-align: center;
+  }
 `
 
 const CourseText = styled.p`
@@ -61,7 +68,7 @@ const CourseText = styled.p`
 `
 
 const CourseListContainer = styled.div`
-  padding: 40px 0 80px 0;
+  padding: 40px 20px 80px;
   display: flex;
   justify-content: center;
   align-items: center;

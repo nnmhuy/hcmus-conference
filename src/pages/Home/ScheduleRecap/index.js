@@ -106,8 +106,6 @@ const EventContainer = styled.div`
 `
 //start --- p1---p2---p3---p4---p1---p2---p3---p4---end
 const ScheduleRecap = () => {
-  const state = useSelector(state => state)
-  console.log(state)
   return (
     <RecapContainer>
       <MainRoad></MainRoad>

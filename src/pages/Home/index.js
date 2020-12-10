@@ -2,7 +2,7 @@ import React from 'react'
 import Banner from './Banner';
 import CourseList from './CourseList';
 import ScheduleRecap from './ScheduleRecap';
-import SponsorList from './SponsorList.js';
+import SponsorList from './SponsorList';
 import Statistics from './Statistics';
 import './style.css'
 
