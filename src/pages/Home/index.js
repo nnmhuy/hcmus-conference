@@ -12,7 +12,6 @@ const Home = (props) => {
       <Banner />
       <ScheduleRecap/>
       <CourseList/>
-      {/* <EventRecap/> */}
       <Statistics/>
       <SponsorList/>
     </div>
