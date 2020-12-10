@@ -1,18 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const MainEventContainer = styled.div`
-  position: relative;
+const TitleText = styled.div`
+  position: absolute;
+  width: max-content;
   text-align: center;
-`
+  font-size: 1rem;
+  color: #4053EB;
+  font-weight: 500;
 
-const MainCircleStraight = styled.div`
-  height: 20px;
-  width: 20px;
-  border: 3px solid #4053EB;
-  background-color: #fff;
-  transform: translateY(-7px);
-  border-radius: 50%;
+  top: -150%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  opacity: 0;
+  transition: all 0.3s;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    transform: translate(-50%, 50%);
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #4053EB;
+  }
 `
 
 const TimeTextBelow = styled.div`
@@ -24,31 +38,47 @@ const TimeTextBelow = styled.div`
   transform: translateX(-50%);
 `
 
-const TitleText = styled.div`
+const DateText = styled.p`
   position: absolute;
   width: max-content;
-  text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #4053EB;
   font-weight: 500;
-  &::after {
-    content: "";
-    position: absolute;
-    left: 10px;
-    bottom: 10px;
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 20px solid #e8e8e8;
+
+  top: -110%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+  opacity: 1;
+  transition: all 0.4s;
+`
+
+const MainEventContainer = styled.div`
+  position: relative;
+  text-align: center;
+  &:hover ${TitleText} {
+    opacity: 1;
+  }
+  &:hover ${DateText} {
+    opacity: 0;
   }
 `
 
+const MainCircleStraight = styled.div`
+  height: 20px;
+  width: 20px;
+  border: 3px solid #4053EB;
+  background-color: #fff;
+  transform: translateY(-7px);
+  border-radius: 50%;
+  
+`
 
 const MainEvent = (props) => {
   const { type, title, date, time } = props.sched
   return (
     <MainEventContainer>
+      <DateText>{date}</DateText>
       <TitleText>{title}</TitleText>
       <MainCircleStraight/>
       <TimeTextBelow>{time}</TimeTextBelow>

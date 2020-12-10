@@ -66,7 +66,7 @@ const recapData = [
     title: 'Phiên 4'
   },
   {
-    type: 'sub',
+    type: 'main',
     time: '16:30',
     date: '19/12',
     title: 'Tổng kết'
@@ -74,7 +74,7 @@ const recapData = [
 ]
 
 const RecapContainer = styled.div`
-  margin: 25px auto;
+  margin: 0 auto 70px auto;
   width: 80%;
   position: relative;
 `

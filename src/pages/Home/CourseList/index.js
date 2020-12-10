@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const courseList = [
@@ -38,10 +39,29 @@ const CourseText = styled.p`
   font-weight: 400;
   font-size: 1rem;
   margin-bottom: 0;
+  transition: all 0.3s;
+  position: relative;
+  width: fit-content;
+  transition: all 0.3s;
+  &::after {
+    position: absolute;
+    transition: all 0.3s;
+    bottom: -3px;
+    left: 50%;
+    content: "";
+    width: 0;
+    height: 3px;
+    border-radius: 100px;
+    background-image: linear-gradient(to right,#4361EE,#6962DD,#9B79E8);
+  }
+  &:hover::after {
+    width: 100%;
+    left: 0;
+  }
 `
 
 const CourseListContainer = styled.div`
-  padding: 20px 0 80px 0;
+  padding: 40px 0 80px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,8 +75,11 @@ const CourseList = () => {
       <CourseContainer>
         {
           courseList.map((courseItem, index) => {
-          return <CourseText key={'courseItem'+index}>{courseItem}</CourseText>
-          })
+          return (
+            <Link key={'courseItem'+index} to={`/chuong-trinh"`}>
+              <CourseText>{courseItem}</CourseText>
+            </Link>
+          )})
         }
       </CourseContainer>
     </CourseListContainer>
