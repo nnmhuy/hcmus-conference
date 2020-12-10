@@ -6,9 +6,10 @@
     "node": ">=6"
   },
   "scripts": {
+    "heroku-cleanup": "cp .env.dev .env",
     "lint": "eslint .",
-    "start": "nodemon .",
-    "debug": "nodemon .",
+    "start": "node .",
+    "debug": "node .",
     "posttest": "npm run lint"
   },
   "dependencies": {

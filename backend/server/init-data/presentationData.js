@@ -1,4 +1,4 @@
-const major = require("../../../constant/major.json");
+const major = require("../../constant/major.json");
 
 var presentationList = [
   {

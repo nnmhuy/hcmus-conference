@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { useLocation } from 'react-router-dom'
@@ -30,7 +30,15 @@ const Schedule = (props) => {
   const { allPresentation, allSession } = props
   const location = useLocation()
   const query = new URLSearchParams(location.search);
-  const filter = JSON.parse(query.get('filter')) || { [-1]: true };
+  let filter = query.get('filter')
+  try {
+    filter = JSON.parse(filter)
+  } catch (error) {
+    filter = []
+  }
+  if (!Array.isArray(filter)) {
+    filter = []
+  }
 
   const classes = useStyles()
 

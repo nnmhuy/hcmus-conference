@@ -27,15 +27,15 @@ const bookCaseData = {
     {
       name: 'Vật lý-địa cầu\nvà hải dương',
       alt: 'vat ly-dia cau va hai duong',
-      image: 2,
+      image: 5,
       translate: 'translate(-28px, 80px)'
     }
   ],
   1: [
     {
-      name: 'Địa chất và tài nguyên\nmôi trường',
-      alt: 'dia chat va tai nguyen moi truong',
-      image: 5,
+      name: 'Địa chất và \ntài nguyên Trái đất',
+      alt: 'dia chat va tai nguyen trai dat',
+      image: 2,
       translate: 'translate(-20px, -22px)'
     },
     {
@@ -170,7 +170,7 @@ export default function BookCase() {
     return bookCaseData[rowIndex].map((book, index) => {
       let idx = index
       if (rowIndex !== 0) idx = Number(index)+Number(rowIndex)*3+1
-      return <BookItem key={'bookCaseItem'+index} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
+      return <BookItem key={'bookCaseItem'+index}  courseIndex={idx} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
     })
   }
 
