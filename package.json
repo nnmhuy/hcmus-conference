@@ -29,7 +29,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "heroku-prebuild": "cd backend && npm install && cd ..",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
