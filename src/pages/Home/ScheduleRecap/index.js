@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import MainEvent from './MainEvent'
 import SubEvent from './SubEvent'
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const recapData = [
   {
@@ -106,7 +106,8 @@ const EventContainer = styled.div`
 `
 //start --- p1---p2---p3---p4---p1---p2---p3---p4---end
 const ScheduleRecap = () => {
-  // const statistic = useSelector(state => state.presentation?.statistic)
+  const state = useSelector(state => state)
+  console.log(state)
   return (
     <RecapContainer>
       <MainRoad></MainRoad>
