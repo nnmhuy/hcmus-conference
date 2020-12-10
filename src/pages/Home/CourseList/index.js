@@ -37,7 +37,7 @@ const CourseHeading = styled.h3`
 const CourseText = styled.p`
   color: #000;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-bottom: 0;
   transition: all 0.3s;
   position: relative;
@@ -76,7 +76,7 @@ const CourseList = () => {
         {
           courseList.map((courseItem, index) => {
           return (
-            <Link key={'courseItem'+index} to={`/chuong-trinh"`}>
+            <Link key={'courseItem'+index} to={`/chuong-trinh`}>
               <CourseText>{courseItem}</CourseText>
             </Link>
           )})

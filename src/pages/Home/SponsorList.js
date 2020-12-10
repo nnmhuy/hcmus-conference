@@ -1,22 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 
 const useStyles = makeStyles(() => ({
-  sponsorContainer: {
-    display: 'flex', 
-    flexWrap: 'wrap', 
-    justifyContent: 'center'
-  },
-  h2: {
-    fontSize: '3em',
-    marginBottom: 0
-  },
-  h4: {
-    fontSize: '1.8em'
-  },
-  p: {
-    fontSize: '1.2em'
-  },
+  
   img: {
     width: 120, 
     margin: '0px 20px 20px 20px'
@@ -66,49 +53,106 @@ const sponsorData = [
    }
 ]
 
+const SponsorTypeText = styled.h4`
+  font-size: 1.5em;
+  font-weight: 400;
+  @media (min-width: 800px) {
+    font-size: 1.8em;
+  }
+`
+
+const SponsorHolder = styled.div`
+  display: flex, 
+  flex-wrap: wrap, 
+  justify-content: center;
+`
+
+const SponsorContainerHeading = styled.div`
+  margin-bottom: 20px;
+`
+
+const HeadingText = styled.h2`
+  font-size: 2.5em;
+  margin-bottom: 0;
+  color: #01458E;
+  @media (min-width: 800px) {
+    font-size: 3em;
+  }
+  @media (min-width: 900px) {
+    font-size: 4em;
+  }
+`
+
+const HeadingSubText = styled.p`
+  font-size: 1.2em
+`
+
+const SponsorContainer = styled.div`
+  text-align: center;
+  padding: 40px 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  @media (min-width: 900px) {
+    flex-direction: row;
+  }
+`
+
+const SponsorImage = styled.img`
+  width: 80px;
+  margin: 0px 20px 20px 20px;
+  @media (min-width: 568px) {
+    width: 100px;
+  }
+  @media (min-width: 800px) {
+    width: 120px;
+  }
+`
+
 const SponsorList = () => {
   const classes = useStyles()
 
   const renderSponsorList = type => {
     return sponsorData.filter(item => item.type === type).map((sponsorItem, index) => {
       if (!sponsorItem.link || sponsorItem.link === '') {
-        return <img key={type+index} className={classes.img} src={sponsorItem.image} alt={sponsorItem.alt}/>
+        return <SponsorImage key={type+index} src={sponsorItem.image} alt={sponsorItem.alt}/>
       }
       return (
         <a href={sponsorItem.link} key={type+index}>
-          <img className={classes.img} src={sponsorItem.image} alt={sponsorItem.alt}/>
+          <SponsorImage src={sponsorItem.image} alt={sponsorItem.alt}/>
         </a>
       )
     })
   }
 
   return (
-    <div style={{textAlign: 'center'}}>
-      <div style={{marginBottom: 20}}>
-      <h2 className={classes.h2}>Nhà tài trợ</h2>
-      <p className={classes.p}>Những nhà tài trợ đồng hành với hội nghị khoa học</p>
-      </div>
+    <SponsorContainer>
+      <SponsorContainerHeading>
+        <HeadingText>Nhà tài trợ</HeadingText>
+        <HeadingSubText>Những nhà tài trợ cùng đồng hành<br/>với hội nghị khoa học</HeadingSubText>
+      </SponsorContainerHeading>
       <div>
         <div>
-          <h4 className={classes.h4}>Tài trợ vàng</h4>
-          <div className={classes.sponsorContainer}>
+          <SponsorTypeText>Tài trợ vàng</SponsorTypeText>
+          <SponsorHolder>
             { renderSponsorList('gold') } 
-          </div>
+          </SponsorHolder>
         </div>
         <div>
-          <h4 className={classes.h4}>Tài trợ bạc</h4>
-          <div className={classes.sponsorContainer}>
+          <SponsorTypeText>Tài trợ bạc</SponsorTypeText>
+          <SponsorHolder>
             { renderSponsorList('silver') }  
-          </div>
+          </SponsorHolder>
         </div>
         <div>
-          <h4 className={classes.h4}>Tài trợ đồng</h4>
-          <div className={classes.sponsorContainer}>
+          <SponsorTypeText>Tài trợ đồng</SponsorTypeText>
+          <SponsorHolder>
             { renderSponsorList('copper') }    
-          </div>
+          </SponsorHolder>
         </div> 
       </div>
-    </div>
+    </SponsorContainer>
   )
 }
 
