@@ -85,10 +85,18 @@ const presentationList = [
   },
 ]
 
+const statsList = {
+  "major": 10,
+  "paper": 20,
+  "author": 79,
+  "perClick": 400,
+}
+
 export {
   backendURL,
   majorList,
   dateList,
   sessionList,
   presentationList,
+  statsList
 }

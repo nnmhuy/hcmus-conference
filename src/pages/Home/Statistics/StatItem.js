@@ -21,12 +21,23 @@ const Title = styled.p`
   font-weight: 400
 `
 
+const statNameList = [
+  "ngành",
+  "bài báo",
+  "tác giả",
+  "lượt tham gia"
+]
+
 const StatItem = (props) => {
-  const {stat} = props
+  const { count, id } = props.stat
+  const renderName = (id) => {
+    return <Title>{statNameList[id]}</Title>
+  }
+
   return (
     <CenteredText>
-      <Counter>{stat.count}</Counter>
-      <Title>{stat.title}</Title>
+      <Counter>{count}</Counter>
+      {renderName(id)}
     </CenteredText>
   )
 }

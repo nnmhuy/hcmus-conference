@@ -37,24 +37,12 @@ const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `
 
-const statData = [
-  {
-    count: 10,
-    title: 'ngành'
-  },
-  {
-    count: 20,
-    title: 'bài báo'
-  },
-  {
-    count: 70,
-    title: 'tác giả'
-  },
-  {
-    count: 400,
-    title: 'lượt tham gia'
-  }
-]
+const statData = {
+  "major": 10,
+  "paper": 20,
+  "author": 79,
+  "perClick": 400,
+}
 
 
 const Statistics = () => {
@@ -63,8 +51,8 @@ const Statistics = () => {
       <Overlay/>
       <FlexRow>
         {
-          statData.map((statItem, index) => {
-            return <StatItem stat={statItem} key={'statItem'+index}/>
+          Object.keys(statData).map((statItem, index) => {
+            return <StatItem stat={{id: index, count: statData[statItem]}} key={'stat-item'+index}/>
           })
         }
       </FlexRow>

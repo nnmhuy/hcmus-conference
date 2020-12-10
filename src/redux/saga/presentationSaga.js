@@ -9,7 +9,7 @@ import {
   getAllPresentationFail, 
 } from '../actions/presentationAction'
 
-import { sessionList, presentationList } from '../../constants/constants'
+import { sessionList, presentationList, statsList } from '../../constants/constants'
 
 function* getAllPresentationSaga() {
   try {
@@ -21,6 +21,7 @@ function* getAllPresentationSaga() {
     yield put(getAllPresentationSuccess({ data: {
       session: sessionList,
       presentation: presentationList,
+      statis: statsList
     } }))
   } catch (error) {
     yield put(getAllPresentationFail(error))

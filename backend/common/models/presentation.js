@@ -1,6 +1,6 @@
 'use strict';
 var initFunction = require('../../server/init-data/init')
-var majorData = require('../../../constant/major.json')
+var majorData = require('../../constant/major.json')
 var cacheAllData = null
 
 module.exports = function(Presentation) {
