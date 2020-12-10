@@ -83,9 +83,9 @@ const ButtonWhite = styled.button`
   outline: none;
   border: none;
 
-  &:hover {
-    color: #4053EB;
-  }
+  
+  color: #4053EB;
+  
   @media (min-width: 900px) {
     font-size: 1rem;
   }

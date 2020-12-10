@@ -50,7 +50,7 @@ const styles = {
     position: 'relative',
     justifyContent: 'space-around',
     alignItems: 'center',
-    marginBottom: 50,
+    marginBottom: 90,
     padding: '100px 0 0 0',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
