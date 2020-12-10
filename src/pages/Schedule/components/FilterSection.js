@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
-import { cloneDeep } from 'lodash'
+import { cloneDeep, remove, find } from 'lodash'
 import { useHistory } from 'react-router-dom'
 
 import { majorList } from '../../../constants/constants'
@@ -43,16 +43,12 @@ const FilterSection = (props) => {
   const toggleFilter = (id) => {
     let newFilters = cloneDeep(activeFilters)
     if (id === -1) {
-      newFilters = {}
-      if (!activeFilters[-1]) {
-        newFilters[-1] = true
-      }
+      newFilters = []
     } else {
-      newFilters[-1] = false
-      if (filter[id]) {
-        delete newFilters[id]
+      if (newFilters.includes(id)) {
+        newFilters = newFilters.filter(item => item !== id)
       } else {
-        newFilters[id] = true
+        newFilters.push(id)
       }
     }
     setActiveFilters(newFilters)
@@ -64,7 +60,7 @@ const FilterSection = (props) => {
   return (
     <div className={classes.root}>
       <span
-        className={clsx(classes.majorContainer, activeFilters[-1] && classes.activeMajor)}
+        className={clsx(classes.majorContainer, !activeFilters.length && classes.activeMajor)}
         onClick={() => toggleFilter(-1)}
       >
         Tất cả
@@ -75,7 +71,7 @@ const FilterSection = (props) => {
           return (
             <span 
               key={name}
-              className={clsx(classes.majorContainer, activeFilters[id] && classes.activeMajor)}
+              className={clsx(classes.majorContainer, activeFilters.includes(id) && classes.activeMajor)}
               onClick={() => toggleFilter(id)}
             >
               {name}

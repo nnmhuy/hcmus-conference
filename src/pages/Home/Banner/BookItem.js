@@ -38,7 +38,7 @@ const BookShadow = styled.img`
   }
 `
 
-const BookHolder = styled.div`
+const BookHolder = styled.a`
   transition: all 0.4s;
   cursor: pointer;
   position: relative;
@@ -63,7 +63,7 @@ const BookHolder = styled.div`
 
 
 export default function BookItem(props) {
-  const { course, setHoverText, translateResize } = props
+  const { courseIndex, course, setHoverText, translateResize } = props
   const { alt, name, image, translate } = course
 
   const getImgResource = () => {
@@ -86,10 +86,14 @@ export default function BookItem(props) {
     }
   }
 
+  const query = new URLSearchParams()
+  query.set('filter', JSON.stringify([courseIndex]))
+
   return (
     <BookHolder translateResize={translateResize} translate={translate}
       onMouseOver={() => setHoverText(name, true)}
       onMouseLeave={() => setHoverText(name, false)}
+      href={`/chuong-trinh?${query.toString()}`}
     >
       <BookShadow src={bookShadow} alt="book shadow" />
       {getImgResource()}

@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const courseList = [
-  'Tiểu ban Toán - Tin học',
-  'Tiểu ban Vật lý - Địa cầu và Hải dương',
   'Tiểu ban Hoá học',
   'Tiểu ban Sinh học - Công nghệ sinh học',
+  'Tiểu ban Kỹ thuật hạt nhân và Vật lý y khoa',
+  'Tiểu ban Vật lý - Địa cầu và Hải dương',
   'Tiểu ban Địa chất và Tài nguyên Trái đất',
-  'Tiểu ban Môi trường',
-  'Tiểu ban Công nghệ thông tin - Truyền thông',
-  'Tiểu ban Điện tử - Viễn thông',
   'Tiểu ban Khoa học và Công nghệ vật liệu',
-  'Tiểu ban Kỹ thuật hạt nhân và Vật lý y khoa'
+  'Tiểu ban Môi trường',
+  'Tiểu ban Điện tử - Viễn thông',
+  'Tiểu ban Toán - Tin học',
+  'Tiểu ban Công nghệ thông tin - Truyền thông',
 ]
 
 const CourseContainer = styled.div`
@@ -75,11 +75,15 @@ const CourseList = () => {
       <CourseContainer>
         {
           courseList.map((courseItem, index) => {
-          return (
-            <Link key={'courseItem'+index} to={`/chuong-trinh"`}>
-              <CourseText>{courseItem}</CourseText>
-            </Link>
-          )})
+            const query = new URLSearchParams()
+            query.set('filter', JSON.stringify([index]))
+
+            return (
+              <Link key={'courseItem'+index} to={`/chuong-trinh?${query.toString()}`}>
+                <CourseText>{courseItem}</CourseText>
+              </Link>
+            )}
+          )
         }
       </CourseContainer>
     </CourseListContainer>
