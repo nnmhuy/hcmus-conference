@@ -7,8 +7,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "nodemon .",
-    "debug": "nodemon .",
+    "start": "node .",
+    "debug": "node .",
     "posttest": "npm run lint"
   },
   "dependencies": {
