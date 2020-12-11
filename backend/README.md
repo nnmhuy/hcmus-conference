@@ -11,6 +11,7 @@ output: {session, presentation, sponsor}
 session: list of session (order startDate)
 presentation: dict with key is major and value is list of presentation (order startDate)
 sponsor: list of sponsor 
+statis: consist of numberOfMajor, numberOfPresentation, numberOfAuthor,
 ```
 - CRUD for admins
 
@@ -26,3 +27,6 @@ if not have data call api/presentations/initData (POST) (data store in backend/s
 
 # production
 clone file .env.production to .env
+
+# deploy heroku (for dev)
+git push --force heroku git subtree split --prefix backend HEAD:master
