@@ -50,7 +50,7 @@ const PresentationList = (props) => {
           filteredPresentations.map((presentation, index) => {
             return (
               <PresentationItem 
-                key={`presentation-item-${index}`} 
+                key={`presentation-item-${index}-${presentation.title}`} 
                 presentation={presentation}  
               />
             )
