@@ -26,7 +26,7 @@ const StatItem = (props) => {
   const { count, label } = props
   return (
     <CenteredText>
-      <Counter>{count}</Counter>
+      <Ticker end={count} />
       <Title>{label}</Title>
     </CenteredText>
   )

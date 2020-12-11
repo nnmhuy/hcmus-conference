@@ -1,51 +1,51 @@
 var sponsorList = [
   {
-    name: 'gianty group',
+    name: 'GNT VN Co., Ltd',
     type: 'gold',
     url: 'https://www.gnt.com.vn/',
-    image: 'blank'
+    image: 'https://hnkh.hcmus.edu.vn/images/2020/12/03/gnt-gianty-group.png'
   },
   {
-    name: 'stem cell institute',
+    name: 'Stem Cell Institute',
     type: 'gold',
     url: 'http://sci.edu.vn/',
-    image: 'blank'
+    image: 'https://hnkh.hcmus.edu.vn/images/2020/12/03/sci-e-01-01.png'
   },
   {
-    name: 'itec',
+    name: 'ITEC',
     type: 'gold',
     url: 'https://www.itec.edu.vn/vn/',
-    image: 'blank'
+    image: 'https://hnkh.hcmus.edu.vn/images/2020/12/03/logo_icc.jpg'
   },
   {
-    name: 'trung tâm tin học',
+    name: 'Trung tâm Tin học',
     type: 'silver',
     url: 'https://csc.edu.vn/',
-    image: 'blank'
+    image: 'https://hnkh.hcmus.edu.vn/images/2020/12/03/logo-tt-tin-hoc.jpg'
   },
   {
-    name: 'T & N',
+    name: 'T&N',
     type: 'silver',
     url: 'http://tnic.com.vn/',
-    image: 'blank'
+    image: 'https://hnkh.hcmus.edu.vn/images/2020/12/03/sent-logo-tn.png'
   },
   {
-    name: 'horiba',
+    name: 'Horiba',
     type: 'silver',
     url: 'http://horiba.com.vn/',
-    image: 'blank'
+    image: 'https://hnkh.hcmus.edu.vn/images/2020/12/03/horiba.png'
   },
   {
-    name: 'chemsol',
+    name: 'Chemsol',
     type: 'bronze',
     url: 'http://www.chemsol.vn/',
-    image: 'blank'
+    image: 'https://hnkh.hcmus.edu.vn/images/2020/12/03/logo-chemsol.jpg'
   },
   {
     name: 'APC lab',
     type: 'bronze',
     url: 'blank',
-    image: 'blank'
+    image: 'https://hnkh.hcmus.edu.vn/images/2020/12/03/apclab-01.png'
   },
 ];
 

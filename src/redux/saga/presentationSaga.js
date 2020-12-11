@@ -33,10 +33,20 @@ function* getAllPresentationSaga() {
       })
     })
 
+    let sponsorList = get(data, 'sponsor', [])
+    let sponsorByRank = {}
+    sponsorList.forEach(sponsor => {
+      if (!(sponsor.type in sponsorByRank)) {
+        sponsorByRank[sponsor.type] = []
+      }
+      sponsorByRank[sponsor.type].push(sponsor)
+    })
+
     yield put(getAllPresentationSuccess({ data: {
       ...data,
       session: sessionList,
       stats: statsList,
+      sponsor: sponsorByRank,
     } }))
   } catch (error) {
     yield put(getAllPresentationFail(error))

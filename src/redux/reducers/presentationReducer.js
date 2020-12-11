@@ -10,7 +10,7 @@ let defaultState = {
   isLoadingAll: false,
   allPresentation: [],
   allSession: [],
-  allSponsor: [],
+  allSponsorByRank: {},
   statistic: [],
   error: null,
 }
@@ -28,7 +28,7 @@ const presentationReducer = handleActions(
       return {
         ...state,
         allSession: session,
-        allSponsor: sponsor,
+        allSponsorByRank: sponsor,
         allPresentation: presentation,
         statistic: stats,
         isLoadingAll: false,
