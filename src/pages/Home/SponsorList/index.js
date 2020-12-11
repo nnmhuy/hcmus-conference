@@ -17,9 +17,16 @@ const SponsorTypeText = styled.h4`
 `
 
 const SponsorHolder = styled.div`
-  display: flex, 
-  flex-wrap: wrap, 
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  @media (min-width: 1286px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1500px) {
+    display: flex;
+  }
 `
 
 const SponsorContainerHeading = styled.div`
@@ -54,19 +61,20 @@ const SponsorContainer = styled.div`
     align-items: center;
     text-align: center;
   }
-  @media (min-width: 800px) {
-    // flex-direction: row;
-  }
 `
 
 const SponsorImage = styled.img`
   width: 100px;
+  height: 100px;
+  object-fit: contain;
   margin: 0px 20px 20px 0;
   @media (min-width: 800px) {
     width: 120px;
+    height: 120px;
   }
   @media (min-width: 1286px) {
-    width: 150px;
+    width: 130px;
+    height: 130px;
     margin: 0 30px 0 0;
   }
 `
