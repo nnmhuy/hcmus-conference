@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import MainEvent from './MainEvent'
 import SubEvent from './SubEvent'
-import { useSelector } from 'react-redux';
 
 const recapData = [
   {

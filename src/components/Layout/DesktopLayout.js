@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,9 +19,6 @@ const useStyles = makeStyles((theme) => ({
   },
   centerSection: {
     flexGrow: 1,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   rightSection: {
     display: 'flex',
@@ -31,8 +28,9 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     // backgroundImage: `linear-gradient(45deg, ${theme.palette.primary.main}, black)`,
-    backgroundColor: 'transparent',
+    background: 'transparent',
     boxShadow: 'none',
+    transition: 'all 0.3s'
   },
   mainTitle: {
     display: 'inline-block',
@@ -58,7 +56,7 @@ const DesktopLayout = (props) => {
             </div>
             <div className={classes.centerSection}>
               <div className={classes.mainTitle}>
-                Hội nghị khoa học lần thứ XII - 2020
+                Hội nghị khoa học<br/>lần thứ XII - 2020
               </div>
             </div>
             <div className={classes.rightSection}>

@@ -15,7 +15,7 @@ const Layout = (props) => {
     const listenScrollEvent = e => {
       if (location.pathname === '/') {
         setTheme(false)
-        if (window.scrollY > 100) {
+        if (window.scrollY > 50) {
           setTheme(true)
         }
       }

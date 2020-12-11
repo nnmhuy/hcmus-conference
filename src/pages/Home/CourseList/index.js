@@ -32,9 +32,9 @@ const CourseContainer = styled.div`
 `
 
 const CourseHeading = styled.h3`
-  color: #01458E;
+  color: #4053EB;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
   @media (min-width: 568px) {
     text-align: center;
@@ -70,9 +70,11 @@ const CourseText = styled.p`
 const CourseListContainer = styled.div`
   padding: 40px 20px 80px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  @media (min-width: 568px) {
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 const CourseList = () => {
