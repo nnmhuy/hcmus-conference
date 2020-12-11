@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
+import Tooltip from '@material-ui/core/Tooltip';
 
 const SponsorTypeText = styled.h4`
   font-size: 1.5em;
@@ -89,13 +90,18 @@ const SponsorList = (props) => {
 
   const renderSponsorList = type => {
     return get(allSponsorByRank, type, []).map((sponsorItem, index) => {
-      if (!sponsorItem.link || sponsorItem.link === '') {
-        return <SponsorImage key={type+index} src={sponsorItem.image} alt={sponsorItem.alt}/>
+      if (!sponsorItem.url || sponsorItem.url === '') {
+        return 
+          <Tooltip title={sponsorItem.name} aria-label={sponsorItem.name}>
+            <SponsorImage key={type+index} src={sponsorItem.image} alt={sponsorItem.name}/>
+          </Tooltip>
       }
       return (
-        <a href={sponsorItem.link} key={type+index}>
-          <SponsorImage src={sponsorItem.image} alt={sponsorItem.alt}/>
-        </a>
+        <Tooltip title={sponsorItem.name} aria-label={sponsorItem.name}>
+          <a href={sponsorItem.url} key={type+index}>
+            <SponsorImage src={sponsorItem.image} alt={sponsorItem.name}/>
+          </a>
+        </Tooltip>
       )
     })
   }
