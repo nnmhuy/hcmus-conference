@@ -54,7 +54,7 @@ const SubCircleStraight = styled.div`
 `
 
 const SubEvent = (props) => {
-  const { type, title, date, time } = props.sched
+  const { title, time } = props.sched
   return (
     <SubEventContainer>
       <TitleText>{title}</TitleText>

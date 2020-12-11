@@ -19,13 +19,16 @@ const SponsorTypeText = styled.h4`
 const SponsorHolder = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  @media (min-width: 568px) {
+    justify-content: center;
+  }
   @media (min-width: 1286px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: 1500px) {
     display: flex;
+
   }
 `
 
@@ -36,7 +39,8 @@ const SponsorContainerHeading = styled.div`
 const HeadingText = styled.h2`
   font-size: 2.5em;
   margin-bottom: 0;
-  color: #01458E;
+  // color: #01458E;
+  color: #4053EB;
   @media (min-width: 800px) {
     font-size: 3em;
   }
@@ -53,7 +57,7 @@ const HeadingSubText = styled.p`
 `
 
 const SponsorContainer = styled.div`
-  padding: 40px 30px;
+  padding: 40px 20px;
   display: flex;
   justify-content: space-around;
   flex-direction: column;

@@ -19,7 +19,8 @@ const CenteredText = styled.div`
 const Title = styled.p`
   font-size: 1rem;
   color: white;
-  font-weight: 400
+  font-weight: 400;
+  text-transform: uppercase;
 `
 
 const StatItem = (props) => {

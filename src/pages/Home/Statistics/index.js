@@ -42,14 +42,6 @@ const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `
 
-const statData = {
-  "major": 10,
-  "paper": 100,
-  "author": 287,
-  "perClick": 496,
-}
-
-
 const Statistics = (props) => {
   const { statistic } = props
   return (
