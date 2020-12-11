@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import Loading from './components/Layout/Loading'
 import Layout from './components/Layout/index'
 import Home from './pages/Home'
 import Schedule from './pages/Schedule/index'
@@ -42,20 +43,22 @@ const theme = createMuiTheme({
 })
 
 const App = (props) => {
-  const { getAllPresentationHandler } = props
+  const { isLoadingAll, getAllPresentationHandler } = props
   useEffect(() => {
     getAllPresentationHandler()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
-    
     <MuiThemeProvider theme={theme}>
       <Router>
       <Layout/>
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/chuong-trinh" exact component={Schedule}/>
-        </Switch>
+        <Suspense fallback={<Loading isLoading/>}>
+          <Loading isLoading={isLoadingAll}/>
+          <Switch>
+            <Route path="/" exact component={Home}/>
+            <Route path="/chuong-trinh" exact component={Schedule}/>
+          </Switch>
+        </Suspense>
       </Router>
     </MuiThemeProvider>
   );

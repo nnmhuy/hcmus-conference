@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 
 import BookItem from './BookItem'
+import SuspenseImage from '../../../components/SuspenseImage'
 import bookBubble from '../../../static/images/book-bubble2@2x.png'
 
 const bookCaseData = {
@@ -96,7 +97,7 @@ const translateResize = [
   'translate(-25px, 25px)'
 ]
 
-const BookBubble = styled.img`
+const BookBubble = styled(SuspenseImage)`
     transition: all 0.4s;
     animation: fromTop 1.8s; 
     width: 415px;

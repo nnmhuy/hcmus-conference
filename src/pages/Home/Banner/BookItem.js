@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import SuspenseImage from '../../../components/SuspenseImage'
 
 import bookShadow from '../../../static/images/ke-sach/shadow.png'
 import tieuBan1 from '../../../static/images/sach-tieu-ban/tieu-ban-1.png'
@@ -13,7 +14,7 @@ import tieuBan8 from '../../../static/images/sach-tieu-ban/tieu-ban-8.png'
 import tieuBan9 from '../../../static/images/sach-tieu-ban/tieu-ban-9.png'
 import tieuBan10 from '../../../static/images/sach-tieu-ban/tieu-ban-10.png'
 
-const ImageBook = styled.img`
+const ImageBook = styled(SuspenseImage)`
   transition: all 0.4s;
   cursor: pointer;
   width: 100%;

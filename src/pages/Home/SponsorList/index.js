@@ -92,13 +92,13 @@ const SponsorList = (props) => {
     return get(allSponsorByRank, type, []).map((sponsorItem, index) => {
       if (!sponsorItem.url || sponsorItem.url === '') {
         return 
-          <Tooltip title={sponsorItem.name} aria-label={sponsorItem.name}>
-            <SponsorImage key={type+index} src={sponsorItem.image} alt={sponsorItem.name}/>
+          <Tooltip key={type + index} title={sponsorItem.name} aria-label={sponsorItem.name}>
+            <SponsorImage src={sponsorItem.image} alt={sponsorItem.name}/>
           </Tooltip>
       }
       return (
-        <Tooltip title={sponsorItem.name} aria-label={sponsorItem.name}>
-          <a href={sponsorItem.url} key={type+index}>
+        <Tooltip key={type + index} title={sponsorItem.name} aria-label={sponsorItem.name}>
+          <a href={sponsorItem.url}>
             <SponsorImage src={sponsorItem.image} alt={sponsorItem.name}/>
           </a>
         </Tooltip>
