@@ -29,4 +29,4 @@ if not have data call api/presentations/initData (POST) (data store in backend/s
 clone file .env.production to .env
 
 # deploy heroku (for dev)
-git push --force heroku git subtree split --prefix backend HEAD:master
+git push --force heroku `git subtree split --prefix backend HEAD`:master
