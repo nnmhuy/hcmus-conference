@@ -18,6 +18,8 @@ const Layout = (props) => {
         if (window.scrollY > 50) {
           setTheme(true)
         }
+      } else {
+        setTheme(true);
       }
     }
     if (location.pathname === '/') {
@@ -26,6 +28,8 @@ const Layout = (props) => {
       return () => {
         window.removeEventListener('scroll', listenScrollEvent)
       }
+    } else {
+      setTheme(true)
     }
   }, [location])
 

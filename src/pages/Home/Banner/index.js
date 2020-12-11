@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-// import bgBanner from '../../../static/images/bg-banner@2x.png'
 import BgBanner from '../../../static/images/bg-banner-with-flakes@2x.png'
 import BgBannerMobile from '../../../static/images/bg-banner-with-flakes-mobi@2x.png'
 import BookCase from './BookCase'
