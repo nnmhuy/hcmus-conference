@@ -11,7 +11,7 @@ let defaultState = {
   allPresentation: [],
   allSession: [],
   allSponsor: [],
-  statistic: {},
+  statistic: [],
   error: null,
 }
 
@@ -24,13 +24,13 @@ const presentationReducer = handleActions(
       }
     },
     [getAllPresentationSuccess]: (state, { payload: { data } }) => {
-      const { session, presentation, sponsor, statis } = data
+      const { session, presentation, sponsor, stats } = data
       return {
         ...state,
         allSession: session,
         allSponsor: sponsor,
         allPresentation: presentation,
-        statistic: statis,
+        statistic: stats,
         isLoadingAll: false,
       }
     },

@@ -14,89 +14,21 @@ const majorList = [
   { id: 9, name: "Công nghệ Thông tin - Truyền thông", icon: require('../static/images/major-icon/9.svg') },
 ]
 
-// TODO: fix date
 const dateList = [
-  { name: 'Ngày 1', date: new Date(), },
+  { name: 'Ngày 1', date: '2020-12-18', },
   { name: 'Ngày 2', date: '2020-12-19', },
 ]
 
-
-const sessionList = [
-  { name: 'Session 1', startDate: new Date().setHours(7, 0), endDate: new Date().setHours(11, 30) },
-  { name: 'Session 2', startDate: new Date().setHours(13, 30), endDate: new Date().setHours(17, 30) },
-  { name: 'Session 3', startDate: new Date("December 19, 2020 7:00:00"), endDate: new Date("December 19, 2020 11:30:00") },
-  { name: 'Session 4', startDate: new Date("December 19, 2020 13:30:00"), endDate: new Date("December 19, 2020 17:30:00") },
+const statisticNameList = [
+  { key: "numberOfMajor", label: "ngành" },
+  { key: "numberOfPresentation", label: "bài báo" },
+  { key: "numberOfAuthor", label: "tác giả" },
+  { key: "numberOfAttendance", label: "lượt tham gia" },
 ]
-
-const presentationList = [
-  {
-    "majorId": 2,
-    "startDate": new Date("December 1, 2020 13:00:00"),
-    "endDate": new Date("December 1, 2020 13:30:00"),
-    "title": "Test presentation title",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "linkZoom": "https://google.com",
-    "author": "Ngoc Minh Huy Nguyen"
-  },
-  {
-    "majorId": 9,
-    "startDate": new Date("December 2, 2020 13:30:00"),
-    "endDate": new Date("December 29, 2020 13:30:00"),
-    "title": "Test presentation title",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "linkZoom": "https://google.com",
-    "author": "Quang Thuc Nguyen"
-  },
-  {
-    "majorId": 6,
-    "startDate": new Date("December 30, 2020 13:30:00"),
-    "endDate": new Date("December 30, 2020 13:45:00"),
-    "title": "Test presentation title 2",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "linkZoom": "https://facebook.com",
-    "author": "Huu Duc Trinh"
-  },
-  {
-    "majorId": 7,
-    "startDate": new Date().setHours(8),
-    "endDate": new Date().setHours(9),
-    "title": "Test presentation title 2",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "linkZoom": "https://facebook.com",
-    "author": "Huu Duc Trinh"
-  },
-  {
-    "majorId": 8,
-    "startDate": new Date().setHours(9),
-    "endDate": new Date().setHours(10),
-    "title": "Test presentation title 2",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "linkZoom": "https://facebook.com",
-    "author": "Huu Duc Trinh"
-  },
-  {
-    "majorId": 9,
-    "startDate": new Date().setHours(14),
-    "endDate": new Date().setHours(15),
-    "title": "Test presentation title 2",
-    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-    "linkZoom": "https://facebook.com",
-    "author": "Huu Duc Trinh"
-  },
-]
-
-const statsList = {
-  "major": 10,
-  "paper": 20,
-  "author": 79,
-  "perClick": 400,
-}
 
 export {
   backendURL,
   majorList,
   dateList,
-  sessionList,
-  presentationList,
-  statsList
+  statisticNameList,
 }

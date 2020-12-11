@@ -37,7 +37,7 @@ const SessionTabs = (props) => {
         className={classes.tabContainer}
       >
         {
-          sessionList.map(({ name }) => {
+          sessionList.map(({ name }, index) => {
             return (
               <Tab key={name} label={name} className={classes.tabTitle}/>
             )

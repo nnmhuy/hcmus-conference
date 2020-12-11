@@ -9,19 +9,34 @@ import {
   getAllPresentationFail, 
 } from '../actions/presentationAction'
 
-import { sessionList, presentationList, statsList } from '../../constants/constants'
+import { statisticNameList } from '../../constants/constants'
 
 function* getAllPresentationSaga() {
   try {
-    // const getAllPresentationUrl = '/presentation/getAllData'
-    // const response = yield call(restConnector.get, getAllPresentationUrl)
-    // const data = get(response, 'data', {})
+    const getAllPresentationUrl = '/presentations/getAllData'
+    const response = yield call(restConnector.get, getAllPresentationUrl)
+    const data = get(response, 'data.data', {})
+    
+    let sessionList = get(data, 'session', [])
+    sessionList = sessionList.map((session, index) => {
+      return ({
+        ...session,
+        name: `Session ${index + 1}`
+      })
+    })
 
-    // yield put(getAllPresentationSuccess({ data }))
+    let statsList = get(data, 'statis', [])
+    statsList = statisticNameList.map(field => {
+      return ({
+        ...field,
+        value: statsList[field.key] || 0,
+      })
+    })
+
     yield put(getAllPresentationSuccess({ data: {
+      ...data,
       session: sessionList,
-      presentation: presentationList,
-      statis: statsList
+      stats: statsList,
     } }))
   } catch (error) {
     yield put(getAllPresentationFail(error))

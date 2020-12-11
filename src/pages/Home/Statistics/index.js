@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 import BgParallax from '../../../static/images/bg-parallax@2x.png'
 import StatItem from './StatItem'
@@ -48,14 +50,15 @@ const statData = {
 }
 
 
-const Statistics = () => {
+const Statistics = (props) => {
+  const { statistic } = props
   return (
     <ParallaxBackground>
       <Overlay/>
       <FlexRow>
         {
-          Object.keys(statData).map((statItem, index) => {
-            return <StatItem stat={{id: index, count: statData[statItem]}} key={'stat-item'+index}/>
+          statistic.map((stat, index) => {
+            return <StatItem label={stat.label} count={stat.value} key={'stat-item' + index} />
           })
         }
       </FlexRow>
@@ -63,4 +66,13 @@ const Statistics = () => {
   )
 }
 
-export default Statistics
+const mapStateToProps = ({ presentation, }) => {
+  return {
+    statistic: presentation.statistic,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Statistics)

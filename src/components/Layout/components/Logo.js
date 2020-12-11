@@ -1,12 +1,12 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 
-import Logo from '../../../static/images/_logo.png'
 import LogoWhite from '../../../static/images/logo-white.png'
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    height: 45
+    height: 45,
+    width: 'auto',
   },
 }));
 

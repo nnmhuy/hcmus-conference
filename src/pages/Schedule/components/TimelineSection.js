@@ -27,6 +27,7 @@ const TimelineSection = (props) => {
   );
   const handleChangeActiveDate = (newActiveDate) => {
     setActiveDate(newActiveDate);
+    setActiveSession(0)
   };
 
   const [activeSession, setActiveSession] = React.useState(0);

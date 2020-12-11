@@ -23,9 +23,15 @@ const PresentationList = (props) => {
   const { allPresentation, filter: majorFilter = [], sessionStartDate, sessionEndDate } = props
 
   const getFilteredPresentationList = () => {
-    let filteredPresentations = cloneDeep(allPresentation)
+    let filteredPresentations = []
     if (majorFilter.length) {
-      filteredPresentations = filter(filteredPresentations, presentation => majorFilter.includes(presentation.majorId))
+      majorFilter.forEach(majorId => {
+        filteredPresentations = [...filteredPresentations, ...allPresentation[majorId]]
+      });
+    } else {
+      Object.keys(allPresentation).forEach(majorId => {
+        filteredPresentations = [...filteredPresentations, ...allPresentation[majorId]]
+      })
     }
     filteredPresentations = filter(filteredPresentations, (presentation) => {
       const { startDate } = presentation
