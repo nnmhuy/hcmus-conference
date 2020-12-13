@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
 
 // TODO: scroll to active presentation
 const PresentationList = (props) => {
+  console.log(props)
   const classes = useStyles()
   const { allPresentation, filter: majorFilter = [], sessionStartDate, sessionEndDate } = props
 

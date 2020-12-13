@@ -49,7 +49,7 @@ const SideBar = (props) => {
                   href={path}
                   className={classes.sidebar_item}
                 >
-                  <ListItemText primary={name} />
+                  <p style={{margin: 0}}>{name}</p>
                 </ListItem>
               )
             })

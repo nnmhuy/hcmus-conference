@@ -5,9 +5,10 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Loading from './components/Layout/Loading'
-import Layout from './components/Layout/index'
+import Layout from './components/Layout'
 import Home from './pages/Home'
-import Schedule from './pages/Schedule/index'
+import Schedule from './pages/Schedule'
+import NotFound from './pages/NotFound'
 
 import './App.css';
 
@@ -57,6 +58,7 @@ const App = (props) => {
           <Switch>
             <Route path="/" exact component={Home}/>
             <Route path="/chuong-trinh" exact component={Schedule}/>
+            <Route path="*" component={NotFound}/>
           </Switch>
         </Suspense>
       </Router>
