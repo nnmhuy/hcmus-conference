@@ -24,3 +24,24 @@
     transform: scale(1)
    }
 }
+
+@keyframes blobRadius {
+  0%, 100% {
+    /* top-left, top-right, bottom-right, bottom-left  */
+    /* Trước dấu / : xét phần horizontal của border-radius */
+    /* Sau dấu / : xét phần vertical của border-radius */
+    border-radius: 43% 77% 80% 40% / 40% 40% 80% 80%;
+  }
+  20% {
+    border-radius: 47% 73% 61% 59% / 47% 75% 45% 73%;
+  }
+  40% {
+    border-radius: 46% 74% 74% 46% / 74% 58% 62% 46%;
+  }
+  60% {
+    border-radius: 47% 73% 61% 59% / 40% 40% 80% 80%;
+  }
+  80% {
+    border-radius: 50% 70% 52% 68% / 51% 61% 59% 69%;
+  } 
+}

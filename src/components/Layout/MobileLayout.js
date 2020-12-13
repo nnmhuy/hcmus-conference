@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { NavLink } from 'react-router-dom';
 
 import Logo from './components/Logo'
 import HideOnScroll from './components/HideOnScroll'
@@ -36,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   mainTitle: {
     display: 'inline-block',
     fontWeight: 600,
+    color: 'white',
     marginLeft: 15,
     textTransform: 'uppercase'
   },
@@ -61,7 +63,8 @@ const MobileLayout = (props) => {
     <div className={classes.root}>
       <HideOnScroll>
         <AppBar className={classes.appBar} style={{ background: themeColor ? '#4053EB' : 'transparent' }}>
-          <Toolbar>
+        <Toolbar style={{display: 'flex', justifyContent:'space-between'}}>
+            
             <div className={classes.leftSection}>
               <IconButton 
                 edge="start" className={classes.menuButton} color="inherit" aria-label="menu"
@@ -70,12 +73,14 @@ const MobileLayout = (props) => {
                 <MenuIcon />
               </IconButton>
             </div>
+            <NavLink to='/'>
             <div className={classes.centerSection}>
               <Logo href='/'/>
               <div className={classes.mainTitle}>
-                Hội nghị khoa học lần thứ XII - 2020
+                Hội nghị khoa học <br/>lần thứ XII - 2020
               </div>
             </div>
+            </NavLink>
             <div className={classes.rightSection}>
             </div>
           </Toolbar>

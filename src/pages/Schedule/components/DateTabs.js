@@ -9,35 +9,78 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
     display: 'flex',
+    '& .date__tab--0': {
+      '&::after': {
+        right: 0,
+        background: 'linear-gradient(to left, #4361EE, #3F37C9, #3A0CA3)',
+      }
+    },
+    '& .date__tab--1': {
+      '&::after': {
+        left: 0,
+        background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+      }
+    },
   },
   dateTabRoot: {
     flex: 1,
+    position: 'relative',
     cursor: 'pointer',
   },
   dateTab: {
     display: 'flex',
+    padding: '5px 0',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
+    position: 'relative',
+    transition: 'all 0.6s ease-in-out',
+    '&::after': {
+      content: '""',
+      position: 'absolute',
+      transition: 'all 0.6s ease-in-out',
+      width: '0%',
+      height: '100%',
+      zIndex: '-1'
+    }
   },
   activeDateTab: {
-    background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+    background: 'transparent',
+    '&::after': {
+      width: '100%',
+      transform: 'translateZ(0)',
+    }
   },
   activeTabDenote: {
-    position: 'relative',
+    position: 'absolute',
+    left: '50%',
+    transform: 'translate3d(-50%, 0, 0)',
     width: 0,
     height: 0,
-    borderLeft: '15px solid transparent',
-    borderRight: '15px solid transparent',
-    borderTop: `10px solid #403ECF`,
+    visibility: 'hidden',
+    pointerEvents: 'none',
+    transition: 'all 0.3s ease-in-out',
+    borderLeft: '0px solid transparent',
+    borderRight: '0px solid transparent',
+    borderTop: `0px solid #403ECF`,
     margin: 'auto',
     zIndex: 100,
+    '&.active': {
+      visibility: 'visible',
+      opacity: 1,
+      borderLeft: '15px solid transparent',
+      borderRight: '15px solid transparent',
+      transform: 'translate3d(-50%, 0, 0)',
+      borderTop: `10px solid #403ECF`,
+      pointerEvents: 'auto',
+    }
   },
   dateTabTitle: {
     fontSize: 22,
     fontWeight: 600,
     color: '#4041D2',
+    transition: 'all 0.6s',
   },
   activeDateTabTitle: {
     color: theme.palette.white.main,
@@ -45,6 +88,7 @@ const useStyles = makeStyles(theme => ({
   dateTabDate: {
     fontSize: 11,
     color: '#ABA7B3',
+    transition: 'all 0.6s',
   },
   activeDateTabDate: {
     color: theme.palette.white.main,
@@ -53,11 +97,11 @@ const useStyles = makeStyles(theme => ({
 
 const DateTab = (props) => {
   const classes = useStyles()
-  const { label, date, isActive, ...rest } = props
+  const { label, date, isActive, typeClass, ...rest } = props
 
   return (
     <div className={classes.dateTabRoot} {...rest}>
-      <div className={clsx(classes.dateTab, isActive && classes.activeDateTab)}>
+      <div className={clsx(classes.dateTab, isActive && classes.activeDateTab) + ` ${typeClass}`}>
         <div className={clsx(classes.dateTabTitle, isActive && classes.activeDateTabTitle)}>
           {label}
         </div>
@@ -65,9 +109,8 @@ const DateTab = (props) => {
           {moment(date).format("DD/MM/YYYY")}
         </div>
       </div>
-      {isActive &&
-        <div className={classes.activeTabDenote}></div>
-      }
+      
+      <div className={classes.activeTabDenote + `${isActive ? ' active' : ' inactive'}`}></div>
     </div>
   )
 }
@@ -78,9 +121,10 @@ const DateTabs = (props) => {
   return (
     <div className={classes.root}>
       {
-        dateList.map(({name, date}) => {
+        dateList.map(({name, date}, index) => {
           return (
             <DateTab 
+              typeClass={`date__tab--${index}`}
               key={name} label={name} date={date} 
               onClick={() => handleChangeActiveDate(date)}
               isActive={moment(activeDate).isSame(moment(date), 'day')}
