@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import BookBubble from '../../static/images/book-bubble2@2x.png'
-import './style.css'
 
 const NotFoundContainer = styled.div`
   position: relative;
@@ -33,8 +32,6 @@ const BookBubbleImg = styled.img`
   top: 50%;
   transform: translate3d(-50%, -40%, 0);
   z-index: 20;
-  animation: fromTop 6s ease-in-out infinite;
-  // animation: animation: fromTop 6s ease-in-out infinite; 6s ease-in-out infinite;
 `
 
 const SelfContainer = styled.div`
@@ -58,6 +55,35 @@ const NotFoundText = styled.h1`
   transform: translate(-50%, -50%);
 `
 
+const ButtonWhite = styled.button`
+  overflow: hidden;
+  background-color: #4053EB;
+  border-radius: 100px;
+  padding: 10px 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+  position: absolute;
+  bottom: 20px;
+  z-index: 80;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  
+  color: white;
+  
+  @media (min-width: 900px) {
+    font-size: 1rem;
+  }
+  @media (min-width: 1020px) {
+    font-size: 1.2rem;
+  }
+`
+
 export default function NotFound() {
   return (
     <NotFoundContainer>
@@ -65,7 +91,11 @@ export default function NotFound() {
         <BlobShape></BlobShape>
         <BookBubbleImg src={BookBubble}/>
         <NotFoundText>404</NotFoundText>
-        <NavLink to='/'>Về trang chủ</NavLink>
+        <NavLink to="/">
+          <ButtonWhite>
+            VỀ TRANG CHỦ
+          </ButtonWhite>
+        </NavLink>
       </SelfContainer>
     </NotFoundContainer>
   )
