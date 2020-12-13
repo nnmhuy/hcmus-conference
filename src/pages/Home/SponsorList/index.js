@@ -37,7 +37,7 @@ const SponsorContainerHeading = styled.div`
 `
 
 const HeadingText = styled.h2`
-  font-size: 2.5em;
+  font-size: 2.3em;
   margin-bottom: 0;
   // color: #01458E;
   color: #4053EB;

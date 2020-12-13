@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -38,10 +38,13 @@ const TimerNumber = styled.h3`
   font-weight: 600;
   margin-bottom: 0;
   font-size: 2rem;
+  width: 2.5rem;
   line-height: 2.5rem;
   color: #fff;
+  position: relative;
   @media (min-width: 900px) {
     font-size: 3rem;
+    width: 3.5rem;
   }
 `
 
@@ -74,6 +77,7 @@ const EventName = styled.h1`
 
 const ButtonWhite = styled.button`
   color: #B1CCE6;
+  overflow: hidden;
   background-color: #FFF;
   border-radius: 100px;
   padding: 8px 15px;
@@ -104,36 +108,137 @@ const ClearFloat = styled.div`
   clear: both;
 `
 
+const BlobShape = styled.div`
+  width: 40px;
+  height: 40px;
+  // background: #ffa638;
+  background: #aad7d0;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  transform: ${props => props.pos.scale} translateZ(0);
+  transition: transform 0.3s ease;
+  animation: blobRadius 6s ease-in-out infinite;
+  top: ${props => props.pos.top};
+  left: ${props => props.pos.left};
+`
+
+const ParaText = styled.span`
+  margin: 0;
+  position: relative;
+  z-index: 3;
+  pointer-events: none;
+`
+
 const BrandName = (props) => {
+  const [timeState, setTime] = useState({
+    day: 1,
+    hour: 1,
+    minute: 1,
+    second: 1
+  })
+
+  const [pos, setPos] = useState({
+    left: 0,
+    top: 0,
+    scale: "scale(0)"
+  })
+
+  useEffect(()=>{
+    function getDiffInDate() {
+      const endDate = new Date("2020-12-18T00:00:00.000+07:00")
+      const currentDate = new Date()
+
+      const diff = endDate - currentDate
+      if (diff == 0) return
+
+      const day = parseInt(diff / (1000 * 60 * 60 * 24))
+      const hour = parseInt(Math.abs(diff) / (1000 * 60 * 60) % 24)
+      const minute = parseInt(Math.abs(diff) / (1000 * 60) % 60)
+      const second = parseInt(Math.abs(diff) / (1000) % 60)
+
+      setTime({
+        day,
+        hour,
+        minute,
+        second
+      })
+    }
+
+    const timer = setInterval(() => {getDiffInDate()}, 1000)
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
+
+  const listenMouseEvent = e => {
+    const rect = e.target.getBoundingClientRect();
+    
+    const X = e.clientX - rect.left;
+    const Y = e.clientY - rect.top;
+
+    setPos({
+      top: Y - 40 / 2 + "px",
+      left: X - 40 / 2 + "px",
+      scale: "scale(1)"
+    })
+  }
+
+  const listenMouseLeaveEvent = e => {
+    setPos({...pos, scale: "scale(0)"})
+  }
+
   return (
     <BorderedContainer>
-      <TimerContainer>
-        <TimerItem>
-          <TimerNumber>1</TimerNumber>
-          <TimerText>ngày</TimerText>
-        </TimerItem>
-        <TimerItem>
-          <TimerNumber>18</TimerNumber>
-          <TimerText>giờ</TimerText>
-        </TimerItem>
-        <TimerItem>
-          <TimerNumber>1</TimerNumber>
-          <TimerText>phút</TimerText>
-        </TimerItem>
-        <TimerItem>
-          <TimerNumber>59</TimerNumber>
-          <TimerText>giây</TimerText>
-        </TimerItem>
-        <ClearFloat/>
-      </TimerContainer>
+      {
+        timeState.day === 0 && 
+        timeState.hour === 0 && 
+        timeState.minute === 0 && 
+        timeState.second === 0 ?
+        <TimerContainer>
+          <TimerText>Chào mừng tới</TimerText>
+        </TimerContainer>
+        :
+        <TimerContainer>
+          {
+            timeState.day !== 0 ?
+            <TimerItem>
+              <TimerNumber>{timeState.day}</TimerNumber>
+              <TimerText>ngày</TimerText>
+            </TimerItem>
+            :
+            <></>
+          }
+          
+          <TimerItem>
+            <TimerNumber>{timeState.hour}</TimerNumber>
+            <TimerText>giờ</TimerText>
+          </TimerItem>
+          <TimerItem>
+            <TimerNumber>{timeState.minute}</TimerNumber>
+            <TimerText>phút</TimerText>
+          </TimerItem>
+          <TimerItem>
+            <TimerNumber>{timeState.second}</TimerNumber>
+            <TimerText>giây</TimerText>
+          </TimerItem>
+          <ClearFloat/>
+        </TimerContainer>
+      }
+      
       <EventName>
       HỘI NGHỊ KHOA HỌC
       <br/>LẦN THỨ XII - 2020
       </EventName>
       <ButtonWhite onClick={()=>{
         props.history.push('/chuong-trinh')
-      }}>
-          Xem lịch trình
+      }}
+      onMouseMove={listenMouseEvent}
+      onMouseLeave={listenMouseLeaveEvent}
+      >
+        <BlobShape pos={pos}></BlobShape>
+        <ParaText>Xem lịch trình</ParaText>
       </ButtonWhite>
     </BorderedContainer>
   )

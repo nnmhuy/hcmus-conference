@@ -71,17 +71,39 @@ export default function BookItem(props) {
     let srcImage = null
     if (image) {
       switch (image) {
-        case 1: srcImage = tieuBan1; break;
-        case 2: srcImage = tieuBan2; break;
-        case 3: srcImage = tieuBan3; break;
-        case 4: srcImage = tieuBan4; break;
-        case 5: srcImage = tieuBan5; break;
-        case 6: srcImage = tieuBan6; break;
-        case 7: srcImage = tieuBan7; break;
-        case 8: srcImage = tieuBan8; break;
-        case 9: srcImage = tieuBan9; break;
-        case 10: srcImage = tieuBan10; break;
-        default: srcImage = tieuBan1; break;
+        case 1: 
+          srcImage = tieuBan1
+          break
+        case 2: 
+          srcImage = tieuBan2
+          break
+        case 3: 
+          srcImage = tieuBan3
+          break
+        case 4: 
+          srcImage = tieuBan4
+          break
+        case 5: 
+          srcImage = tieuBan5
+          break
+        case 6: 
+          srcImage = tieuBan6
+          break
+        case 7: 
+          srcImage = tieuBan7
+          break
+        case 8: 
+          srcImage = tieuBan8
+          break
+        case 9: 
+          srcImage = tieuBan9
+          break
+        case 10:
+          srcImage = tieuBan10
+          break
+        default:
+          srcImage = tieuBan1
+          break
       }
       return <ImageBook src={srcImage} alt={alt} />
     }

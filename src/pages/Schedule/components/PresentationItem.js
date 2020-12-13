@@ -63,9 +63,13 @@ const useStyles = makeStyles(theme => ({
   },
   buttonContainer: {
     display: 'flex',
-    alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    marginTop: 5
+    marginTop: 5,
+    "@media (min-width: 768px)": {
+      flexDirection: 'row',
+      alignItems: 'center'
+    }
   },
   majorText: {
     lineHeight: 2,
