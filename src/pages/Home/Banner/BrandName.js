@@ -164,6 +164,7 @@ const BrandName = (props) => {
         second
       })
     }
+    getDiffInDate();
 
     const timer = setInterval(() => {getDiffInDate()}, 1000)
 
