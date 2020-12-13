@@ -16,6 +16,7 @@ import AddToCalendarButton from './AddToCalendarButton'
 import getMajorInfos from '../../../helpers/getMajorInfos'
 
 import ClockIcon from '@material-ui/icons/AccessTime';
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
@@ -25,7 +26,10 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
   },
   paper: {
-    padding: '6px 16px',
+    padding: '6px 0',
+    '@media (min-width: 568px)': {
+      padding: '6px 16px',
+    }
   },
   timelineConnector: {
     background: '#F4F5F8',
@@ -37,17 +41,19 @@ const useStyles = makeStyles(theme => ({
   timeContainer: {
     display: 'flex',
     alignItems: 'center',
+    marginRight: 5
   },
   clockIcon: {
     color: '#707070',
-    width: 13,
-    height: 13,
+    width: '1.3rem',
+    height: '1.3rem',
   },
   timeText: {
     fontSize: '0.8rem',
+    lineHeight: '0.7rem',
     marginLeft: 5,
     color: '#4041D2',
-    fontWeight: 600,
+    fontWeight: 600
   },
   titleContainer: {
     display: 'flex',
@@ -63,9 +69,13 @@ const useStyles = makeStyles(theme => ({
   },
   buttonContainer: {
     display: 'flex',
-    alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    marginTop: 5
+    marginTop: 5,
+    "@media (min-width: 768px)": {
+      flexDirection: 'row',
+      alignItems: 'center'
+    }
   },
   majorText: {
     lineHeight: 2,
@@ -80,12 +90,14 @@ const useStyles = makeStyles(theme => ({
   },
   descriptionText: {
     fontSize: '1rem',
-    color: '#707070'
+    color: '#707070',
+    fontWeight: 500,
   },
   authorText: {
     color: '#4041D2',
     fontSize: '0.8rem',
     marginTop: 5,
+    fontWeight: 500,
   }
 }))
 
@@ -95,6 +107,7 @@ const PresentationItem = (props) => {
   const { majorId, startDate, endDate, title, description, linkZoom, author } = presentation
 
   const { majorName, majorIcon } = getMajorInfos(majorId)
+  const room = "C.23"
 
   const [isExpanded, setIsExpanded] = React.useState(false)
 
@@ -109,9 +122,15 @@ const PresentationItem = (props) => {
       <TimelineContent>
         <Paper elevation={0} className={classes.paper}>
           <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
+            <div style={{display: 'flex'}}>
             <div className={classes.timeContainer}>
               <ClockIcon className={classes.clockIcon}/>
               <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")} - ${moment(endDate).format("k:mm A")}`}</span>
+            </div>
+            <div className={classes.timeContainer}>
+              <MeetingRoomIcon className={classes.clockIcon}/>
+              <span className={classes.timeText}>{room}</span>
+            </div>
             </div>
             <div className={classes.titleContainer}>
               <div className={classes.title}>{title}</div>

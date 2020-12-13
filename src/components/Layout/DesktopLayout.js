@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import { NavLink } from 'react-router-dom';
 
 import Logo from './components/Logo'
 import HideOnScroll from './components/HideOnScroll'
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   mainTitle: {
     display: 'inline-block',
     fontWeight: 600,
+    color: 'white',
     marginLeft: 15,
     textTransform: 'uppercase'
   },
@@ -50,15 +52,19 @@ const DesktopLayout = (props) => {
     <div className={classes.root}>
       <HideOnScroll {...props}>
         <AppBar className={classes.appBar} style={{background: themeColor ? '#4053EB' : 'transparent'}}>
-          <Toolbar>
-            <div className={classes.leftSection}>
-              <Logo href='/'/>
-            </div>
-            <div className={classes.centerSection}>
-              <div className={classes.mainTitle}>
-                Hội nghị khoa học<br/>lần thứ XII - 2020
+          <Toolbar style={{display: 'flex', justifyContent:'space-between'}}>
+            <NavLink to='/'>
+              <div style={{display: 'flex'}}>
+              <div className={classes.leftSection}>
+                <Logo/>
               </div>
-            </div>
+              <div className={classes.centerSection}>
+                <div className={classes.mainTitle}>
+                  Hội nghị khoa học<br/>lần thứ XII - 2020
+                </div>
+              </div>
+              </div>
+            </NavLink>
             <div className={classes.rightSection}>
               <NavBarItems/>
             </div>

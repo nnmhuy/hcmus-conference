@@ -37,7 +37,7 @@ const SponsorContainerHeading = styled.div`
 `
 
 const HeadingText = styled.h2`
-  font-size: 2.5em;
+  font-size: 2.3em;
   margin-bottom: 0;
   // color: #01458E;
   color: #4053EB;
@@ -103,10 +103,11 @@ const SponsorList = (props) => {
   const renderSponsorList = type => {
     return get(allSponsorByRank, type, []).map((sponsorItem, index) => {
       if (!sponsorItem.url || sponsorItem.url === '') {
-        return 
+        return ( 
           <Tooltip key={type + index} title={sponsorItem.name} aria-label={sponsorItem.name}>
             <SponsorImage src={sponsorItem.image} alt={sponsorItem.name}/>
           </Tooltip>
+        )
       }
       return (
         <Tooltip key={type + index} title={sponsorItem.name} aria-label={sponsorItem.name}>

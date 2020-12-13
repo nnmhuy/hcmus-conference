@@ -24,13 +24,16 @@ const useStyles = makeStyles(theme => ({
     paddingRight: 12,
     margin: 5,
     color: '#FFFFFF',
-    borderRadius: 20,
-    fontSize: '0.8rem',
-    fontWeight: 500,
+    borderRadius: 50,
+    fontSize: '1rem',
+    fontWeight: 600,
     cursor: 'pointer',
+    transition: 'all 0.3s',
+    opacity: '0.2',
+    background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
   },
   activeMajor: {
-    background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+    opacity: 1,
   }
 }))
 

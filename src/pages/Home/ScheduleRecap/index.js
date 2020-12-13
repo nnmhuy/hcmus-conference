@@ -3,75 +3,6 @@ import styled from 'styled-components'
 import MainEvent from './MainEvent'
 import SubEvent from './SubEvent'
 
-const recapData = [
-  {
-    type: 'main',
-    time: '08:30',
-    date: '18/12',
-    title: 'Khai mạc'
-  },
-  {
-    type: 'sub',
-    time: '09:30',
-    date: '18/12',
-    title: 'Phiên 1'
-  },
-  {
-    type: 'sub',
-    time: '10:30',
-    date: '18/12',
-    title: 'Phiên 2'
-  },
-  {
-    type: 'sub',
-    time: '13:30',
-    date: '18/12',
-    title: 'Phiên 3'
-  },
-  {
-    type: 'sub',
-    time: '15:30',
-    date: '18/12',
-    title: 'Phiên 4'
-  },
-  {
-    type: 'main',
-    time: '07:30',
-    date: '19/12',
-    title: 'Khai mạc'
-  },
-  {
-    type: 'sub',
-    time: '08:30',
-    date: '19/12',
-    title: 'Phiên 1'
-  },
-  {
-    type: 'sub',
-    time: '10:30',
-    date: '19/12',
-    title: 'Phiên 2'
-  },
-  {
-    type: 'sub',
-    time: '13:30',
-    date: '19/12',
-    title: 'Phiên 3'
-  },
-  {
-    type: 'sub',
-    time: '15:30',
-    date: '19/12',
-    title: 'Phiên 4'
-  },
-  {
-    type: 'main',
-    time: '16:30',
-    date: '19/12',
-    title: 'Tổng kết'
-  },
-]
-
 const RecapContainer = styled.div`
   margin: 0 auto 70px auto;
   width: 80%;
@@ -89,7 +20,7 @@ const PercentageRoad = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 30%;
+  width: ${props => props.percentage};
   height: 7px;
   background-color: #CEE0F2;
   border-radius: 100px;
@@ -104,11 +35,12 @@ const EventContainer = styled.div`
   left: 0;
 `
 //start --- p1---p2---p3---p4---p1---p2---p3---p4---end
-const ScheduleRecap = () => {
+const ScheduleRecap = (props) => {
+  const { recapData, percentage } = props
   return (
     <RecapContainer>
-      <MainRoad></MainRoad>
-      <PercentageRoad></PercentageRoad>
+      <MainRoad/>
+      <PercentageRoad percentage={percentage}/>
       <EventContainer>
         {
           recapData.map((item, index) => {

@@ -30,7 +30,7 @@ const BannerContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   margin-bottom: 90px;
-  padding: 100px 0 0 0;
+  padding: 105px 0 0 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;

@@ -14,9 +14,7 @@ const LogoComponent = (props) => {
   const classes = useStyles()
 
   return (
-    <a href='/'>
-      <img src={LogoWhite} className={classes.logo} alt='logo-horizontal'/>
-    </a>
+    <img src={LogoWhite} className={classes.logo} alt='logo-horizontal'/>
   )
 }
 
