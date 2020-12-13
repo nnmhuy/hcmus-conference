@@ -103,10 +103,11 @@ const SponsorList = (props) => {
   const renderSponsorList = type => {
     return get(allSponsorByRank, type, []).map((sponsorItem, index) => {
       if (!sponsorItem.url || sponsorItem.url === '') {
-        return 
+        return ( 
           <Tooltip key={type + index} title={sponsorItem.name} aria-label={sponsorItem.name}>
             <SponsorImage src={sponsorItem.image} alt={sponsorItem.name}/>
           </Tooltip>
+        )
       }
       return (
         <Tooltip key={type + index} title={sponsorItem.name} aria-label={sponsorItem.name}>

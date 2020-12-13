@@ -150,7 +150,7 @@ const BrandName = (props) => {
       const currentDate = new Date()
 
       const diff = endDate - currentDate
-      if (diff == 0) return
+      if (diff === 0) return
 
       const day = parseInt(diff / (1000 * 60 * 60 * 24))
       const hour = parseInt(Math.abs(diff) / (1000 * 60 * 60) % 24)

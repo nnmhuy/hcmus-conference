@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import MainEvent from './MainEvent'
 import SubEvent from './SubEvent'

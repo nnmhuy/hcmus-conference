@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Banner from './Banner';
-import CourseList from './CourseList';
-import ScheduleRecap from './ScheduleRecap';
-import SponsorList from './SponsorList';
-import Statistics from './Statistics';
-import styled from 'styled-components'
+import Banner from './Banner'
+import CourseList from './CourseList'
+import ScheduleRecap from './ScheduleRecap'
+import SponsorList from './SponsorList'
+import Statistics from './Statistics'
 import './style.css'
 
 const recapData = [
@@ -83,9 +82,9 @@ const Home = (props) => {
     const handleResize = () => {
       setScreenSize(window.innerWidth)
     }
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 
