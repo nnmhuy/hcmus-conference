@@ -76,7 +76,7 @@ const recapData = [
 ]
 
 const Home = (props) => {
-  const [screenSize, setScreenSize] = useState(1280)
+  const [screenSize, setScreenSize] = useState(window.innerWidth)
 
   useEffect(()=>{
     const handleResize = () => {
