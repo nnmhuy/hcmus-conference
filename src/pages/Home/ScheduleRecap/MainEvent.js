@@ -74,7 +74,7 @@ const MainCircleStraight = styled.div`
   
 `
 
-const MainEvent = (props) => {
+function MainEvent(props) {
   const { title, date, time } = props.sched
   return (
     <MainEventContainer>
