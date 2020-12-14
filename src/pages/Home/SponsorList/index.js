@@ -97,7 +97,7 @@ const SponsorListHolder = styled.div`
   }
 `
 
-const SponsorList = (props) => {
+function SponsorList(props) {
   const { allSponsorByRank } = props
 
   const renderSponsorList = type => {

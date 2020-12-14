@@ -77,7 +77,7 @@ const CourseListContainer = styled.div`
   }
 `
 
-const CourseList = () => {
+function CourseList() {
   return (
     <CourseListContainer>
       <CourseHeading>Với sự tham gia của 10 tiểu ban</CourseHeading>
