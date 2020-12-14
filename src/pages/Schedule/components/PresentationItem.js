@@ -13,6 +13,7 @@ import moment from 'moment'
 import TimelineDotIcon from './TimelineDotIcon'
 import ZoomButton from './ZoomButton'
 import AddToCalendarButton from './AddToCalendarButton'
+import LinkPaperButton from './LinkPaperButton'
 import getMajorInfos from '../../../helpers/getMajorInfos'
 
 import ClockIcon from '@material-ui/icons/AccessTime';
@@ -38,10 +39,20 @@ const useStyles = makeStyles(theme => ({
   summaryRoot: {
     cursor: 'pointer'
   },
+  numberContainer: {
+    display: 'flex',
+    "@media (max-width: 768px)": {
+      flexDirection: 'column',
+    }
+  },
   timeContainer: {
     display: 'flex',
     alignItems: 'center',
-    marginRight: 5
+    marginRight: 5,
+    "@media (max-width: 768px)": {
+      marginRight: 0,
+      marginBottom: 5,
+    }
   },
   clockIcon: {
     color: '#707070',
@@ -104,10 +115,9 @@ const useStyles = makeStyles(theme => ({
 const PresentationItem = (props) => {
   const classes = useStyles()
   const { presentation } = props
-  const { majorId, startDate, endDate, title, description, linkZoom, author } = presentation
+  const { majorId, startDate, endDate, title, description, room, linkZoom, paperLink, author } = presentation
 
   const { majorName, majorIcon } = getMajorInfos(majorId)
-  const room = "C.23"
 
   const [isExpanded, setIsExpanded] = React.useState(false)
 
@@ -122,15 +132,17 @@ const PresentationItem = (props) => {
       <TimelineContent>
         <Paper elevation={0} className={classes.paper}>
           <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
-            <div style={{display: 'flex'}}>
-            <div className={classes.timeContainer}>
-              <ClockIcon className={classes.clockIcon}/>
-              <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")} - ${moment(endDate).format("k:mm A")}`}</span>
-            </div>
-            <div className={classes.timeContainer}>
-              <MeetingRoomIcon className={classes.clockIcon}/>
-              <span className={classes.timeText}>{room}</span>
-            </div>
+            <div className={classes.numberContainer}>
+              <div className={classes.timeContainer}>
+                <ClockIcon className={classes.clockIcon}/>
+                <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")} - ${moment(endDate).format("k:mm A")}`}</span>
+              </div>
+              {room && 
+                <div className={classes.timeContainer}>
+                  <MeetingRoomIcon className={classes.clockIcon}/>
+                  <span className={classes.timeText}>{room}</span>
+                </div>
+              }
             </div>
             <div className={classes.titleContainer}>
               <div className={classes.title}>{title}</div>
@@ -143,6 +155,7 @@ const PresentationItem = (props) => {
               <div className={classes.majorText}>{majorName}</div>
               <div>
                 <ZoomButton linkZoom={linkZoom}/>
+                <LinkPaperButton paperLink={paperLink}/>
                 <AddToCalendarButton {...presentation} />
               </div>
             </div>

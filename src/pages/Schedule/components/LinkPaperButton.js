@@ -3,7 +3,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles'
 
-import EnterRoomIcon from '../../../static/images/enter-room-icon.svg'
+import DescriptionIcon from '@material-ui/icons/Description';
 
 const CustomButton = withStyles({
   root: {
@@ -19,23 +19,26 @@ const CustomButton = withStyles({
   },
 })(Button);
 
-const ZoomButton = (props) => {
-  const { linkZoom } = props
+const LinkPaperButton = (props) => {
+  const { paperLink } = props
+  if (!paperLink) {
+    return null
+  }
   return (
     <CustomButton
       color="primary"
       size="small"
       startIcon={
         <IconButton size="small" >
-          <img src={EnterRoomIcon} style={{ width: 'auto', height: 15 }} alt="zoom-icon"/>
+          <DescriptionIcon fontSize="inherit" style={{ color: '#4041D2', width: 'auto', height: 15 }}/>
         </IconButton>}
-      href={linkZoom}
+      href={paperLink}
       target="_blank"
       onClick={(e) => { e.stopPropagation() }}
     >
-      Vào phòng Zoom
+      PDF bài báo
     </CustomButton>
   )
 }
 
-export default ZoomButton
+export default LinkPaperButton

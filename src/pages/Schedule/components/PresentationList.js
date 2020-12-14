@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import Timeline from '@material-ui/lab/Timeline';
-import { filter, cloneDeep, find } from 'lodash'
+import { filter, get, } from 'lodash'
 import moment from 'moment'
 
 import PresentationItem from './PresentationItem'
@@ -17,9 +17,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-// TODO: scroll to active presentation
 const PresentationList = (props) => {
-  console.log(props)
   const classes = useStyles()
   const { allPresentation, filter: majorFilter = [], sessionStartDate, sessionEndDate } = props
 
@@ -27,11 +25,11 @@ const PresentationList = (props) => {
     let filteredPresentations = []
     if (majorFilter.length) {
       majorFilter.forEach(majorId => {
-        filteredPresentations = [...filteredPresentations, ...allPresentation[majorId]]
+        filteredPresentations = [...filteredPresentations, ...get(allPresentation, majorId, [])]
       });
     } else {
       Object.keys(allPresentation).forEach(majorId => {
-        filteredPresentations = [...filteredPresentations, ...allPresentation[majorId]]
+        filteredPresentations = [...filteredPresentations, ...get(allPresentation, majorId, [])]
       })
     }
     filteredPresentations = filter(filteredPresentations, (presentation) => {

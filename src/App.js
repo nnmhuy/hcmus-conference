@@ -52,7 +52,7 @@ function App(props) {
   return (
     <MuiThemeProvider theme={theme}>
       <Router>
-      <Layout/>
+        <Layout/>
         <Suspense fallback={<Loading isLoading/>}>
           <Loading isLoading={isLoadingAll}/>
           <Switch>
