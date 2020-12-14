@@ -130,7 +130,7 @@ const ParaText = styled.span`
   pointer-events: none;
 `
 
-const BrandName = (props) => {
+function BrandName(props) {
   const [timeState, setTime] = useState({
     day: 1,
     hour: 1,
@@ -190,6 +190,10 @@ const BrandName = (props) => {
     setPos({...pos, scale: "scale(0)"})
   }
 
+  const switchPath = () => {
+    props.history.push('/chuong-trinh')
+  }
+
   return (
     <BorderedContainer>
       {
@@ -232,9 +236,7 @@ const BrandName = (props) => {
       HỘI NGHỊ KHOA HỌC
       <br/>LẦN THỨ XII - 2020
       </EventName>
-      <ButtonWhite onClick={()=>{
-        props.history.push('/chuong-trinh')
-      }}
+      <ButtonWhite onClick={switchPath}
       onMouseMove={listenMouseEvent}
       onMouseLeave={listenMouseLeaveEvent}
       >

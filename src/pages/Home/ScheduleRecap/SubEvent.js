@@ -53,7 +53,7 @@ const SubCircleStraight = styled.div`
   border-radius: 50%;
 `
 
-const SubEvent = (props) => {
+function SubEvent(props) {
   const { title, time } = props.sched
   return (
     <SubEventContainer>

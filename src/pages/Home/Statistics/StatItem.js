@@ -23,7 +23,7 @@ const Title = styled.p`
   text-transform: uppercase;
 `
 
-const StatItem = (props) => {
+function StatItem(props) {
   const { count, label } = props
   return (
     <CenteredText>

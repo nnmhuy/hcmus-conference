@@ -35,7 +35,7 @@ const EventContainer = styled.div`
   left: 0;
 `
 //start --- p1---p2---p3---p4---p1---p2---p3---p4---end
-const ScheduleRecap = (props) => {
+function ScheduleRecap(props) {
   const { recapData, percentage } = props
   return (
     <RecapContainer>
