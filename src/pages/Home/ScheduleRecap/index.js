@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import MainEvent from './MainEvent'
 import SubEvent from './SubEvent'
 
+import { getTimePercent } from '../../../helpers/timeConverter'
+
 const RecapContainer = styled.div`
   margin: 0 auto 70px auto;
   width: 80%;
@@ -36,7 +38,8 @@ const EventContainer = styled.div`
 `
 //start --- p1---p2---p3---p4---p1---p2---p3---p4---end
 function ScheduleRecap(props) {
-  const { recapData, percentage } = props
+  const { recapData } = props
+  let percentage = `${getTimePercent(recapData)}%`
   return (
     <RecapContainer>
       <MainRoad/>

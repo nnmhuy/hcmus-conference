@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { getDayMonthFromTime, getHourMinuteFromTime } from '../../../helpers/timeConverter'
+
 const TitleText = styled.div`
   position: absolute;
   width: max-content;
@@ -75,13 +77,13 @@ const MainCircleStraight = styled.div`
 `
 
 function MainEvent(props) {
-  const { title, date, time } = props.sched
+  const { title, time } = props.sched
   return (
     <MainEventContainer>
-      <DateText>{date}</DateText>
+      <DateText>{getDayMonthFromTime(time)}</DateText>
       <TitleText>{title}</TitleText>
       <MainCircleStraight/>
-      <TimeTextBelow>{time}</TimeTextBelow>
+      <TimeTextBelow>{getHourMinuteFromTime(time)}</TimeTextBelow>
     </MainEventContainer>
   )
 }
