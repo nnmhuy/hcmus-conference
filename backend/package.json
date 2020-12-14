@@ -21,6 +21,7 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
     "loopback-connector-mongodb": "^4.2.0",
+    "react-admin-loopback": "^1.0.6",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^4.0.0"
   },
