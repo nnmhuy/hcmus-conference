@@ -9,68 +9,57 @@ import './style.css'
 const recapData = [
   {
     type: 'main',
-    time: '08:30',
-    date: '18/12',
+    time: new Date("December 13, 2020 8:30:00"),
     title: 'Khai mạc'
   },
   {
-    type: 'sub',
-    time: '09:30',
-    date: '18/12',
+    type: 'main',
+    time: new Date("December 14, 2020 9:30:00"),
     title: 'Phiên 1'
   },
   {
-    type: 'sub',
-    time: '10:30',
-    date: '18/12',
+    type: 'main',
+    time: new Date("December 15, 2020 10:30:00"),
     title: 'Phiên 2'
   },
   {
     type: 'sub',
-    time: '13:30',
-    date: '18/12',
+    time: new Date("December 18, 2020 13:30:00"),
     title: 'Phiên 3'
   },
   {
     type: 'sub',
-    time: '15:30',
-    date: '18/12',
+    time: new Date("December 18, 2020 15:30:00"),
     title: 'Phiên 4'
   },
   {
     type: 'main',
-    time: '07:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 7:30:00"),
     title: 'Khai mạc'
   },
   {
     type: 'sub',
-    time: '08:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 8:30:00"),
     title: 'Phiên 1'
   },
   {
     type: 'sub',
-    time: '10:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 10:30:00"),
     title: 'Phiên 2'
   },
   {
     type: 'sub',
-    time: '13:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 13:30:00"),
     title: 'Phiên 3'
   },
   {
     type: 'sub',
-    time: '15:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 15:30:00"),
     title: 'Phiên 4'
   },
   {
     type: 'main',
-    time: '16:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 16:30:00"),
     title: 'Tổng kết'
   },
 ]
@@ -96,11 +85,11 @@ const Home = (props) => {
       <Banner />
       {
         screenSize >= 600 ?
-          <ScheduleRecap recapData = {recapData} percentage={'30%'}/>
+          <ScheduleRecap recapData = {recapData}/>
         :
         <>
-          <ScheduleRecap recapData = {recapData.slice(0,6)} percentage={'30%'}/>
-          <ScheduleRecap recapData = {recapData.slice(5,12)} percentage={'0%'}/>
+          <ScheduleRecap recapData = {recapData.slice(0,6)}/>
+          <ScheduleRecap recapData = {recapData.slice(5,12)}/>
         </>
       }
       <CourseList/>
