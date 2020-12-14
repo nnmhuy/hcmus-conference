@@ -23,13 +23,17 @@
       "type": "string",
       "required": true
     },
+    "room": {
+      "type": "string"
+    },
+    "paperLink": {
+      "type": "string"
+    },
     "description": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "linkZoom": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "author": {
       "type": "string",
