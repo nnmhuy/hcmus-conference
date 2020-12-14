@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { getHourMinuteFromTime } from '../../../helpers/timeConverter'
+
 const TitleText = styled.div`
   position: absolute;
   width: max-content;
@@ -35,6 +37,7 @@ const TimeTextBelow = styled.div`
   font-size: 0.8rem;
   font-weight: 400;
   left: 50%;
+  top: 50%;
   transform: translateX(-50%);
 `
 
@@ -59,7 +62,7 @@ function SubEvent(props) {
     <SubEventContainer>
       <TitleText>{title}</TitleText>
       <SubCircleStraight/>
-      <TimeTextBelow>{time}</TimeTextBelow>
+      <TimeTextBelow>{getHourMinuteFromTime(time)}</TimeTextBelow>
     </SubEventContainer>
   )
 }

@@ -9,70 +9,49 @@ import './style.css'
 const recapData = [
   {
     type: 'main',
-    time: '08:30',
-    date: '18/12',
-    title: 'Khai mạc'
-  },
-  {
-    type: 'sub',
-    time: '09:30',
-    date: '18/12',
+    time: new Date("December 18, 2020 10:00:00"),
     title: 'Phiên 1'
   },
   {
     type: 'sub',
-    time: '10:30',
-    date: '18/12',
+    time: new Date("December 18, 2020 13:30:00"),
     title: 'Phiên 2'
   },
   {
     type: 'sub',
-    time: '13:30',
-    date: '18/12',
+    time: new Date("December 18, 2020 15:45:00"),
     title: 'Phiên 3'
   },
   {
     type: 'sub',
-    time: '15:30',
-    date: '18/12',
+    time: new Date("December 18, 2020 16:00:00"),
     title: 'Phiên 4'
   },
   {
     type: 'main',
-    time: '07:30',
-    date: '19/12',
-    title: 'Khai mạc'
-  },
-  {
-    type: 'sub',
-    time: '08:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 10:00:00"),
     title: 'Phiên 1'
   },
   {
     type: 'sub',
-    time: '10:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 13:30:00"),
     title: 'Phiên 2'
   },
   {
     type: 'sub',
-    time: '13:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 15:45:00"),
     title: 'Phiên 3'
   },
   {
     type: 'sub',
-    time: '15:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 16:00:00"),
     title: 'Phiên 4'
   },
   {
     type: 'main',
-    time: '16:30',
-    date: '19/12',
+    time: new Date("December 19, 2020 17:00:00"),
     title: 'Tổng kết'
-  },
+  }
 ]
 
 const Home = (props) => {
@@ -96,11 +75,11 @@ const Home = (props) => {
       <Banner />
       {
         screenSize >= 600 ?
-          <ScheduleRecap recapData = {recapData} percentage={'30%'}/>
+          <ScheduleRecap recapData = {recapData}/>
         :
         <>
-          <ScheduleRecap recapData = {recapData.slice(0,6)} percentage={'30%'}/>
-          <ScheduleRecap recapData = {recapData.slice(5,12)} percentage={'0%'}/>
+          <ScheduleRecap recapData = {recapData.slice(0,6)}/>
+          <ScheduleRecap recapData = {recapData.slice(5,12)}/>
         </>
       }
       <CourseList/>
