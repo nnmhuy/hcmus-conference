@@ -43,7 +43,7 @@ const theme = createMuiTheme({
   }
 })
 
-const App = (props) => {
+function App(props) {
   const { isLoadingAll, getAllPresentationHandler } = props
   useEffect(() => {
     getAllPresentationHandler()
