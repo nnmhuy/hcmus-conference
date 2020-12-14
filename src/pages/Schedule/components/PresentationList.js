@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
 
 
 const PresentationList = (props) => {
-  console.log(props)
   const classes = useStyles()
   const { allPresentation, filter: majorFilter = [], sessionStartDate, sessionEndDate } = props
 
