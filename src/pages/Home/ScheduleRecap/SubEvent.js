@@ -37,6 +37,7 @@ const TimeTextBelow = styled.div`
   font-size: 0.8rem;
   font-weight: 400;
   left: 50%;
+  top: 50%;
   transform: translateX(-50%);
 `
 

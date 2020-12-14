@@ -1,7 +1,16 @@
 // input Date
 // output string HH:MM
 function getHourMinuteFromTime(time) {
-  return time.getHours() + ':' + time.getMinutes()
+  let hour = time.getHours();
+  let min = time.getMinutes();
+
+  if (hour < 10) {
+    hour = '0' + time.getHours()
+  }
+  if (min < 10) {
+    min = '0' + time.getMinutes()
+  }
+  return hour + ':' + min
 }
 
 

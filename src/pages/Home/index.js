@@ -9,59 +9,49 @@ import './style.css'
 const recapData = [
   {
     type: 'main',
-    time: new Date("December 13, 2020 8:30:00"),
-    title: 'Khai mạc'
-  },
-  {
-    type: 'main',
-    time: new Date("December 14, 2020 9:30:00"),
+    time: new Date("December 18, 2020 10:00:00"),
     title: 'Phiên 1'
-  },
-  {
-    type: 'main',
-    time: new Date("December 15, 2020 10:30:00"),
-    title: 'Phiên 2'
   },
   {
     type: 'sub',
     time: new Date("December 18, 2020 13:30:00"),
-    title: 'Phiên 3'
-  },
-  {
-    type: 'sub',
-    time: new Date("December 18, 2020 15:30:00"),
-    title: 'Phiên 4'
-  },
-  {
-    type: 'main',
-    time: new Date("December 19, 2020 7:30:00"),
-    title: 'Khai mạc'
-  },
-  {
-    type: 'sub',
-    time: new Date("December 19, 2020 8:30:00"),
-    title: 'Phiên 1'
-  },
-  {
-    type: 'sub',
-    time: new Date("December 19, 2020 10:30:00"),
     title: 'Phiên 2'
   },
   {
     type: 'sub',
-    time: new Date("December 19, 2020 13:30:00"),
+    time: new Date("December 18, 2020 15:45:00"),
     title: 'Phiên 3'
   },
   {
     type: 'sub',
-    time: new Date("December 19, 2020 15:30:00"),
+    time: new Date("December 18, 2020 16:00:00"),
     title: 'Phiên 4'
   },
   {
     type: 'main',
-    time: new Date("December 19, 2020 16:30:00"),
-    title: 'Tổng kết'
+    time: new Date("December 19, 2020 10:00:00"),
+    title: 'Phiên 1'
   },
+  {
+    type: 'sub',
+    time: new Date("December 19, 2020 13:30:00"),
+    title: 'Phiên 2'
+  },
+  {
+    type: 'sub',
+    time: new Date("December 19, 2020 15:45:00"),
+    title: 'Phiên 3'
+  },
+  {
+    type: 'sub',
+    time: new Date("December 19, 2020 16:00:00"),
+    title: 'Phiên 4'
+  },
+  {
+    type: 'main',
+    time: new Date("December 19, 2020 17:00:00"),
+    title: 'Tổng kết'
+  }
 ]
 
 const Home = (props) => {
