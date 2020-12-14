@@ -166,9 +166,8 @@ function BrandName(props) {
     }
     getDiffInDate();
 
-    const timer = setInterval(() => {getDiffInDate()}, 1000)
-
-    return () => {
+    const timer = setInterval(function() { getDiffInDate() }, 1000)
+    return function() {
       clearInterval(timer)
     }
   }, [])
