@@ -40,7 +40,7 @@ const BannerContainer = styled.div`
   }
 `
 
-const Banner = () => {
+function Banner() {
   return (
     <BannerContainer>
       {/* <ImageBackground src={bgBanner} /> */}

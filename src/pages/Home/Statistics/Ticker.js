@@ -13,7 +13,7 @@ const Counter = styled.h3`
   }
 `
 
-const Ticker = ({ className, ...rest }) => {
+function Ticker({ className, ...rest }) {
   const [viewPortEntered, setViewPortEntered] = useState(false);
 
   return (
