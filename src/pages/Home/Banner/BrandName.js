@@ -127,6 +127,8 @@ const ParaText = styled.span`
   margin: 0;
   position: relative;
   z-index: 3;
+  font-weight: 600;
+  text-transform: uppercase;
   pointer-events: none;
 `
 

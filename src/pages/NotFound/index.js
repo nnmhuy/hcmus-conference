@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import BookBubble from '../../static/images/book-bubble2@2x.png'
@@ -103,7 +103,54 @@ const ButtonWhite = styled.button`
   }
 `
 
+const BlobShapeMini = styled.div`
+  width: 40px;
+  height: 40px;
+  // background: #ffa638;
+  // background: #aad7d0;
+  background: #ffb647;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  transform: ${props => props.pos.scale} translateZ(0);
+  transition: transform 0.3s ease;
+  animation: blobRadius 6s ease-in-out infinite;
+  top: ${props => props.pos.top};
+  left: ${props => props.pos.left};
+`
+
+const ParaText = styled.span`
+  margin: 0;
+  position: relative;
+  z-index: 3;
+  pointer-events: none;
+`
+
 export default function NotFound() {
+
+  const [pos, setPos] = useState({
+    left: 0,
+    top: 0,
+    scale: "scale(0)"
+  })
+
+  const listenMouseEvent = e => {
+    const rect = e.target.getBoundingClientRect();
+    
+    const X = e.clientX - rect.left;
+    const Y = e.clientY - rect.top;
+
+    setPos({
+      top: Y - 40 / 2 + "px",
+      left: X - 40 / 2 + "px",
+      scale: "scale(1)"
+    })
+  }
+
+  const listenMouseLeaveEvent = e => {
+    setPos({...pos, scale: "scale(0)"})
+  }
+
   return (
     <NotFoundContainer>
       <SelfContainer>
@@ -111,8 +158,12 @@ export default function NotFound() {
         <BookBubbleImg src={BookBubble}/>
         <NotFoundText>404</NotFoundText>
         <NavLink to="/">
-          <ButtonWhite>
-            VỀ TRANG CHỦ
+          <ButtonWhite
+            onMouseMove={listenMouseEvent}
+            onMouseLeave={listenMouseLeaveEvent}
+          >
+            <BlobShapeMini pos={pos}></BlobShapeMini>
+            <ParaText>VỀ TRANG CHỦ</ParaText>
           </ButtonWhite>
         </NavLink>
       </SelfContainer>
