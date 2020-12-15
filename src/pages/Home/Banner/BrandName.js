@@ -127,6 +127,8 @@ const ParaText = styled.span`
   margin: 0;
   position: relative;
   z-index: 3;
+  font-weight: 600;
+  text-transform: uppercase;
   pointer-events: none;
 `
 
@@ -166,9 +168,8 @@ function BrandName(props) {
     }
     getDiffInDate();
 
-    const timer = setInterval(() => {getDiffInDate()}, 1000)
-
-    return () => {
+    const timer = setInterval(function() { getDiffInDate() }, 1000)
+    return function() {
       clearInterval(timer)
     }
   }, [])

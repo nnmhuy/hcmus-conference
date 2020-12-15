@@ -57,10 +57,10 @@
 }
 
 *, body {
-  font-family: 'Gilroy';
+  font-family: 'Gilroy', Oxygen, Cantarell, sans-serif;
   font-size: 14px;
 }
 
 @keyframes blinkBorder { 
-   60% { border-color: transparent; } 
+  60% { border-color: transparent; } 
 }

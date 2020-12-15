@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import MainEvent from './MainEvent'
 import SubEvent from './SubEvent'
@@ -39,18 +39,17 @@ const EventContainer = styled.div`
 //start --- p1---p2---p3---p4---p1---p2---p3---p4---end
 function ScheduleRecap(props) {
   const { recapData } = props
-  const [percentage, setPercentage] = useState("0")
-
-  useEffect(() => {
-    const timer = setInterval(()=>{
-      setPercentage(`${getTimePercent(recapData)}%`)
-      console.log(percentage)
-    }, 1000)
-    return () => {
+  let percentage = `${getTimePercent(recapData)}%`
+  useEffect(function() {
+    const timer = setInterval(function(){
+      percentage = `${getTimePercent(recapData)}%`
+    }, 50000)
+    return function() {
       clearInterval(timer)
     }
   }, [])
 
+   
   return (
     <RecapContainer>
       <MainRoad/>

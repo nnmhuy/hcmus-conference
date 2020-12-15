@@ -60,7 +60,7 @@ const Home = (props) => {
 
 
   useEffect(()=>{
-    const handleResize = () => {
+    function handleResize() {
       setScreenSize(window.innerWidth)
     }
 
@@ -78,8 +78,8 @@ const Home = (props) => {
           <ScheduleRecap recapData = {recapData}/>
         :
         <>
-          <ScheduleRecap recapData = {recapData.slice(0,6)}/>
-          <ScheduleRecap recapData = {recapData.slice(5,12)}/>
+          <ScheduleRecap recapData = {recapData.slice(0,5)}/>
+          <ScheduleRecap recapData = {recapData.slice(4,12)}/>
         </>
       }
       <CourseList/>
