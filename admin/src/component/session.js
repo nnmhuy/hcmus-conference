@@ -7,9 +7,9 @@ export const SessionList = (props) => (
     <List {...props}>
         <Datagrid>
             <TextField source="id" />
-            <DateField source="start_date" />
-            <DateField source="end_date" />
-            <EditButton basePath="/presentations" />
+            <DateField source="startDate" />
+            <DateField source="endDate" />
+            <EditButton basePath="/sessions" />
         </Datagrid>
     </List>
 );
@@ -22,8 +22,8 @@ export const SessionEdit = (props) => (
     <Edit title={<SessionTitle />} {...props}>
         <SimpleForm>
             <TextInput disabled source="id" />
-            <DateInput label="Start date" source="start_date" />
-            <DateInput label="End date" source="end_date" />
+            <DateInput label="Start date" source="startDate" />
+            <DateInput label="End date" source="endDate" />
         </SimpleForm>
     </Edit>
 );
@@ -32,8 +32,8 @@ export const SessionCreate = (props) => (
     <Create title="Create a session" {...props}>
         <SimpleForm>
           <TextInput disabled source="id" />
-          <DateInput label="Start date" source="start_date" />
-          <DateInput label="End date" source="end_date" />
+          <DateInput label="Start date" source="startDate" />
+          <DateInput label="End date" source="endDate" />
         </SimpleForm>
     </Create>
 );
