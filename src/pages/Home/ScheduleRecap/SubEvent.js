@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import colors from '../../../constants/colors'
 import { getHourMinuteFromTime } from '../../../helpers/timeConverter'
 
 const TitleText = styled.div`
@@ -8,7 +9,7 @@ const TitleText = styled.div`
   width: max-content;
   text-align: center;
   font-size: 1rem;
-  color: #4053EB;
+  color: ${colors.primaryBlue};
   font-weight: 500;
 
   top: -120%;
@@ -27,7 +28,7 @@ const TitleText = styled.div`
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 6px solid #4053EB;
+    border-top: 6px solid ${colors.primaryBlue};
   }
 `
 
@@ -52,7 +53,7 @@ const SubEventContainer = styled.div`
 const SubCircleStraight = styled.div`
   height: 7px;
   width: 7px;
-  background-color: #4053EB;
+  background-color: ${colors.primaryBlue};
   border-radius: 50%;
 `
 

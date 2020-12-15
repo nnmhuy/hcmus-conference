@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { NavLink } from 'react-router-dom';
 
+import colors from '../../constants/colors'
 import Logo from './components/Logo'
 import HideOnScroll from './components/HideOnScroll'
 import NavBarItems from './components/NavBarItems'
@@ -28,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     color: 'white'
   },
   appBar: {
-    // backgroundImage: `linear-gradient(45deg, ${theme.palette.primary.main}, black)`,
     background: 'transparent',
     boxShadow: 'none',
     transition: 'all 0.3s'
@@ -51,7 +51,7 @@ const DesktopLayout = (props) => {
   return (
     <div className={classes.root}>
       <HideOnScroll {...props}>
-        <AppBar className={classes.appBar} style={{background: themeColor ? '#4053EB' : 'transparent'}}>
+        <AppBar className={classes.appBar} style={{background: themeColor ? `${colors.primaryBlue}` : 'transparent'}}>
           <Toolbar style={{display: 'flex', justifyContent:'space-between'}}>
             <NavLink to='/'>
               <div style={{display: 'flex'}}>

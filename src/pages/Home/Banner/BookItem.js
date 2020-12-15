@@ -23,7 +23,10 @@ const ImageBook = styled(SuspenseImage)`
   position: absolute;
   animation: float-bubble 1.8s;
   @media (min-width: 1020px) {
-    min-width: 70px;
+    min-width: 5rem;
+  }
+  @media (min-width: 1480px) {
+    min-width: 6rem;
   }
 `
 
@@ -37,6 +40,13 @@ const BookShadow = styled.img`
   @media (min-width: 1020px) {
     transform: translate(10px, 90px);
   }
+  @media (min-width: 1286px) {
+    transform: translate(17px, 104px);
+  }
+  @media (min-width: 1480px) {
+    transform: translate(18px,125px);
+  }
+  
 `
 
 const BookHolder = styled.a`
@@ -46,7 +56,7 @@ const BookHolder = styled.a`
   width: 50px;
   display: inline-block;
   pointer-events: auto;
-  transform: ${props => props.translateResize};
+  transform: ${props => props.translateResize[0]};
   &:hover ${ImageBook} {
     transform: translateY(-15px);
   }
@@ -54,8 +64,21 @@ const BookHolder = styled.a`
     opacity: 0;
   }
   @media (min-width: 1020px) {
-    width: 70px;
-    transform: ${props => props.translate};
+    width: 5rem;
+    transform: ${props => props.translateResize[1]};
+    &:hover ${ImageBook} {
+      transform: translateY(-20px);
+    }
+  }
+  @media (min-width: 1286px) {
+    transform: ${props => props.translateResize[2]};
+    &:hover ${ImageBook} {
+      transform: translateY(-20px);
+    }
+  }
+  @media (min-width: 1480px) {
+    width: 6rem;
+    transform: ${props => props.translateResize[3]};
     &:hover ${ImageBook} {
       transform: translateY(-20px);
     }
@@ -65,7 +88,7 @@ const BookHolder = styled.a`
 
 export default function BookItem(props) {
   const { courseIndex, course, setHoverText, translateResize } = props
-  const { alt, name, image, translate } = course
+  const { alt, name, image } = course
 
   const getImgResource = () => {
     let srcImage = null
@@ -113,7 +136,7 @@ export default function BookItem(props) {
   query.set('filter', JSON.stringify([courseIndex]))
 
   return (
-    <BookHolder translateResize={translateResize} translate={translate}
+    <BookHolder translateResize={translateResize}
       onMouseOver={() => setHoverText(name, true)}
       onMouseLeave={() => setHoverText(name, false)}
       href={`/chuong-trinh?${query.toString()}`}

@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles'
 
 import EnterRoomIcon from '../../../static/images/enter-room-icon.svg'
+import colors from '../../../constants/colors'
 
 const CustomButton = withStyles({
   root: {
@@ -12,7 +13,7 @@ const CustomButton = withStyles({
     '&:hover': {
       color: '#4748D1',
     },
-    color: '#4041D2',
+    color: `${colors.primaryBlue}`,
     '& .MuiButton-label': {
       fontSize: '0.8rem',
     },

@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 
+import colors from '../../../constants/colors'
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -10,10 +12,10 @@ const useStyles = makeStyles(theme => ({
   tabContainer: {
     background: 'rgba(231, 238, 255, 0.6)',
     '& .Mui-selected': {
-      color: '#4041D2',
+      color: `${colors.primaryBlue}`,
     },
     '& .MuiTabs-indicator': {
-      background: '#4041D2'
+      background: `${colors.primaryBlue}`
     }
   },
   tabTitle: {

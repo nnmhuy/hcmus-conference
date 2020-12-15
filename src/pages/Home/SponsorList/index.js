@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { get } from 'lodash'
 import Tooltip from '@material-ui/core/Tooltip';
 
+import colors from '../../../constants/colors'
+
 const SponsorTypeText = styled.h4`
   font-size: 1.5em;
   font-weight: 400;
@@ -40,7 +42,7 @@ const HeadingText = styled.h2`
   font-size: 2.3em;
   margin-bottom: 0;
   // color: #01458E;
-  color: #4053EB;
+  color: ${colors.primaryBlue};
   @media (min-width: 800px) {
     font-size: 3em;
   }

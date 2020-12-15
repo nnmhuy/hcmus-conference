@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import BgBanner from '../../../static/images/bg-banner-with-flakes@2x.png'
+import BgBanner from '../../../static/images/bg-banner-with-flakes-2@2x.png'
 import BgBannerMobile from '../../../static/images/bg-banner-with-flakes-mobi@2x.png'
 import BookCase from './BookCase'
 import BrandName from './BrandName'
@@ -35,9 +35,21 @@ const BannerContainer = styled.div`
   background-repeat: no-repeat;
   background-position: center bottom;
   background-image: url(${BgBannerMobile});
+  
   @media (min-width: 500px) {
     background-image: url(${BgBanner});
+    min-height: 570px;
+    background-position: 90% bottom;
   }
+  @media (min-width: 1286px) {
+    background-image: url(${BgBanner});
+    background-position: center bottom;
+    min-height: 800px;
+  }
+  @media (min-width: 1480px) {
+    background-size: 100% 100%;
+  }
+
 `
 
 function Banner() {

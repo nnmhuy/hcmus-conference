@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 import moment from 'moment'
 
+import colors from '../../../constants/colors'
 import { dateList } from '../../../constants/constants'
 
 const useStyles = makeStyles(theme => ({
@@ -12,13 +13,13 @@ const useStyles = makeStyles(theme => ({
     '& .date__tab--0': {
       '&::after': {
         right: 0,
-        background: 'linear-gradient(to left, #4361EE, #3F37C9, #3A0CA3)',
+        background: `${colors.primaryGradientLeft}`,
       }
     },
     '& .date__tab--1': {
       '&::after': {
         left: 0,
-        background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+        background: `${colors.primaryGradientRight}`,
       }
     },
   },
@@ -63,7 +64,8 @@ const useStyles = makeStyles(theme => ({
     transition: 'all 0.3s ease-in-out',
     borderLeft: '0px solid transparent',
     borderRight: '0px solid transparent',
-    borderTop: `0px solid #403ECF`,
+    // borderTop: `0px solid #403ECF`,
+    borderTop: `0px solid ${colors.primaryBlue}`,
     margin: 'auto',
     zIndex: 100,
     '&.active': {
@@ -72,14 +74,14 @@ const useStyles = makeStyles(theme => ({
       borderLeft: '15px solid transparent',
       borderRight: '15px solid transparent',
       transform: 'translate3d(-50%, 0, 0)',
-      borderTop: `10px solid #403ECF`,
+      borderTop: `10px solid ${colors.primaryBlue}`,
       pointerEvents: 'auto',
     }
   },
   dateTabTitle: {
     fontSize: 22,
     fontWeight: 600,
-    color: '#4041D2',
+    color: `${colors.primaryBlue}`,
     transition: 'all 0.6s',
   },
   activeDateTabTitle: {
