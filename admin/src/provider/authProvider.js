@@ -2,9 +2,12 @@ import decodeJwt from 'jwt-decode';
 
 export default {
 	login: ({ username, password }) => {
-		const request = new Request('https://mydomain.com/authenticate', {
+		const request = new Request('https://backend-hcmus-conference.herokuapp.com/api/accounts/login', {
 			method: 'POST',
-			body: JSON.stringify({ username, password }),
+			body: JSON.stringify({ 
+				email: username, 
+				password 
+			}),
 			headers: new Headers({ 'Content-Type': 'application/json' }),
 		});
 		return fetch(request)
@@ -14,10 +17,9 @@ export default {
 				}
 				return response.json();
 			})
-			.then(({ token }) => {
-				const decodedToken = decodeJwt(token);
-				localStorage.setItem('token', token);
-				localStorage.setItem('permissions', decodedToken.permissions);
+			.then(({ id }) => {
+				localStorage.setItem('token', id);
+				localStorage.setItem('permission', 'admin');
 			});
 	},
 	checkError: (error) => { /* ... */ },
@@ -26,7 +28,6 @@ export default {
 	},
 	logout: () => {
 		localStorage.removeItem('token');
-		localStorage.removeItem('permissions');
 		return Promise.resolve();
 	},
 	getIdentity: (error) => { /* ... */ },
