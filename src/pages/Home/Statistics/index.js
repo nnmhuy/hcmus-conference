@@ -42,7 +42,7 @@ const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
 `
 
-function Statistics(props) {
+const Statistics = (props) => {
   const { statistic } = props
   return (
     <ParallaxBackground>

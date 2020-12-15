@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import colors from '../../../constants/colors'
 import { getDayMonthFromTime, getHourMinuteFromTime } from '../../../helpers/timeConverter'
 
 const TitleText = styled.div`
@@ -8,7 +9,7 @@ const TitleText = styled.div`
   width: max-content;
   text-align: center;
   font-size: 1rem;
-  color: #4053EB;
+  color: ${colors.primaryOrange};
   font-weight: 500;
 
   top: -150%;
@@ -27,7 +28,7 @@ const TitleText = styled.div`
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 6px solid #4053EB;
+    border-top: 6px solid ${colors.primaryOrange};
   }
 `
 
@@ -44,7 +45,7 @@ const DateText = styled.p`
   position: absolute;
   width: max-content;
   font-size: 1.2rem;
-  color: #4053EB;
+  color: ${colors.primaryOrange};
   font-weight: 500;
 
   top: -110%;
@@ -69,7 +70,7 @@ const MainEventContainer = styled.div`
 const MainCircleStraight = styled.div`
   height: 20px;
   width: 20px;
-  border: 3px solid #4053EB;
+  border: 3px solid ${colors.primaryOrange};
   background-color: #fff;
   transform: translateY(-7px);
   border-radius: 50%;

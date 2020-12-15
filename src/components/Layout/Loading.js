@@ -4,6 +4,7 @@ import Modal from '@material-ui/core/Modal'
 import Paper from '@material-ui/core/Paper'
 import DialogContent from '@material-ui/core/DialogContent'
 import ClimbingBoxLoader from 'react-spinners/ClimbingBoxLoader'
+import colors from '../../constants/colors'
 
 const styles = (theme => ({
   loading: {
@@ -37,7 +38,7 @@ const Loading = (props) => {
     <Paper tabIndex={-1} className={classes.loading}>
       <Modal className={classes.modal} open={isLoading}>
         <DialogContent className={classes.content}>
-          <Loader color={'#4041D2'} />
+          <Loader color={colors.primaryBlue} />
         </DialogContent>
       </Modal>
     </Paper>

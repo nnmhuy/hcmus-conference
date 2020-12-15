@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles, makeStyles } from '@material-ui/core/styles'
 import AddToCalendarHOC from 'react-add-to-calendar-hoc'
 import moment from 'moment'
-
+import colors from '../../../constants/colors'
 import AddToCalendarIcon from '../../../static/images/add-calendar-icon.svg'
 
 const CustomButton = withStyles({
@@ -14,7 +14,7 @@ const CustomButton = withStyles({
     '&:hover': {
       color: '#4748D1',
     },
-    color: '#4041D2',
+    color: `${colors.primaryBlue}`,
     '& .MuiButton-label': {
       fontSize: '0.8rem',
     },

@@ -4,6 +4,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import colors from './constants/colors'
+
 import Loading from './components/Layout/Loading'
 import Layout from './components/Layout'
 import Home from './pages/Home'
@@ -19,7 +21,7 @@ const theme = createMuiTheme({
     primary: {
       lighter: '#4cc9f0',
       light: '#6fbf73',
-      main: '#4041D2',
+      main: `${colors.primaryBlue}`,
       littleDark: '#3f37c9',
       dark: '#3a0ca3', 
       contrastText: '#fff',

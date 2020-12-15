@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import colors from '../../../constants/colors'
 
 const courseList = [
   'Tiểu ban Hoá học',
@@ -32,7 +33,7 @@ const CourseContainer = styled.div`
 `
 
 const CourseHeading = styled.h3`
-  color: #4053EB;
+  color: ${colors.primaryBlue};
   font-weight: 500;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
@@ -59,7 +60,7 @@ const CourseText = styled.p`
     width: 0;
     height: 3px;
     border-radius: 100px;
-    background-image: linear-gradient(to right,#4361EE,#6962DD,#9B79E8);
+    background-image: ${colors.lightGradient};
   }
   &:hover::after {
     width: 100%;

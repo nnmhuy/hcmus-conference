@@ -21,6 +21,7 @@ import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import colors from '../../../constants/colors'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,7 +56,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   clockIcon: {
-    color: '#707070',
+    color: `${colors.darkGray}`,
     width: '1.3rem',
     height: '1.3rem',
   },
@@ -63,7 +64,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: '0.8rem',
     lineHeight: '0.7rem',
     marginLeft: 5,
-    color: '#4041D2',
+    color: `${colors.primaryBlue}`,
     fontWeight: 600
   },
   titleContainer: {
@@ -76,7 +77,7 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 'bold',
   },
   expandIcon: {
-    color: "#4041D2",
+    color: `${colors.primaryOrange}`,
   },
   buttonContainer: {
     display: 'flex',
@@ -94,18 +95,18 @@ const useStyles = makeStyles(theme => ({
     fontSize: '0.8rem',
     fontWeight: 600,
     borderRadius: 80,
-    background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+    background: `${colors.primaryGradientRight}`,
     paddingLeft: 10,
     paddingRight: 10,
     textAlign: 'center'
   },
   descriptionText: {
     fontSize: '1rem',
-    color: '#707070',
+    color: `${colors.darkGray}`,
     fontWeight: 500,
   },
   authorText: {
-    color: '#4041D2',
+    color: `${colors.primaryBlue}`,
     fontSize: '0.8rem',
     marginTop: 5,
     fontWeight: 500,

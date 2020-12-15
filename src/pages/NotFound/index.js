@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+
+import colors from '../../constants/colors'
 import BookBubble from '../../static/images/book-bubble2@2x.png'
 
 const NotFoundContainer = styled.div`
@@ -13,7 +15,7 @@ const NotFoundContainer = styled.div`
 `
 
 const BlobShape = styled.div`
-  background: #aad7d0;
+  background: ${colors.aquaBlue};
   position: relative;
   z-index: 10;
   transition: transform 0.8s ease;
@@ -78,7 +80,7 @@ const NotFoundText = styled.h1`
 
 const ButtonWhite = styled.button`
   overflow: hidden;
-  background-color: #4053EB;
+  background-color: ${colors.primaryBlue};
   border-radius: 100px;
   padding: 10px 18px;
   font-weight: 600;

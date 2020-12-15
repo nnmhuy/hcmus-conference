@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { NavLink } from 'react-router-dom';
 
+import colors from '../../constants/colors'
 import Logo from './components/Logo'
 import HideOnScroll from './components/HideOnScroll'
 import Sidebar from './components/SideBar'
@@ -62,7 +63,7 @@ const MobileLayout = (props) => {
   return (
     <div className={classes.root}>
       <HideOnScroll>
-        <AppBar className={classes.appBar} style={{ background: themeColor ? '#4053EB' : 'transparent' }}>
+        <AppBar className={classes.appBar} style={{ background: themeColor ? `${colors.primaryBlue}` : 'transparent' }}>
         <Toolbar style={{display: 'flex', justifyContent:'space-between'}}>
             
             <div className={classes.leftSection}>

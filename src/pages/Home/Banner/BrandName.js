@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
+import colors from '../../../constants/colors'
 
 const BorderedContainer = styled.fieldset`
   width: fit-content;
   transform: translateY(-30%);
   position: relative;
-  border: 1px solid #B1CCE6;
+  border: 1px solid ${colors.lightBlue};
 
   padding: 10px 20px 10px 20px;
 
@@ -73,10 +74,16 @@ const EventName = styled.h1`
   @media (min-width: 1120px) {
     font-size: 2.3rem;
   }
+  @media (min-width: 1286px) {
+    font-size: 2.6rem;
+  }
+  @media (min-width: 1480px) {
+    font-size: 3rem;
+  }
 `
 
 const ButtonWhite = styled.button`
-  color: #B1CCE6;
+  color: ${colors.lightBlue};
   overflow: hidden;
   background-color: #FFF;
   border-radius: 100px;
@@ -94,7 +101,7 @@ const ButtonWhite = styled.button`
   border: none;
 
   
-  color: #4053EB;
+  color: ${colors.primaryBlue};
   
   @media (min-width: 900px) {
     font-size: 1rem;
@@ -112,7 +119,7 @@ const BlobShape = styled.div`
   width: 40px;
   height: 40px;
   // background: #ffa638;
-  background: #aad7d0;
+  background: ${colors.primaryOrange};
   position: absolute;
   pointer-events: none;
   z-index: 1;

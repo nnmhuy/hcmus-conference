@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 
+import colors from '../../../constants/colors'
 import { majorList } from '../../../constants/constants'
 
 const useStyles = makeStyles(theme => ({
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
     transition: 'all 0.3s',
     opacity: '0.2',
-    background: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+    background: `${colors.primaryGradientLeft}`,
   },
   activeMajor: {
     opacity: 1,
