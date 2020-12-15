@@ -7,7 +7,9 @@ const NotFoundContainer = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
-  min-height: 700px;
+  @media (min-width: 600px) {
+    min-height: 700px;
+  }
 `
 
 const BlobShape = styled.div`
