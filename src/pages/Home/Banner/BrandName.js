@@ -158,8 +158,8 @@ function BrandName(props) {
       const startDate = new Date("2020-12-18T00:00:00.000+07:00")
       let endDate = startDate
       const currentDate = new Date()
-
-      if (currentDate - startDate <= 0) {
+      
+      if (currentDate - startDate >= 0) {
         endDate = new Date("2020-12-19T17:30:00.000+07:00")
       }
 

@@ -38,13 +38,13 @@ const BannerContainer = styled.div`
   
   @media (min-width: 500px) {
     background-image: url(${BgBanner});
-    min-height: 570px;
+    height: 570px;
     background-position: 90% bottom;
   }
   @media (min-width: 1286px) {
     background-image: url(${BgBanner});
     background-position: center bottom;
-    min-height: 800px;
+    // height: 570px;
   }
   @media (min-width: 1480px) {
     background-size: 100% 100%;
