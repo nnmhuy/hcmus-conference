@@ -153,10 +153,15 @@ function BrandName(props) {
     scale: "scale(0)"
   })
 
-  useEffect(()=>{
+  useEffect(() => {
     function getDiffInDate() {
-      const endDate = new Date("2020-12-18T00:00:00.000+07:00")
+      const startDate = new Date("2020-12-18T00:00:00.000+07:00")
+      let endDate = startDate
       const currentDate = new Date()
+
+      if (currentDate - startDate <= 0) {
+        endDate = new Date("2020-12-19T17:30:00.000+07:00")
+      }
 
       const diff = endDate - currentDate
       if (diff === 0) return
@@ -175,15 +180,15 @@ function BrandName(props) {
     }
     getDiffInDate();
 
-    const timer = setInterval(function() { getDiffInDate() }, 1000)
-    return function() {
+    const timer = setInterval(function () { getDiffInDate() }, 1000)
+    return function () {
       clearInterval(timer)
     }
   }, [])
 
   const listenMouseEvent = e => {
     const rect = e.target.getBoundingClientRect();
-    
+
     const X = e.clientX - rect.left;
     const Y = e.clientY - rect.top;
 
@@ -195,7 +200,7 @@ function BrandName(props) {
   }
 
   const listenMouseLeaveEvent = e => {
-    setPos({...pos, scale: "scale(0)"})
+    setPos({ ...pos, scale: "scale(0)" })
   }
 
   const switchPath = () => {
@@ -204,49 +209,39 @@ function BrandName(props) {
 
   return (
     <BorderedContainer>
-      {
-        timeState.day === 0 && 
-        timeState.hour === 0 && 
-        timeState.minute === 0 && 
-        timeState.second === 0 ?
-        <TimerContainer>
-          <TimerText>Chào mừng tới</TimerText>
-        </TimerContainer>
-        :
-        <TimerContainer>
-          {
-            timeState.day !== 0 ?
+      <TimerContainer>
+        {
+          timeState.day !== 0 ?
             <TimerItem>
               <TimerNumber>{timeState.day}</TimerNumber>
               <TimerText>ngày</TimerText>
             </TimerItem>
             :
             <></>
-          }
-          
-          <TimerItem>
-            <TimerNumber>{timeState.hour}</TimerNumber>
-            <TimerText>giờ</TimerText>
-          </TimerItem>
-          <TimerItem>
-            <TimerNumber>{timeState.minute}</TimerNumber>
-            <TimerText>phút</TimerText>
-          </TimerItem>
-          <TimerItem>
-            <TimerNumber>{timeState.second}</TimerNumber>
-            <TimerText>giây</TimerText>
-          </TimerItem>
-          <ClearFloat/>
-        </TimerContainer>
-      }
-      
+        }
+
+        <TimerItem>
+          <TimerNumber>{timeState.hour}</TimerNumber>
+          <TimerText>giờ</TimerText>
+        </TimerItem>
+        <TimerItem>
+          <TimerNumber>{timeState.minute}</TimerNumber>
+          <TimerText>phút</TimerText>
+        </TimerItem>
+        <TimerItem>
+          <TimerNumber>{timeState.second}</TimerNumber>
+          <TimerText>giây</TimerText>
+        </TimerItem>
+        <ClearFloat />
+      </TimerContainer>
+
       <EventName>
-      HỘI NGHỊ KHOA HỌC
-      <br/>LẦN THỨ XII - 2020
+        HỘI NGHỊ KHOA HỌC
+      <br />LẦN THỨ XII - 2020
       </EventName>
       <ButtonWhite onClick={switchPath}
-      onMouseMove={listenMouseEvent}
-      onMouseLeave={listenMouseLeaveEvent}
+        onMouseMove={listenMouseEvent}
+        onMouseLeave={listenMouseLeaveEvent}
       >
         <BlobShape pos={pos}></BlobShape>
         <ParaText>Xem lịch trình</ParaText>
