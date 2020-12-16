@@ -56,3 +56,7 @@ You might need to use these command:
 - Test nginx config: sudo nginx -t
 - Reload new config: sudo systemctl reload nginx
 - Static FE build is at: /var/www/hcmus-conference.cf/html/
+
+
+# install, run mongo local
+https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-18-04-source
