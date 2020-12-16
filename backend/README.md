@@ -32,7 +32,9 @@ clone file .env.production to .env
 git push --force heroku `git subtree split --prefix backend HEAD`:master
 
 # run instances on server
-pm2 start . -i max -name api
+pm2 start . -i max -name api --merge-logs
+pm2 monit
+pm2 logs
 
 # deploy server RELEASE (digital ocean)
 (add ssh public key to server)
