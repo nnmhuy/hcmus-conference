@@ -72,7 +72,7 @@ const BookHolder = styled.a`
   @media (min-width: 1286px) {
     //translate(xx, yy)
     //translateY(-20px)
-    transform: ${props => props.translateResize[2]} ${props => props.random ? `translateY(-20px)` : ``}    ;
+    transform: ${props => props.translateResize[2]};
   }
     &:hover ${ImageBook} {
       transform: translateY(-20px);
