@@ -37,4 +37,20 @@ pm2 start . -i max -name api
 # deploy server RELEASE (digital ocean)
 (add ssh public key to server)
 merge and push code to branch release
+sudo chmod +x ./deploy_script
 ./deploy_script
+
+# adding new ssh public key to server
+https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/to-existing-droplet/
+https://www.digitalocean.com/community/questions/how-to-i-add-a-second-key-to-the-authorized_keys-file
+
+# connect to server
+ssh root@http://159.89.200.152/
+
+# config nginx
+https://dev.to/zeeshanhshaheen/how-to-deploy-react-js-and-nodejs-app-on-a-single-digitalocean-droplet-using-nginx-1pcl
+You might need to use these command:
+- Edit nginx config: sudo nano /etc/nginx/sites-available/default
+- Test nginx config: sudo nginx -t
+- Reload new config: sudo systemctl reload nginx
+- Static FE build is at: /var/www/hcmus-conference.cf/html/
