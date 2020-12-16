@@ -9,47 +9,47 @@ import './style.css'
 const recapData = [
   {
     type: 'main',
-    time: new Date("December 15, 2020 10:00:00"),
+    time: new Date("December 18, 2020 10:00:00"),
     title: 'Phiên 1'
   },
   {
     type: 'sub',
-    time: new Date("December 15, 2020 13:30:00"),
+    time: new Date("December 18, 2020 13:30:00"),
     title: 'Phiên 2'
   },
   {
     type: 'sub',
-    time: new Date("December 15, 2020 15:45:00"),
+    time: new Date("December 18, 2020 15:45:00"),
     title: 'Phiên 3'
   },
   {
     type: 'sub',
-    time: new Date("December 15, 2020 16:00:00"),
+    time: new Date("December 18, 2020 16:00:00"),
     title: 'Phiên 4'
   },
   {
     type: 'main',
-    time: new Date("December 16, 2020 10:00:00"),
+    time: new Date("December 19, 2020 10:00:00"),
     title: 'Phiên 1'
   },
   {
     type: 'sub',
-    time: new Date("December 16, 2020 13:30:00"),
+    time: new Date("December 19, 2020 13:30:00"),
     title: 'Phiên 2'
   },
   {
     type: 'sub',
-    time: new Date("December 16, 2020 15:45:00"),
+    time: new Date("December 19, 2020 15:45:00"),
     title: 'Phiên 3'
   },
   {
     type: 'sub',
-    time: new Date("December 16, 2020 16:00:00"),
+    time: new Date("December 19, 2020 16:00:00"),
     title: 'Phiên 4'
   },
   {
     type: 'main',
-    time: new Date("December 16, 2020 17:00:00"),
+    time: new Date("December 19, 2020 17:00:00"),
     title: 'Tổng kết'
   }
 ]
