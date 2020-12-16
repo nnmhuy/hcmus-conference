@@ -25,9 +25,9 @@ const ImageBook = styled(SuspenseImage)`
   @media (min-width: 1020px) {
     min-width: 5rem;
   }
-  @media (min-width: 1480px) {
-    min-width: 6rem;
-  }
+  // @media (min-width: 1480px) {
+  //   min-width: 6rem;
+  // }
 `
 
 const BookShadow = styled.img`
@@ -43,9 +43,9 @@ const BookShadow = styled.img`
   @media (min-width: 1286px) {
     transform: translate(17px, 104px);
   }
-  @media (min-width: 1480px) {
-    transform: translate(18px,125px);
-  }
+  // @media (min-width: 1480px) {
+  //   transform: translate(18px,125px);
+  // }
   
 `
 
@@ -76,13 +76,13 @@ const BookHolder = styled.a`
       transform: translateY(-20px);
     }
   }
-  @media (min-width: 1480px) {
-    width: 6rem;
-    transform: ${props => props.translateResize[3]};
-    &:hover ${ImageBook} {
-      transform: translateY(-20px);
-    }
-  }
+  // @media (min-width: 1480px) {
+  //   width: 6rem;
+  //   transform: ${props => props.translateResize[3]};
+  //   &:hover ${ImageBook} {
+  //     transform: translateY(-20px);
+  //   }
+  // }
 `
 
 
