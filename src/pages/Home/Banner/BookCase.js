@@ -161,15 +161,13 @@ export default function BookCase() {
   const [currentHoverText, setHoverText] = useState(<></>)
   const [transformState, setTransform] = useState('')
   const [opacityState, setOpacity] = useState(0)
-  const [random, setRandom] = useState(Math.floor(Math.random() * 10))
 
   const renderBookRow = (rowIndex) => {
     return bookCaseData[rowIndex].map((book, index) => {
       let idx = index
       
       if (rowIndex !== 0) idx = Number(index)+Number(rowIndex)*3+1
-      console.log(random, idx)
-      return <BookItem random={random === idx ? true : false} key={'bookCaseItem'+index} courseIndex={idx} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
+      return <BookItem key={'bookCaseItem'+index} courseIndex={idx} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
     })
   }
 

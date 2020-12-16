@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import SuspenseImage from '../../../components/SuspenseImage'
 import colors from '../../../constants/colors'
@@ -48,6 +48,55 @@ const BookShadow = styled.img`
   }
 `
 
+const CursorDot = styled.div`
+  position: absolute;
+  left: 41%;
+  top: 211%;
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 0.3s;
+  transform: translateX(-50%) translateY(-50%);
+  width: 8px;
+  pointer-events: none;
+  height: 8px;
+
+  &:before {
+    content: '';
+    position: relative;
+    display: block;
+    width: 300%;
+    height: 300%;
+    box-sizing: border-box;
+    margin-left: -100%;
+    margin-top: -100%;
+    border-radius: 45px;
+    background-color: white;
+    animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0; 
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+    // box-shadow: 0 0 8px rgba(0,0,0,.3);
+    animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
+  }
+  @media (min-width: 1020px) {
+    width: 10px;
+    height: 10px;
+  }
+  @media (min-width: 2000px) {
+    width: 12px;
+    height: 12px;
+  }
+`
+
 const BookHolder = styled.a`
   transition: all 0.4s;
   cursor: pointer;
@@ -55,7 +104,10 @@ const BookHolder = styled.a`
   width: 50px;
   display: inline-block;
   pointer-events: auto;
-  
+  transform: ${props => props.translateResize[0]};
+  &:hover ${CursorDot} {
+    opacity: 0;
+  }
   &:hover ${ImageBook} {
     transform: translateY(-15px);
   }
@@ -86,45 +138,6 @@ const BookHolder = styled.a`
     }
   }
 `
-
-const CursorDot = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  width: 8px;
-  height: 8px;
-
-  &:before {
-    content: '';
-    position: relative;
-    display: block;
-    width: 300%;
-    height: 300%;
-    box-sizing: border-box;
-    margin-left: -100%;
-    margin-top: -100%;
-    border-radius: 45px;
-    background-color: ${colors.primaryOrange};
-    animation: pulse-ring 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
-  }
-
-  &:after {
-    content: '';
-    position: absolute;
-    left: 0; 
-    top: 0;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 0 8px rgba(0,0,0,.3);
-    animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
-  }
-  }
-`
-
 
 export default function BookItem(props) {
   const { courseIndex, course, setHoverText, translateResize } = props
@@ -183,7 +196,7 @@ export default function BookItem(props) {
       href={`/chuong-trinh?${query.toString()}`}
     >
       <BookShadow src={bookShadow} alt="book shadow" />
-      {/* <button onClick={setBookFocus}>clickme me</button> */}
+      <CursorDot></CursorDot>
       {getImgResource()}
     </BookHolder>
   )
