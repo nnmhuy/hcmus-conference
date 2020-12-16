@@ -1,9 +1,9 @@
 module.exports = {
   apps : [{
-    script: 'npm run heroku-cleanup && npm run start',
+    name: 'api',
+    script: 'ls',
     watch: '.',
-    instances: 'max',
-    name: 'api'
+    instances: 'max'
   }],
 
   deploy : {
@@ -15,8 +15,7 @@ module.exports = {
       path : './hcmus-conference',
       'pre-setup': '',
       'pre-deploy-local': '',
-      // 'post-deploy' : 'cd backend && npm install && pm2 reload ecosystem.config.js --env production',
-      'post-deploy' : 'ls',
+      'post-deploy' : 'cd backend && npm install && pm2 reload ecosystem.config.js --env production',
       "env": {
         "NODE_ENV": "production"
       }
