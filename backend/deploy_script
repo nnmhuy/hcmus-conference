@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+ssh root@159.89.200.152 " \
+	cd hcmus-conference && \
+  git fetch origin && \
+  git reset --hard origin/release && \
+  pm2 reload all
+"
