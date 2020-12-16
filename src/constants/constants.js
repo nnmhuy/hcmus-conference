@@ -23,7 +23,7 @@ const statisticNameList = [
   { key: "numberOfMajor", label: "ngành" },
   { key: "numberOfPresentation", label: "bài báo" },
   { key: "numberOfAuthor", label: "tác giả" },
-  { key: "numberOfAttendance", label: "lượt tham gia" },
+  { key: "numberOfVisitors", label: "lượt truy cập" },
 ]
 
 export {
