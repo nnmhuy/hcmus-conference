@@ -2,7 +2,9 @@
 
 ssh root@159.89.200.152 " \
 	cd hcmus-conference && \
+  cd backend && \
   git fetch origin && \
   git reset --hard origin/release && \
+  cp .env.dev .env && \
   pm2 reload all
 "
