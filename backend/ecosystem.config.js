@@ -13,7 +13,7 @@ module.exports = {
       repo: 'git@github.com:nnmhuy/hcmus-conference.git',
       path : './hcmus-conference',
       'pre-deploy-local': '',
-      'post-deploy' : 'backend && npm install && pm2 reload ecosystem.config.js --env production',
+      'post-deploy' : 'cd backend && npm install && pm2 reload ecosystem.config.js --env production',
       'pre-setup': '',
       "env": {
         "NODE_ENV": "production"
