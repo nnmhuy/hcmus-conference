@@ -5,6 +5,7 @@ ssh root@159.89.200.152 " \
   cd backend && \
   git fetch origin && \
   git reset --hard origin/release && \
+  npm install && \
   cp .env.dev .env && \
   pm2 reload all
 "
