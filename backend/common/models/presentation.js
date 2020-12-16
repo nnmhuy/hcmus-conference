@@ -16,10 +16,11 @@ module.exports = function(Presentation) {
       return cacheAllData.data
     }
     else {
-      let [sessionData, presentationData, sponsorData] = await Promise.all([
+      let [sessionData, presentationData, sponsorData, visitedCountModel] = await Promise.all([
         Presentation.app.models.Session.find({order: 'startDate ASC'}),
         Presentation.find({order: 'startDate ASC'}),
-        Presentation.app.models.Sponsor.find()
+        Presentation.app.models.Sponsor.find(),
+        Presentation.app.models.ExtraData.findOne({ where: { name: "visited-count" } })
       ])
       let numberOfPresentation = presentationData.length
       let numberOfAuthor = 0
@@ -43,8 +44,8 @@ module.exports = function(Presentation) {
         numberOfMajor: majorData.length,
         numberOfPresentation,
         numberOfAuthor,
+        numberOfVisitors: JSON.parse(visitedCountModel.value)
       }
-      statisData.major
 
       let result = {
         'session': sessionData,

@@ -9,6 +9,7 @@ module.exports = function (app) {
   var Session = app.models.Session;
   var Presentation = app.models.Presentation;
   var Sponsor = app.models.Sponsor;
+  var ExtraData = app.models.ExtraData;
   console.log("running initialization");
 
   function createDefaultAdmin() {
@@ -84,4 +85,13 @@ module.exports = function (app) {
       createDefaultSponsor();
     }
   })
+
+  ExtraData.find({}, (err, sessions) => {
+    if (!sessions || !sessions[0]) {
+      ExtraData.create({
+        name: "visited-count",
+        value: JSON.stringify(1)
+      })
+    }
+  });
 };
