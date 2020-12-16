@@ -1,9 +1,11 @@
 module.exports = {
   apps : [{
     name: 'api',
-    script: 'ls',
+    script: 'start .',
+    autorestart: true,
     watch: '.',
-    instances: 'max'
+    instances: 'max',
+    exec_mode: 'cluster'
   }],
 
   deploy : {
