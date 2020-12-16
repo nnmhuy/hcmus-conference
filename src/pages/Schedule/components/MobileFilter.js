@@ -32,7 +32,6 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     width: '100%',
     textAlign: 'center',
-    background: '#D5DDFF',
     lineHeight: 2,
     paddingLeft: 12,
     paddingRight: 12,

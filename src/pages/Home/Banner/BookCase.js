@@ -66,7 +66,7 @@ const bookCaseData = {
 
 const translateResize = [
   ['translate(-20px, -20px)', 'translate(-20px, -20px)', 'translate(-14px, -20px)', 'translate(-30px,-36px)'],
-  ['translate(-20px, 5px)', 'translate(-30px, 10px)', 'translate(-20px, 5px)', 'translate(-37px,8px)'],
+  ['translate(-20px, 5px)', 'translate(-30px, 10px)', 'translate(-24px,15px)', 'translate(-37px,8px)'],
   ['translate(-22px, 28px)', 'translate(-28px, 45px)', 'translate(-29px,52px)', 'translate(-45px,52px)'],
   ['translate(-24px, 53px)', 'translate(-28px, 80px)', 'translate(-40px, 85px)', 'translate(-48px,98px)'],
   ['translate(-25px, -26px)', 'translate(-20px, -22px)', 'translate(-36px,-12px)', 'translate(-50px,8px)'],
@@ -161,12 +161,15 @@ export default function BookCase() {
   const [currentHoverText, setHoverText] = useState(<></>)
   const [transformState, setTransform] = useState('')
   const [opacityState, setOpacity] = useState(0)
+  const [random, setRandom] = useState(Math.floor(Math.random() * 10))
 
   const renderBookRow = (rowIndex) => {
     return bookCaseData[rowIndex].map((book, index) => {
       let idx = index
+      
       if (rowIndex !== 0) idx = Number(index)+Number(rowIndex)*3+1
-      return <BookItem key={'bookCaseItem'+index}  courseIndex={idx} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
+      console.log(random, idx)
+      return <BookItem random={random === idx ? true : false} key={'bookCaseItem'+index} courseIndex={idx} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
     })
   }
 
