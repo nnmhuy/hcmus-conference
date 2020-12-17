@@ -23,7 +23,7 @@ const OverlayContainer = styled.div`
   @media (max-width: 800px) {
     margin-top: 30px;
   }
-  @media (max-width: 1286px) {
+  @media (max-width: 1288px) {
     max-width: 950px;
   }
   @media (min-width: 1480px) {
@@ -51,8 +51,7 @@ const BannerContainer = styled.div`
   @media (min-width: 800px) {
     height: 570px;
   }
-  @media (min-width: 1286px) {
-    background-image: url(${BgBanner});
+  @media (min-width: 1288px) {
     background-position: center bottom;
   }
   @media (min-width: 1480px) {
