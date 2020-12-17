@@ -6,12 +6,13 @@ import clsx from 'clsx'
 
 const useStyles = makeStyles(theme => ({
   timelineDot: {
-    margin: 0, 
+    margin: 'auto', 
     boxShadow: 'none', 
     boxSizing: 'border-box',
     width: 40,
     height: 40,
-    borderWidth: 2
+    borderWidth: 2,
+    marginBottom: 5,
   },
   passedDot: {
     background: '#F5F5F5',

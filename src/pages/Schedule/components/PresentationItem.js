@@ -10,11 +10,10 @@ import Collapse from '@material-ui/core/Collapse'
 import { makeStyles } from '@material-ui/core/styles'
 import moment from 'moment'
 
-import TimelineDotIcon from './TimelineDotIcon'
+import PresentationDotIcon from './PresentationDotIcon'
 import ZoomButton from './ZoomButton'
 import AddToCalendarButton from './AddToCalendarButton'
 import LinkPaperButton from './LinkPaperButton'
-import getMajorInfos from '../../../helpers/getMajorInfos'
 
 import ClockIcon from '@material-ui/icons/AccessTime';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
@@ -31,6 +30,12 @@ const useStyles = makeStyles(theme => ({
     padding: '6px 0',
     '@media (min-width: 568px)': {
       padding: '6px 16px',
+    }
+  },
+  timelineOpposite: {
+    flex: 0, 
+    '@media (max-width: 800px)': {
+      padding: 0,
     }
   },
   timelineConnector: {
@@ -108,7 +113,6 @@ const useStyles = makeStyles(theme => ({
   authorText: {
     color: `${colors.primaryBlue}`,
     fontSize: '0.8rem',
-    marginTop: 5,
     fontWeight: 500,
   }
 }))
@@ -116,18 +120,18 @@ const useStyles = makeStyles(theme => ({
 const PresentationItem = (props) => {
   const classes = useStyles()
   const { presentation, subMajor } = props
-  const { startDate, endDate, paperName, description, paperLink, author, linkZoom } = presentation
+  const { startDate, endDate, paperName, summary, paperLink, author, linkZoom } = presentation
   const { room, linkZoom: linkZoomSubMajor } = subMajor
 
   const [isExpanded, setIsExpanded] = React.useState(false)
 
   return (
     <TimelineItem>
-      <TimelineOppositeContent style={{ flex: 0}}/>
+      <TimelineOppositeContent className={classes.timelineOpposite}/>
       <TimelineSeparator>
-        {/* <TimelineConnector className={classes.timelineConnector}/>
-        <TimelineDotIcon majorIcon={majorIcon} startDate={startDate} endDate={endDate}/>
-        <TimelineConnector className={classes.timelineConnector}/> */}
+        <TimelineConnector className={classes.timelineConnector}/>
+        <PresentationDotIcon startDate={startDate} endDate={endDate}/>
+        <TimelineConnector className={classes.timelineConnector}/>
       </TimelineSeparator>
       <TimelineContent>
         <Paper elevation={0} className={classes.paper}>
@@ -145,7 +149,10 @@ const PresentationItem = (props) => {
               }
             </div>
             <div className={classes.titleContainer}>
-              <div className={classes.title}>{paperName}</div>
+              <div style={{ marginBottom: 5 }}>
+                <div className={classes.title}>{paperName}</div>
+                <div className={classes.authorText}>{author}</div>
+              </div>
               {isExpanded ? <ExpandLessIcon className={classes.expandIcon}/> : <ExpandMoreIcon className={classes.expandIcon}/>}
             </div>
             <Divider />
@@ -156,11 +163,14 @@ const PresentationItem = (props) => {
               <div>
                 <ZoomButton linkZoom={linkZoom || linkZoomSubMajor}/>
                 <LinkPaperButton paperLink={paperLink}/>
-                <AddToCalendarButton {...presentation} />
+                <AddToCalendarButton 
+                  {...presentation} 
+                  room={room}
+                  linkZoom={linkZoom || linkZoomSubMajor}
+                />
               </div>
             </div>
-            <div className={classes.descriptionText}>{description}</div>
-            <div className={classes.authorText}>{author}</div>
+            <div className={classes.descriptionText}>{summary}</div>
           </Collapse>
         </Paper>
       </TimelineContent>

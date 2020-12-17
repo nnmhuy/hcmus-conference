@@ -9,8 +9,8 @@ const useStyles = makeStyles(theme => ({
     margin: 0, 
     boxShadow: 'none', 
     boxSizing: 'border-box',
-    width: 40,
-    height: 40,
+    width: 10,
+    height: 10,
     borderWidth: 2
   },
   passedDot: {
@@ -57,7 +57,7 @@ const TimelineDotIcon = (props) => {
         status === 2 && classes.futureDot,
       )}
     >
-      <img src={majorIcon} className={classes.icon} alt="major-icon"/>
+      {/* <img src={majorIcon} className={classes.icon} alt="major-icon"/> */}
     </TimelineDot>
   )
 }

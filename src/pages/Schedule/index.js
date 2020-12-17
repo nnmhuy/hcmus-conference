@@ -46,7 +46,7 @@ const Schedule = (props) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.header}>Schedule</div>
+      <div className={classes.header}>Chương trình Hội nghị</div>
       <FilterSection query={query} filter={filter}/>
       <TimelineSection
         allPresentation={allPresentation} 

@@ -19,19 +19,13 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Gilroy";
-  src: url("./static/fonts/Gilroy/Gilroy-Bold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+
 
 *,
 body {
-  /* font-family: "Gilroy", Oxygen, Cantarell, sans-serif; */
+  font-family: "Gilroy", Oxygen, Cantarell, sans-serif;
   /* font-family: "Nunito", sans-serif; */
-  font-family: "Quicksand", sans-serif;
+  /* font-family: "Quicksand", sans-serif; */
   /* font-family: "K2D", sans-serif; */
 
   font-size: 14px;

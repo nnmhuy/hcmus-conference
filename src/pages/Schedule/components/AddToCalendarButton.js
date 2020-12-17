@@ -70,16 +70,16 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const AddToCalendarButton = (props) => {
-  const { title, author, description, startDate, endDate, linkZoom } = props
+  const { paperName, author, description, startDate, endDate, room, linkZoom } = props
   const classes = useStyles()
 
   const startDatetime = moment(startDate)
   const endDatetime = moment(endDate)
   const duration = moment.duration(endDatetime.diff(startDatetime)).asHours()
   let event = {
-    title: `${title} (${author})`,
+    title: `${paperName} (${author})`,
     description,
-    location: linkZoom,
+    location: `${room && `Phòng ${room}`} ${linkZoom}`,
     startDatetime: startDatetime.format('YYYYMMDDTHHmmssZ'),
     endDatetime: endDatetime.format('YYYYMMDDTHHmmssZ'),
     duration
