@@ -7,6 +7,32 @@
     "validateUpsert": true
   },
   "properties": {
+    "majorId": {
+      "type": "number",
+      "required": true
+    },
+    "sessionId": {
+      "type": "number",
+      "required": true
+    },
+    "sessionName": {
+      "type": "string",
+      "required": true
+    },
+    "sessionName_en": {
+      "type": "string",
+      "required": true
+    },
+    "room": {
+      "type": "string"
+    },
+    "linkZoom": {
+      "type": "string"
+    },
+    "day": {
+      "type": "number",
+      "required": true
+    },
     "startDate": {
       "type": "date",
       "required": true

@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+admin/node_modules
 /.pnp
 .pnp.js
 
@@ -23,6 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 
 backend/.env
+admin/.env
 
 package-lock.json
 

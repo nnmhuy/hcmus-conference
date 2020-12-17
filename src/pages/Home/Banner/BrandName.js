@@ -156,7 +156,7 @@ function BrandName(props) {
       const currentDate = new Date()
       
       if (currentDate - startDate >= 0) {
-        endDate = new Date("2020-12-19T17:30:00.000+07:00")
+        endDate = new Date("2020-12-19T17:00:00.000+07:00")
       }
 
       const diff = endDate - currentDate

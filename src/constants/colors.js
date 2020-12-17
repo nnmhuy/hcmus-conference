@@ -7,7 +7,7 @@ const colors = {
   logoLightOrange: '#dc902e',
   logoDarkOrange: '#d35a30',
 
-  primaryBlue: '#1c8cec',
+  primaryBlue: '#0089FF',
   primaryOrange: '#ffa61e',
   primaryContrastPurple: 'salmon', //text when hover book-item
   
@@ -19,13 +19,13 @@ const colors = {
   // lightGradient: 'linear-gradient(to right, #4361EE, #6962DD, #9B79E8)',
 
   //schedulepage
-  lightGradient: 'linear-gradient(to left, #1c8cec, #3780c9, #1e326d)',
+  lightGradient: 'linear-gradient(to left, #61e7ec, #1fa3f4, #1469de)',
   
-
+  
   // primaryGradientLeft: 'linear-gradient(to left, #4361EE, #3F37C9, #3A0CA3)',
   // primaryGradientRight: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
-  primaryGradientLeft: 'linear-gradient(to left, #1c8cec, #3780c9, #1e326d)',
-  primaryGradientRight: 'linear-gradient(to right, #1c8cec, #3780c9, #1e326d)',
+  primaryGradientLeft: 'linear-gradient(to left, #61e7ec, #1fa3f4, #1469de)',
+  primaryGradientRight: 'linear-gradient(to right, #61e7ec, #1fa3f4, #1469de)',
   
   /********* Fix colors above *********/
 

@@ -17,7 +17,6 @@ const useStyles = makeStyles(theme => ({
   },
   majorContainer: {
     display: 'inline-block',
-    background: '#D5DDFF',
     lineHeight: 2,
     paddingLeft: 12,
     paddingRight: 12,
