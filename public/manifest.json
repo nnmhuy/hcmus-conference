@@ -3,17 +3,17 @@
   "name": "Hội nghị khoa học 2020, trường ĐH Khoa học Tự nhiên, ĐHQG-HCM",
   "icons": [
     {
-      "src": "logo_new.png",
+      "src": "logo_square.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192_new.png",
+      "src": "logo_square.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo512_new.png",
+      "src": "logo_square.png",
       "type": "image/png",
       "sizes": "512x512"
     }
