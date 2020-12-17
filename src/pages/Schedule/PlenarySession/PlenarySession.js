@@ -17,8 +17,13 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: 20,
     textAlign: 'center',
+<<<<<<< HEAD
     height: '90vh',
     overflow: "scroll"
+=======
+    height: '100%',
+    overflowY: 'scroll'
+>>>>>>> fixed-bar
   },
   title: {
     fontSize: '1.75rem',

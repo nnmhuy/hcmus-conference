@@ -62,7 +62,9 @@ const Schedule = (props) => {
   const classes = useStyles()
 
   return (
-    <div className={classes.root}>
+    
+    <div style={{marginBottom: 50}}>
+<div className={classes.root}>
       <HeadingText>Chương trình Hội nghị</HeadingText>
       <FilterSection query={query} filter={filter}/>
       <TimelineSection
@@ -71,6 +73,7 @@ const Schedule = (props) => {
         filter={filter}
         allSubMajor={allSession}
       />
+    </div>
     </div>
   )
 }
