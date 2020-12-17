@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 import FilterSection from './components/FilterSection'
 import TimelineSection from './components/TimelineSection'
+import timeSessionList from './components/TimeSessionList'
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -27,7 +28,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Schedule = (props) => {
-  const { allPresentation, allSession } = props
+  const { allPresentation, allSession, sessionDict } = props
+
   const location = useLocation()
   const query = new URLSearchParams(location.search);
   let filter = query.get('filter')
@@ -44,12 +46,13 @@ const Schedule = (props) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.header}>Schedule</div>
+      <div className={classes.header}>Chương trình Hội nghị</div>
       <FilterSection query={query} filter={filter}/>
       <TimelineSection
         allPresentation={allPresentation} 
-        allSession={allSession}  
+        allSession={timeSessionList}  
         filter={filter}
+        allSubMajor={allSession}
       />
     </div>
   )
@@ -59,6 +62,7 @@ const mapStateToProps = ({ presentation, }) => {
   return {
     allPresentation: presentation.allPresentation,
     allSession: presentation.allSession,
+    sessionDict: presentation.sessionDict,
   }
 }
 

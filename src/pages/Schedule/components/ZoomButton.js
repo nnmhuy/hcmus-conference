@@ -21,11 +21,15 @@ const CustomButton = withStyles({
 })(Button);
 
 const ZoomButton = (props) => {
-  const { linkZoom } = props
+  const { linkZoom, size="small", variant, style = {} } = props
+  if (!linkZoom) {
+    return null
+  }
   return (
     <CustomButton
       color="primary"
-      size="small"
+      size={size}
+      variant={variant}
       startIcon={
         <IconButton size="small" >
           <img src={EnterRoomIcon} style={{ width: 'auto', height: 15 }} alt="zoom-icon"/>
@@ -33,6 +37,7 @@ const ZoomButton = (props) => {
       href={linkZoom}
       target="_blank"
       onClick={(e) => { e.stopPropagation() }}
+      style={style}
     >
       Vào phòng Zoom
     </CustomButton>

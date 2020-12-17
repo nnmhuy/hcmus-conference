@@ -20,9 +20,9 @@ const useStyles = makeStyles(theme => ({
 const PresentationList = (props) => {
   const classes = useStyles()
   const { allPresentation, filter: majorFilter = [], sessionStartDate, sessionEndDate } = props
-
   const getFilteredPresentationList = () => {
     let filteredPresentations = []
+    
     if (majorFilter.length) {
       majorFilter.forEach(majorId => {
         filteredPresentations = [...filteredPresentations, ...get(allPresentation, majorId, [])]
@@ -35,7 +35,7 @@ const PresentationList = (props) => {
     filteredPresentations = filter(filteredPresentations, (presentation) => {
       const { startDate } = presentation
       return moment(sessionStartDate).isSameOrBefore(moment(startDate))
-        && moment(sessionEndDate).isSameOrAfter(moment(startDate))
+      && moment(sessionEndDate).isSameOrAfter(moment(startDate))
     })
     return filteredPresentations
   }
