@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Timeline from '@material-ui/lab/Timeline'
 import Paper from '@material-ui/core/Paper';
@@ -77,6 +78,8 @@ const useStyles = makeStyles(theme => ({
     fontSize: '1.5rem',
     fontWeight: 'bold',
     textTransform: 'uppercase',
+    marginTop: 5,
+    marginBottom: 5,
   },
   expandIcon: {
     color: `${colors.primaryOrange}`,
