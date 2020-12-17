@@ -35,7 +35,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy-production": "react-scripts build && scp -r ./build/* root@159.89.200.152:/var/www/hcmus-conference.cf/html"
+    "deploy-production": "react-scripts build && scp -r ./build/* root@159.89.200.152:/var/www/event.hcmus.edu.vn/html"
   },
   "eslintConfig": {
     "extends": [
