@@ -1,16 +1,48 @@
 "use strict";
-var admin = require("./admin");
-var sessionData = require("./sessionData");
-var presentationData = require("./presentationData");
+
+const admin = require("./admin");
+const majorData = require('./majorData.json')
 const sponsorData = require("./sponsorData");
 
-module.exports = function (app) {
+const { convertToJsTime, csvToJson, getListCSV } = require('../helper/convertData')
+
+
+async function getPresentation(fileNameList, sessionData) {
+  let dayDict = {}
+  sessionData.forEach(element => {
+    dayDict[element.sessionId] = element.day
+  })
+  let presentationData = await getListCSV(fileNameList)
+  presentationData.forEach(element => {
+    let timeList = element.date.split('-')
+    element.startDate = convertToJsTime(dayDict[element.sessionId], timeList[0])
+    element.endDate = convertToJsTime(dayDict[element.sessionId], timeList[1])
+    delete element.date
+  })
+  return presentationData
+}
+
+async function getSession(fileNameList) {
+  let sessionData = await getListCSV(fileNameList)
+  sessionData.forEach(element => {
+    element.startDate = convertToJsTime(element.day, element.startDate)
+    element.endDate = convertToJsTime(element.day, element.endDate)
+  })
+  return sessionData
+}
+
+module.exports = async function (app) {
   var Account = app.models.Account;
   var Session = app.models.Session;
   var Presentation = app.models.Presentation;
   var Sponsor = app.models.Sponsor;
   var ExtraData = app.models.ExtraData;
+  var Major = app.models.Major;
   console.log("running initialization");
+
+  // place file in init-data folder
+  let sessionData = await getSession(['8_session.csv'])
+  let presentationData = await getPresentation(['8_presentation.csv'], sessionData)
 
   function createDefaultAdmin() {
     Account.create(
@@ -26,44 +58,32 @@ module.exports = function (app) {
     );
   }
 
-  function createDefaultPresentation(sessions) {
-    presentationData.forEach((item) => {
-      item.sessionId = sessions.find(
-        (session) =>
-          session.startDate <= item.startDate && session.endDate >= item.endDate
-      ).id;
-    });
+  function createDefaultPresentation() {
     Presentation.create(presentationData, function (err, presentations) {
       if (err) throw err;
       console.log("create presentations", presentations.length);
     });
   }
 
-  function checkPrensentation(sessions) {
-    Presentation.find({}, (err, presentations) => {
-      if (!presentations || !presentations[0]) {
-        createDefaultPresentation(sessions);
-      }
+  function createDefaultMajor() {
+    Major.create(majorData, function (err, majors) {
+      if (err) throw err;
+      console.log("create majors", majors.length);
     });
   }
 
   function createDefaultSession() {
-    Session.create(sessionData, 
-      function(err, sessions) {
-        if (err) throw err;
-        console.log("create sessions", sessions.length);
-        checkPrensentation(sessions);
-      },
-    );
+    Session.create(sessionData, function(err, sessions) {
+      if (err) throw err;
+      console.log("create sessions", sessions.length);
+    });
   }
 
   function createDefaultSponsor() {
-    Sponsor.create(sponsorData, 
-      function(err, sponsors) {
-        if (err) throw err;
-        console.log("create sponsors", sponsors.length);
-      },
-    );
+    Sponsor.create(sponsorData, function(err, sponsors) {
+      if (err) throw err;
+      console.log("create sponsors", sponsors.length);
+    });
   }
 
   Account.find({}, (err, accounts) => {
@@ -75,8 +95,6 @@ module.exports = function (app) {
   Session.find({}, (err, sessions) => {
     if (!sessions || !sessions[0]) {
       createDefaultSession();
-    } else {
-      checkPrensentation(sessions);
     }
   });
 
@@ -92,6 +110,18 @@ module.exports = function (app) {
         name: "visited-count",
         value: JSON.stringify(1)
       })
+    }
+  });
+
+  Presentation.find({}, (err, presentations) => {
+    if (!presentations || !presentations[0]) {
+      createDefaultPresentation();
+    }
+  });
+
+  Major.find({}, (err, majors) => {
+    if (!majors || !majors[0]) {
+      createDefaultMajor();
     }
   });
 };

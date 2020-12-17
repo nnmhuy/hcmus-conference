@@ -1,7 +1,23 @@
 'use strict';
 var initFunction = require('../../server/init-data/init')
-var majorData = require('../../constant/major.json')
 var cacheAllData = null
+
+function updateAuthor(numberOfAuthor, authorDict, authorString) {
+  let authorList = []
+  let authorList1 = authorString.split('and')
+  authorList1.forEach(element => {
+    let subList = element.trim().split(',')
+    authorList = authorList.concat(subList)
+  })
+  authorList.forEach(element => {
+    let oneAuthor = element.trim()
+    if (!authorDict[oneAuthor]) {
+      numberOfAuthor ++
+      authorDict[oneAuthor] = true
+    } 
+  })
+  return numberOfAuthor
+}
 
 module.exports = function(Presentation) {
 
@@ -16,27 +32,25 @@ module.exports = function(Presentation) {
       return cacheAllData.data
     }
     else {
-      let [sessionData, presentationData, sponsorData, visitedCountModel] = await Promise.all([
+      let [sessionData, presentationData, sponsorData, visitedCountModel, majorData] = await Promise.all([
         Presentation.app.models.Session.find({order: 'startDate ASC'}),
         Presentation.find({order: 'startDate ASC'}),
         Presentation.app.models.Sponsor.find(),
-        Presentation.app.models.ExtraData.findOne({ where: { name: "visited-count" } })
+        Presentation.app.models.ExtraData.findOne({ where: { name: "visited-count" } }),
+        Presentation.app.models.Major.find({order: 'majorId ASC'})
       ])
       let numberOfPresentation = presentationData.length
       let numberOfAuthor = 0
-      let authorDict = {}
+      let authorDict = {} 
 
-      // cluster presentation to major
+      // cluster presentation to session
       let presentationDict = {}
       presentationData.forEach(element => {
-        if (!authorDict[element.author]) {
-          numberOfAuthor ++
-          authorDict[element.author] = true
-        }
+        numberOfAuthor = updateAuthor(numberOfAuthor, authorDict, element.author)
 
-        if (!presentationDict[element.majorId])
-          presentationDict[element.majorId] = []
-        presentationDict[element.majorId].push(element)
+        if (!presentationDict[element.sessionId])
+          presentationDict[element.sessionId] = []
+        presentationDict[element.sessionId].push(element)
       });
 
       // stat
@@ -48,6 +62,7 @@ module.exports = function(Presentation) {
       }
 
       let result = {
+        'major': majorData,
         'session': sessionData,
         'presentation': presentationDict,
         'sponsor': sponsorData,
