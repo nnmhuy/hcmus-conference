@@ -27,8 +27,8 @@ const dataProvider = loopbackClient(backendURL, fetchJson)
 function App() {
   return (
 		<Admin title="HCMUS Admin" dataProvider={dataProvider} authProvider={authProvider}>
-        <Resource name="sessions" list={SessionList} edit={SessionEdit} create={SessionCreate}/>
 				<Resource name="presentations" list={PresentationList} edit={PresentationEdit} create={PresentationCreate}/>
+        <Resource name="sessions" list={SessionList} edit={SessionEdit} create={SessionCreate}/>
 				<Resource name="sponsors" list={SponsorList} edit={SponsorEdit} create={SponsorCreate}/>
     </Admin>
   );
