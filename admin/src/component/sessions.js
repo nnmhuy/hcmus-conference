@@ -4,16 +4,17 @@ import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditBut
 export const SessionList = (props) => (
     <List {...props}>
         <Datagrid>
+						
             <TextField source="id" />
-            <DateField source="startDate" />
-            <DateField source="endDate" />
+            <DateField source="startDate" showTime="true"/>
+            <DateField source="endDate" showTime="true"/>
             <EditButton basePath="/sessions" />
         </Datagrid>
     </List>
 );
 
 const SessionTitle = ({ record }) => {
-    return <span>Session {record ? `"${record.title}"` : ''}</span>;
+    return <span>Session {record ? `"${record.id}"` : ''}</span>;
 };
 
 export const SessionEdit = (props) => (

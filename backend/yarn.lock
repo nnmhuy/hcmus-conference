@@ -1650,6 +1650,11 @@ loopback-connector@^4.4.0, loopback-connector@^4.5.0:
     strong-globalize "^5.1.0"
     uuid "^7.0.3"
 
+loopback-content-range@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/loopback-content-range/-/loopback-content-range-2.0.0.tgz#f88f78f670a0fbf6a31a0333f1fc83e363c6b1da"
+  integrity sha512-Ie/v1MrNkGtHmhMadAEtHf0IS9kxsgFP2I8n2M0B03/MHVGy6G22RzUZE4DvLeveSgfF6s6FWMOmu5CoHw8kfw==
+
 loopback-datasource-juggler@^3.0.0, loopback-datasource-juggler@^3.28.0:
   version "3.36.1"
   resolved "https://registry.yarnpkg.com/loopback-datasource-juggler/-/loopback-datasource-juggler-3.36.1.tgz#bb94c95c4efbc07ef8caf66f2b75ca6422520f5d"

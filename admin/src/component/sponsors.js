@@ -14,7 +14,7 @@ export const SponsorList = (props) => (
 );
 
 const SponsorTitle = ({ record }) => {
-    return <span>Sponsor {record ? `"${record.title}"` : ''}</span>;
+    return <span>Sponsor {record ? `"${record.name}"` : ''}</span>;
 };
 
 export const SponsorEdit = (props) => (

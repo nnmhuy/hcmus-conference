@@ -23,6 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 backend/.env
+admin/.env
 
 package-lock.json
 

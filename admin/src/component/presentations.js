@@ -1,6 +1,5 @@
 import * as React from "react";
-import { useGetList, Loading, Error, List, Datagrid, Edit, Create, SimpleForm, TextField, EditButton, TextInput, DateInput, UrlField, DateField, AutocompleteInput} from 'react-admin';
-import { useState, useEffect } from 'react';
+import { List, Datagrid, Edit, Create, SimpleForm, TextField, EditButton, TextInput, DateInput, UrlField, DateField} from 'react-admin';
 
 export const PresentationList = (props) => (
 	<List {...props}>

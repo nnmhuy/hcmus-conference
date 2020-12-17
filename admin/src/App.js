@@ -8,6 +8,8 @@ import { PresentationList, PresentationEdit, PresentationCreate } from './compon
 import { SponsorList, SponsorEdit, SponsorCreate } from './component/sponsors';
 import authProvider from './provider/authProvider';
 
+import { backendURL } from './constants/constants'
+
 const fetchJson = (url, options = {}) => {
 	if (!options.headers) options.headers = new Headers({ Accept: 'application/json'});
 	options.user = {
@@ -20,7 +22,7 @@ const fetchJson = (url, options = {}) => {
 	return fetchUtils.fetchJson(url, options);
 };
 
-const dataProvider = loopbackClient('https://backend-hcmus-conference.herokuapp.com/api', fetchJson)
+const dataProvider = loopbackClient(backendURL, fetchJson)
 
 function App() {
   return (

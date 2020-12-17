@@ -1,6 +1,8 @@
+import { backendURL } from '../constants/constants'
+
 export default {
 	login: ({ username, password }) => {
-		const request = new Request('https://backend-hcmus-conference.herokuapp.com/api/accounts/login', {
+		const request = new Request(backendURL + '/accounts/login', {
 			method: 'POST',
 			body: JSON.stringify({ 
 				email: username, 
