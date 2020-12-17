@@ -8,16 +8,11 @@ import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider'
 import Collapse from '@material-ui/core/Collapse'
 import { makeStyles } from '@material-ui/core/styles'
-import moment from 'moment'
 
-import TimelineDotIcon from './TimelineDotIcon'
-import ZoomButton from './ZoomButton'
-import AddToCalendarButton from './AddToCalendarButton'
-import LinkPaperButton from './LinkPaperButton'
+import MajorInfoForSubMajor from './MajorInfoForSubMajor'
+import PresentationItem from './PresentationItem'
 import getMajorInfos from '../../../helpers/getMajorInfos'
 
-import ClockIcon from '@material-ui/icons/AccessTime';
-import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import presentationIcon from '../../../static/images/presentation.svg'
@@ -114,66 +109,46 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const MajorItem = (props) => {
+const SubMajorItem = (props) => {
   const classes = useStyles()
-  const { presentation, sessionDic } = props
-  const { sessionId, startDate, endDate, title, description, room, linkZoom, paperLink, author, nPresentation=3} = presentation
+  const { subMajor, presentationList } = props
+  const { sessionName, startDate, endDate } = subMajor
 
-  const majorId = sessionDic[sessionId].majorId
+  const majorId = subMajor.majorId
   const { majorName, majorIcon } = getMajorInfos(majorId)
 
   const [isExpanded, setIsExpanded] = React.useState(false)
 
   return (
-    <TimelineItem>
-      <TimelineOppositeContent style={{ flex: 0}}/>
-      <TimelineSeparator>
-        <TimelineConnector className={classes.timelineConnector}/>
-        <TimelineDotIcon majorIcon={majorIcon} startDate={startDate} endDate={endDate}/>
-        <TimelineConnector className={classes.timelineConnector}/>
-      </TimelineSeparator>
-      <TimelineContent>
-        <Paper elevation={0} className={classes.paper}>
-          <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
-            <div className={classes.numberContainer}>
-            <div className={classes.timeContainer}>
-                <img src={presentationIcon} style={{ width: 'auto', height: 15 }} alt="number-presentation-icon" />
-                <span className={classes.timeText}>{nPresentation} presentations</span>
-              </div>
-              {/* <div className={classes.timeContainer}>
-                <ClockIcon className={classes.clockIcon}/>
-                <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")} - ${moment(endDate).format("k:mm A")}`}</span>
-              </div>
-              {room && 
-                <div className={classes.timeContainer}>
-                  <MeetingRoomIcon className={classes.clockIcon}/>
-                  <span className={classes.timeText}>{room}</span>
-                </div>
-              } */}
-            </div>
-            <div className={classes.titleContainer}>
-              <div className={classes.title}>{sessionDic[sessionId].sessionName}</div>
-              {isExpanded ? <ExpandLessIcon className={classes.expandIcon}/> : <ExpandMoreIcon className={classes.expandIcon}/>}
-            </div>
-            <Divider />
+    <Paper elevation={0} className={classes.paper}>
+      <div>{majorName}</div>
+      <img src={majorIcon}/>
+      <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
+        <div className={classes.numberContainer}>
+        <div className={classes.timeContainer}>
+            <img src={presentationIcon} style={{ width: 'auto', height: 15 }} alt="number-presentation-icon" />
+            <span className={classes.timeText}>{presentationList.length} bài thuyết trình</span>
           </div>
-          <Collapse in={isExpanded}>
-            
-            {/* <div className={classes.buttonContainer}>
-              <div className={classes.majorText}>{majorName}</div>
-              <div>
-                <ZoomButton linkZoom={linkZoom}/>
-                <LinkPaperButton paperLink={paperLink}/>
-                <AddToCalendarButton {...presentation} />
-              </div>
-            </div>
-            <div className={classes.descriptionText}>{description}</div>
-            <div className={classes.authorText}>{author}</div> */}
-          </Collapse>
-        </Paper>
-      </TimelineContent>
-    </TimelineItem>
+        </div>
+        <div className={classes.titleContainer}>
+          <div className={classes.title}>{sessionName}</div>
+          {isExpanded ? <ExpandLessIcon className={classes.expandIcon}/> : <ExpandMoreIcon className={classes.expandIcon}/>}
+        </div>
+        <Divider />
+      </div>
+      <Collapse in={isExpanded}>
+        {
+          presentationList.map(presentation => 
+            <PresentationItem 
+              key={`${presentation.id}-${presentation.name}`} 
+              presentation={presentation}
+              subMajor={subMajor}
+            />
+          )
+        }
+      </Collapse>
+    </Paper>
   )
 }
 
-export default MajorItem
+export default SubMajorItem

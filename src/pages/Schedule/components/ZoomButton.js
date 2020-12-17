@@ -22,6 +22,9 @@ const CustomButton = withStyles({
 
 const ZoomButton = (props) => {
   const { linkZoom } = props
+  if (!linkZoom) {
+    return null
+  }
   return (
     <CustomButton
       color="primary"

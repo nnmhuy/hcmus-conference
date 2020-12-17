@@ -28,8 +28,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Schedule = (props) => {
-  const { allPresentation, allSession, sessionDic } = props
-  console.log('session Dic', sessionDic)
+  const { allPresentation, allSession, sessionDict } = props
 
   const location = useLocation()
   const query = new URLSearchParams(location.search);
@@ -53,7 +52,7 @@ const Schedule = (props) => {
         allPresentation={allPresentation} 
         allSession={timeSessionList}  
         filter={filter}
-        sessionDic={sessionDic}
+        allSubMajor={allSession}
       />
     </div>
   )
@@ -63,7 +62,7 @@ const mapStateToProps = ({ presentation, }) => {
   return {
     allPresentation: presentation.allPresentation,
     allSession: presentation.allSession,
-    sessionDic: presentation.sessionDic
+    sessionDict: presentation.sessionDict,
   }
 }
 

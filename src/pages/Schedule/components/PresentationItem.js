@@ -115,10 +115,9 @@ const useStyles = makeStyles(theme => ({
 
 const PresentationItem = (props) => {
   const classes = useStyles()
-  const { presentation } = props
-  const { majorId, startDate, endDate, title, description, room, linkZoom, paperLink, author } = presentation
-
-  const { majorName, majorIcon } = getMajorInfos(majorId)
+  const { presentation, subMajor } = props
+  const { startDate, endDate, paperName, description, paperLink, author, linkZoom } = presentation
+  const { room, linkZoom: linkZoomSubMajor } = subMajor
 
   const [isExpanded, setIsExpanded] = React.useState(false)
 
@@ -126,9 +125,9 @@ const PresentationItem = (props) => {
     <TimelineItem>
       <TimelineOppositeContent style={{ flex: 0}}/>
       <TimelineSeparator>
-        <TimelineConnector className={classes.timelineConnector}/>
+        {/* <TimelineConnector className={classes.timelineConnector}/>
         <TimelineDotIcon majorIcon={majorIcon} startDate={startDate} endDate={endDate}/>
-        <TimelineConnector className={classes.timelineConnector}/>
+        <TimelineConnector className={classes.timelineConnector}/> */}
       </TimelineSeparator>
       <TimelineContent>
         <Paper elevation={0} className={classes.paper}>
@@ -146,16 +145,16 @@ const PresentationItem = (props) => {
               }
             </div>
             <div className={classes.titleContainer}>
-              <div className={classes.title}>{title}</div>
+              <div className={classes.title}>{paperName}</div>
               {isExpanded ? <ExpandLessIcon className={classes.expandIcon}/> : <ExpandMoreIcon className={classes.expandIcon}/>}
             </div>
             <Divider />
           </div>
           <Collapse in={isExpanded}>
             <div className={classes.buttonContainer}>
-              <div className={classes.majorText}>{majorName}</div>
+              <div className={classes.majorText}>{subMajor.sessionName}</div>
               <div>
-                <ZoomButton linkZoom={linkZoom}/>
+                <ZoomButton linkZoom={linkZoom || linkZoomSubMajor}/>
                 <LinkPaperButton paperLink={paperLink}/>
                 <AddToCalendarButton {...presentation} />
               </div>

@@ -41,7 +41,6 @@ const PresentationList = (props) => {
   }
 
   const filteredPresentations = getFilteredPresentationList()
-  console.log("major", filteredPresentations)
 
   return (
     <div className={classes.root}>
