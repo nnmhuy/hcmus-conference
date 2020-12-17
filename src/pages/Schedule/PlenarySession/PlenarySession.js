@@ -6,8 +6,10 @@ import clsx from 'clsx'
 import ClockIcon from '@material-ui/icons/AccessTime';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 
-import ZoomButton from './Button/ZoomButton'
+import PlenaryPresentation from './PlenaryPresentation'
+import ZoomButton from '../components/Button/ZoomButton'
 
+import plenaryPresentationData from './plenaryPresentationData'
 import colors from '../../../constants/colors'
 
 const useStyles = makeStyles(theme => ({
@@ -15,9 +17,9 @@ const useStyles = makeStyles(theme => ({
     padding: 20,
   },
   title: {
-    fontSize: '1.5rem',
+    fontSize: '1.75rem',
     fontWeight: 'bold',
-    color: colors.logoDarkBlue,
+    color: colors.primaryBlue,
     textAlign: 'center',
   },
   timeContainer: {
@@ -71,6 +73,17 @@ const PlenarySession = (props) => {
         size="large" variant="outlined" 
         linkZoom="https://fithcmus.zoom.us/j/98599000132?pwd=d1VYd1lzT3VaUHhDMUlVSnNFSHJzQT09"
       />
+      <div>
+        {
+          plenaryPresentationData.map((presentation, index) => (
+            <PlenaryPresentation 
+              key={`plenary-presentation-${index}`} 
+              presentation={presentation}
+              index={index}
+            />
+          ))
+        }
+      </div>
     </div>
   )
 }

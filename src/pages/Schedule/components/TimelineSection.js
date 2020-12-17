@@ -6,7 +6,7 @@ import { get, filter } from 'lodash'
 import DateTabs from './DateTabs'
 import SessionTabs from './SessionTabs'
 import SubMajorPresentationList from './SubMajorPresentationList'
-import PlenarySession from './PlenarySession'
+import PlenarySession from '../PlenarySession/PlenarySession'
 
 import { dateList } from '../../../constants/constants'
 
