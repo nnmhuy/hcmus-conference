@@ -115,7 +115,7 @@ const BlobShape = styled.div`
   width: 40px;
   height: 40px;
   // background: #ffa638;
-  background: ${colors.logoDarkBlue};
+  background: ${colors.primaryBlue};
   position: absolute;
   pointer-events: none;
   z-index: 1;
