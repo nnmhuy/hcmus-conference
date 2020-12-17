@@ -27,7 +27,7 @@ const OverlayContainer = styled.div`
     max-width: 950px;
   }
   @media (min-width: 1480px) {
-    max-width: 1165px;
+    max-width: 1400px;
   }
 `
 
