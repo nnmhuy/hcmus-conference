@@ -13,13 +13,10 @@ import styled from 'styled-components';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
-<<<<<<< HEAD
     height: '90vh',
     overflow: "scroll",
-=======
     height: '100%',
     overflowY: 'scroll'
->>>>>>> fixed-bar
   },
   timelineRoot: {
     padding: 0,
