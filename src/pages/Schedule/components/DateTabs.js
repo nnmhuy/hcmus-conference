@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     borderLeft: '0px solid transparent',
     borderRight: '0px solid transparent',
     // borderTop: `0px solid #403ECF`,
-    borderTop: `0px solid ${colors.primaryBlue}`,
+    borderTop: `0px solid #1fa1f3`,
     margin: 'auto',
     zIndex: 100,
     '&.active': {
