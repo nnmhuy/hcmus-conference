@@ -43,14 +43,6 @@
   },
   "validations": [],
   "relations": {
-    "session": {
-      "type": "belongsTo",
-      "model": "Session",
-      "foreignKey": "",
-      "options": {
-        "disableInclude": false
-      }
-    }
   },
   "acls": [
     {

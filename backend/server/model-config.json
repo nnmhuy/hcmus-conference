@@ -55,7 +55,7 @@
     "dataSource": "conferrence-hcmus",
     "public": true
   },
-  "major": {
+  "Major": {
     "dataSource": "conferrence-hcmus",
     "public": true
   }
