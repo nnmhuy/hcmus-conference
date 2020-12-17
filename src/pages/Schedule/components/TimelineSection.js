@@ -52,7 +52,6 @@ const TimelineSection = (props) => {
         allSubMajor={allSubMajor}
         filter={majorFilter}
         sessionDay={get(sessionList, `[${activeSession}].day`, '')}
-        sessionDict={sessionDict}
       />
     </div>
   );

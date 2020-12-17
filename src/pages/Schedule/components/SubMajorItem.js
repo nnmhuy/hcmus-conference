@@ -9,7 +9,7 @@ import Divider from '@material-ui/core/Divider'
 import Collapse from '@material-ui/core/Collapse'
 import { makeStyles } from '@material-ui/core/styles'
 
-import MajorInfoForSubMajor from './MajorInfoForSubMajor'
+import SubMajorIcon from './SubMajorIcon'
 import PresentationItem from './PresentationItem'
 import getMajorInfos from '../../../helpers/getMajorInfos'
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     padding: '6px 0',
     '@media (min-width: 568px)': {
       padding: '6px 16px',
-    }
+    },
   },
   timelineConnector: {
     background: '#F4F5F8',
@@ -121,8 +121,7 @@ const SubMajorItem = (props) => {
 
   return (
     <Paper elevation={0} className={classes.paper}>
-      <div>{majorName}</div>
-      <img src={majorIcon}/>
+      <SubMajorIcon majorIcon={majorIcon} startDate={startDate} endDate={endDate} />
       <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
         <div className={classes.numberContainer}>
         <div className={classes.timeContainer}>

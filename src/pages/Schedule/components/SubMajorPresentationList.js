@@ -21,45 +21,24 @@ const useStyles = makeStyles(theme => ({
 
 const MajorPresentationList = (props) => {
   const classes = useStyles()
-  // const { sessionDic } = useSelector(presentation => presentation.sessionDic)
-  // console.log('session dic ', sessionDic)
+  const { allPresentation, allSubMajor, filter: majorFilter = [], sessionDay } = props
 
-  const { allPresentation, sessionDic, filter: majorFilter = [], sessionDay } = props
-  const getFilteredPresentationList = () => {
-    let filteredPresentations = []
-    if (majorFilter.length) {
-      majorFilter.forEach(majorId => {
-        filteredPresentations = [...filteredPresentations, ...get(allPresentation, majorId, [])]
-      });
-    } else {
-      Object.keys(allPresentation).forEach(majorId => {
-        filteredPresentations = [...filteredPresentations, ...get(allPresentation, majorId, [])]
-      })
-    }
-    filteredPresentations = filter(filteredPresentations, (presentation) => {
-      const { startDate } = presentation
-      return sessionDic[presentation.sessionId].day == sessionDay
-    })
-    return filteredPresentations
-  }
-  
-  // console.log("before", allPresentation)
-  
-
-  const filteredPresentations = getFilteredPresentationList()
-  console.log("dic", sessionDic)
-  console.log("after", filteredPresentations)
+  const filteredSubMajor = filter(allSubMajor, 
+    subMajor => 
+    subMajor.day === sessionDay 
+    && (majorFilter.length === 0 || majorFilter.includes(subMajor.majorId))
+  )
 
   return (
     <div className={classes.root}>
       <Timeline align="left" className={classes.timelineRoot}>
         {
-          filteredPresentations.map((presentation, index) => {
+          filteredSubMajor.map((subMajor, index) => {
             return (
               <SubMajorItem 
-                key={`presentation-item-${index}-${presentation.title}`} 
-                presentation={presentation}  
-                sessionDic={sessionDic}
+                key={`presentation-item-${index}-${subMajor.id}`} 
+                presentationList={allPresentation[subMajor.sessionId]}
+                subMajor={subMajor}
               />
             )
           })

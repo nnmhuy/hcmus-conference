@@ -40,7 +40,7 @@ const getStatus = (startDate, endDate) => {
 }
 
 
-const TimelineDotIcon = (props) => {
+const SubMajorIcon = (props) => {
   const classes = useStyles()
   const { majorIcon, startDate, endDate } = props
 
@@ -62,4 +62,4 @@ const TimelineDotIcon = (props) => {
   )
 }
 
-export default TimelineDotIcon
+export default SubMajorIcon
