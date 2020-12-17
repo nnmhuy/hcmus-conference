@@ -28,10 +28,11 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
     transition: 'all 0.3s',
     opacity: '0.2',
-    background: `${colors.primaryGradientLeft}`,
+    background: `linear-gradient(to left, #1469de, #1469de, #1469de)`,
   },
   activeMajor: {
     opacity: 1,
+    background: `${colors.primaryGradientLeft}`,
   }
 }))
 
