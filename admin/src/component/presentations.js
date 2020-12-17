@@ -1,5 +1,6 @@
 import * as React from "react";
-import { List, Datagrid, Edit, Create, SimpleForm, TextField, EditButton, TextInput, DateInput, UrlField, DateField } from 'react-admin';
+import { useGetList, Loading, Error, List, Datagrid, Edit, Create, SimpleForm, TextField, EditButton, TextInput, DateInput, UrlField, DateField, AutocompleteInput} from 'react-admin';
+import { useState, useEffect } from 'react';
 
 export const PresentationList = (props) => (
 	<List {...props}>
@@ -40,19 +41,28 @@ export const PresentationEdit = (props) => (
 	</Edit>
 );
 
-export const PresentationCreate = (props) => (
-	<Create title="Create a presentation" {...props}>
-		<SimpleForm>
-			<TextInput source="majorId"/>
-			<DateInput label="Start date" source="startDate" />
-			<DateInput label="End date" source="endDate" />
-			<TextInput source="title"/>
-			<TextInput source="room"/>
-			<TextInput source="paperLink"/>
-			<TextInput multiline source="description"/>
-			<TextInput source="linkZoom"/>
-			<TextInput source="author"/>
-			<TextInput source="sessionId"/>
-		</SimpleForm>
-	</Create>
-);
+export const PresentationCreate = (props) => {
+	// const { session, loading, error } = useGetList('sessions', {
+  //   sort: { field: 'startDate', order: 'ASC' },
+  //   filter: {},	
+	// });
+	// if (loading) { return <Loading />; }
+	// if (error) { return <p>ERROR</p>; }	
+	return(
+		<Create title="Create a presentation" {...props}>
+			<SimpleForm>
+				<TextInput source="majorId"/>
+				<DateInput label="Start date" source="startDate" />
+				<DateInput label="End date" source="endDate" />
+				<TextInput source="title"/>
+				<TextInput source="room"/>
+				<TextInput source="paperLink"/>
+				<TextInput multiline source="description"/>
+				<TextInput source="linkZoom"/>
+				<TextInput source="author"/>
+				<TextInput source="sessionId"/>
+				{/* <AutocompleteInput source="sessionId" choices={} optionText="startDate" optionValue="id"/> */}
+			</SimpleForm>
+		</Create>
+	)
+};

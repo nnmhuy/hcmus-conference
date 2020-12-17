@@ -3,9 +3,10 @@ import { Admin, Resource, fetchUtils } from 'react-admin';
 
 import loopbackClient from 'react-admin-loopback';
 
-import { SessionList, SessionEdit, SessionCreate, SessionIcon } from './component/session';
+import { SessionList, SessionEdit, SessionCreate } from './component/sessions';
 import { PresentationList, PresentationEdit, PresentationCreate } from './component/presentations';
-import authProvider from './provider/authProvider'
+import { SponsorList, SponsorEdit, SponsorCreate } from './component/sponsors';
+import authProvider from './provider/authProvider';
 
 const fetchJson = (url, options = {}) => {
 	if (!options.headers) options.headers = new Headers({ Accept: 'application/json'});
@@ -24,8 +25,9 @@ const dataProvider = loopbackClient('https://backend-hcmus-conference.herokuapp.
 function App() {
   return (
 		<Admin title="HCMUS Admin" dataProvider={dataProvider} authProvider={authProvider}>
-        <Resource name="sessions" list={SessionList} edit={SessionEdit} create={SessionCreate} icon={SessionIcon}/>
+        <Resource name="sessions" list={SessionList} edit={SessionEdit} create={SessionCreate}/>
 				<Resource name="presentations" list={PresentationList} edit={PresentationEdit} create={PresentationCreate}/>
+				<Resource name="sponsors" list={SponsorList} edit={SponsorEdit} create={SponsorCreate}/>
     </Admin>
   );
 }

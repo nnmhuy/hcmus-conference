@@ -1,7 +1,5 @@
 import * as React from "react";
-import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, TextInput, DateInput } from 'react-admin';
-import BookIcon from '@material-ui/icons/Book';
-export const SessionIcon = BookIcon;
+import { List, Datagrid, Edit, Create, SimpleForm, DateField, TextField, EditButton, TextInput, DateTimeInput } from 'react-admin';
 
 export const SessionList = (props) => (
     <List {...props}>
@@ -22,8 +20,8 @@ export const SessionEdit = (props) => (
     <Edit title={<SessionTitle />} {...props}>
         <SimpleForm>
             <TextInput disabled source="id" />
-            <DateInput label="Start date" source="startDate" />
-            <DateInput label="End date" source="endDate" />
+            <DateTimeInput label="Start date" source="startDate" />
+            <DateTimeInput label="End date" source="endDate" />
         </SimpleForm>
     </Edit>
 );
@@ -32,8 +30,8 @@ export const SessionCreate = (props) => (
     <Create title="Create a session" {...props}>
         <SimpleForm>
           <TextInput disabled source="id" />
-          <DateInput label="Start date" source="startDate" />
-          <DateInput label="End date" source="endDate" />
+          <DateTimeInput label="Start date" source="startDate" />
+          <DateTimeInput label="End date" source="endDate" />
         </SimpleForm>
     </Create>
 );

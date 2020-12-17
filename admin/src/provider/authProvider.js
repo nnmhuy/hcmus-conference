@@ -1,5 +1,3 @@
-import decodeJwt from 'jwt-decode';
-
 export default {
 	login: ({ username, password }) => {
 		const request = new Request('https://backend-hcmus-conference.herokuapp.com/api/accounts/login', {
