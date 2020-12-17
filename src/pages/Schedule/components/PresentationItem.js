@@ -34,9 +34,9 @@ const useStyles = makeStyles(theme => ({
   },
   timelineOpposite: {
     flex: 0, 
-    '@media (max-width: 800px)': {
-      padding: 0,
-    }
+    minWidth: 60,
+    display: 'flex',
+    padding: '6px 6px 6px 0px',
   },
   timelineConnector: {
     background: '#F4F5F8',
@@ -127,7 +127,11 @@ const PresentationItem = (props) => {
 
   return (
     <TimelineItem>
-      <TimelineOppositeContent className={classes.timelineOpposite}/>
+      <TimelineOppositeContent className={classes.timelineOpposite}>
+        <div className={classes.timeContainer}>
+          <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")}`}</span>
+        </div>
+      </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineConnector className={classes.timelineConnector}/>
         <PresentationDotIcon startDate={startDate} endDate={endDate}/>
@@ -137,10 +141,6 @@ const PresentationItem = (props) => {
         <Paper elevation={0} className={classes.paper}>
           <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
             <div className={classes.numberContainer}>
-              <div className={classes.timeContainer}>
-                <ClockIcon className={classes.clockIcon}/>
-                <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")} - ${moment(endDate).format("k:mm A")}`}</span>
-              </div>
               {room && 
                 <div className={classes.timeContainer}>
                   <MeetingRoomIcon className={classes.clockIcon}/>

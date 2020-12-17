@@ -105,6 +105,7 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: 10,
     paddingRight: 10,
     textAlign: 'center',
+    minWidth: 130,
   },
   descriptionText: {
     fontSize: '1rem',
