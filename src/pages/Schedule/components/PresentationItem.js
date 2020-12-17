@@ -6,7 +6,6 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider'
-import Collapse from '@material-ui/core/Collapse'
 import { makeStyles } from '@material-ui/core/styles'
 import moment from 'moment'
 
@@ -15,10 +14,7 @@ import ZoomButton from './Button/ZoomButton'
 import AddToCalendarButton from './Button/AddToCalendarButton'
 import LinkPaperButton from './Button/LinkPaperButton'
 
-import ClockIcon from '@material-ui/icons/AccessTime';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 import colors from '../../../constants/colors'
 
@@ -34,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   timelineOpposite: {
     flex: 0, 
-    minWidth: 60,
+    minWidth: 70,
     display: 'flex',
     padding: '6px 6px 6px 0px',
   },
@@ -42,23 +38,22 @@ const useStyles = makeStyles(theme => ({
     background: '#F4F5F8',
     width: 1,
   },
-  summaryRoot: {
-    cursor: 'pointer'
-  },
   numberContainer: {
     display: 'flex',
     "@media (max-width: 768px)": {
       flexDirection: 'column',
-    }
+      justifyContent: 'space-between',
+    },
+    alignItems: 'start'
   },
   timeContainer: {
     display: 'flex',
     alignItems: 'center',
-    marginRight: 5,
+    marginRight: 15,
     "@media (max-width: 768px)": {
       marginRight: 0,
       marginBottom: 5,
-    }
+    },
   },
   clockIcon: {
     color: `${colors.darkGray}`,
@@ -123,8 +118,6 @@ const PresentationItem = (props) => {
   const { startDate, endDate, paperName, summary, paperLink, author, linkZoom } = presentation
   const { room, linkZoom: linkZoomSubMajor } = subMajor
 
-  const [isExpanded, setIsExpanded] = React.useState(false)
-
   return (
     <TimelineItem>
       <TimelineOppositeContent className={classes.timelineOpposite}>
@@ -139,39 +132,28 @@ const PresentationItem = (props) => {
       </TimelineSeparator>
       <TimelineContent>
         <Paper elevation={0} className={classes.paper}>
-          <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
-            <div className={classes.numberContainer}>
-              {room && 
-                <div className={classes.timeContainer}>
-                  <MeetingRoomIcon className={classes.clockIcon}/>
-                  <span className={classes.timeText}>{room}</span>
-                </div>
-              }
-            </div>
-            <div className={classes.titleContainer}>
-              <div style={{ marginBottom: 5 }}>
-                <div className={classes.title}>{paperName}</div>
-                <div className={classes.authorText}>{author}</div>
+          <div className={classes.numberContainer}>
+            {room && 
+              <div className={classes.timeContainer}>
+                <MeetingRoomIcon className={classes.clockIcon}/>
+                <span className={classes.timeText}>{room}</span>
               </div>
-              {isExpanded ? <ExpandLessIcon className={classes.expandIcon}/> : <ExpandMoreIcon className={classes.expandIcon}/>}
-            </div>
-            <Divider />
+            }
+            <ZoomButton linkZoom={linkZoom || linkZoomSubMajor} style={{ marginRight:15 }}/>
+            <LinkPaperButton paperLink={paperLink} />
+            <AddToCalendarButton
+              {...presentation}
+              room={room}
+              linkZoom={linkZoom || linkZoomSubMajor}
+            />
           </div>
-          <Collapse in={isExpanded}>
-            <div className={classes.buttonContainer}>
-              <div className={classes.majorText}>{subMajor.sessionName}</div>
-              <div>
-                <ZoomButton linkZoom={linkZoom || linkZoomSubMajor}/>
-                <LinkPaperButton paperLink={paperLink}/>
-                <AddToCalendarButton 
-                  {...presentation} 
-                  room={room}
-                  linkZoom={linkZoom || linkZoomSubMajor}
-                />
-              </div>
+          <div className={classes.titleContainer}>
+            <div style={{ marginBottom: 5 }}>
+              <div className={classes.title}>{paperName}</div>
+              <div className={classes.authorText}>{author}</div>
             </div>
-            <div className={classes.descriptionText}>{summary}</div>
-          </Collapse>
+          </div>
+          <Divider />
         </Paper>
       </TimelineContent>
     </TimelineItem>

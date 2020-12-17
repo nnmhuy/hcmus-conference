@@ -10,6 +10,7 @@ const CustomButton = withStyles({
   root: {
     boxShadow: 'none',
     textTransform: 'none',
+    padding: 0,
     '&:hover': {
       color: '#4748D1',
     },
