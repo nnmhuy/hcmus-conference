@@ -88,9 +88,9 @@ const BookBubble = styled(SuspenseImage)`
     @media (min-width: 1286px) {
       width: 650px;
     }
-    // @media (min-width: 1480px) {
-    //   width: 800px;
-    // }
+    @media (min-width: 2000px) {
+      width: 800px;
+    }
   `
 
 const TopShelf = styled.div`
@@ -143,10 +143,10 @@ const HoverText = styled.div`
     right: -5px;
     bottom: 115px;
   }
-  // @media (min-width: 1480px) {
-  //   right: 0px;
-  //   bottom: 152px;
-  // }
+  @media (min-width: 2000px) {
+    right: 10px;
+    bottom: 160px;
+  }
 `
 
 const BookCaseContainer = styled.div`
