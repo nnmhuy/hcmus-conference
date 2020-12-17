@@ -35,6 +35,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     justifyContent: 'center',
     height: '100%',
+    transform: 'translate(-1, -1, 0)',
     position: 'relative',
     transition: 'all 0.6s ease-in-out',
     '&::after': {
@@ -50,7 +51,6 @@ const useStyles = makeStyles(theme => ({
     background: 'transparent',
     '&::after': {
       width: '100%',
-      transform: 'translateZ(0)',
     }
   },
   activeTabDenote: {
