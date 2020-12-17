@@ -15,12 +15,19 @@ const OverlayContainer = styled.div`
   height: 100%;
   flex-direction: column;
   padding-bottom: 50px;
+  max-width: 1100px;
   @media (min-width: 800px) {
     flex-direction: row;
     padding-bottom: 0;
   }
   @media (max-width: 800px) {
     margin-top: 30px;
+  }
+  @media (max-width: 1286px) {
+    max-width: 950px;
+  }
+  @media (min-width: 1480px) {
+    max-width: 1165px;
   }
 `
 
