@@ -3,8 +3,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles'
 
-import EnterRoomIcon from '../../../static/images/enter-room-icon.svg'
-import colors from '../../../constants/colors'
+import EnterRoomIcon from '../../../../static/images/enter-room-icon.svg'
+import colors from '../../../../constants/colors'
 
 const CustomButton = withStyles({
   root: {

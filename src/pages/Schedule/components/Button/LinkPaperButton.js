@@ -3,7 +3,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles'
 
-import colors from '../../../constants/colors'
+import colors from '../../../../constants/colors'
 import DescriptionIcon from '@material-ui/icons/Description';
 
 const CustomButton = withStyles({

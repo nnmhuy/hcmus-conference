@@ -1,6 +1,5 @@
 const backendURL = process.env.REACT_APP_BACKEND_URL
 
-// TODO: icon của địa chất
 const majorList = [
   { id: 0, name: "Hóa học", icon: require('../static/images/major-icon/0.svg') },
   { id: 1, name: "Sinh học - Công nghệ sinh học", icon: require('../static/images/major-icon/1.svg') },

@@ -11,9 +11,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import moment from 'moment'
 
 import PresentationDotIcon from './PresentationDotIcon'
-import ZoomButton from './ZoomButton'
-import AddToCalendarButton from './AddToCalendarButton'
-import LinkPaperButton from './LinkPaperButton'
+import ZoomButton from './Button/ZoomButton'
+import AddToCalendarButton from './Button/AddToCalendarButton'
+import LinkPaperButton from './Button/LinkPaperButton'
 
 import ClockIcon from '@material-ui/icons/AccessTime';
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';

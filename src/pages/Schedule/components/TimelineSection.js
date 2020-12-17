@@ -6,6 +6,7 @@ import { get, filter } from 'lodash'
 import DateTabs from './DateTabs'
 import SessionTabs from './SessionTabs'
 import SubMajorPresentationList from './SubMajorPresentationList'
+import PlenarySession from './PlenarySession'
 
 import { dateList } from '../../../constants/constants'
 
@@ -40,21 +41,27 @@ const TimelineSection = (props) => {
   const sessionList = filter(allSession, session => 
     moment(session.startDate).isSame(activeDate, 'day')
   )
+
+  const sessionDay = get(sessionList, `[${activeSession}].day`, '')
     
   return (
     <div className={classes.root}>
       <DateTabs activeDate={activeDate} handleChangeActiveDate={handleChangeActiveDate}/>
-      <SessionTabs 
-        sessionList={sessionList} 
-        activeSession={activeSession} 
+      <SessionTabs
+        sessionList={sessionList}
+        activeSession={activeSession}
         handleChangeActiveSession={handleChangeActiveSession}
       />
-      <SubMajorPresentationList 
-        allPresentation={allPresentation} 
-        allSubMajor={allSubMajor}
-        filter={majorFilter}
-        sessionDay={get(sessionList, `[${activeSession}].day`, '')}
-      />
+      {sessionDay === 0 ?
+        <PlenarySession/>
+        : 
+        <SubMajorPresentationList 
+          allPresentation={allPresentation} 
+          allSubMajor={allSubMajor}
+          filter={majorFilter}
+          sessionDay={sessionDay}
+        />
+      }
     </div>
   );
 }

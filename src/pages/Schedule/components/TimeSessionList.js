@@ -1,6 +1,12 @@
 let timeSessionList = [
   {
     startDate: new Date("December 18, 2020 6:30:00"),
+    endDate: new Date("December 18, 2020 10:00:00"),
+    day: 0,
+    name: 'Phiên toàn thể'
+  },
+  {
+    startDate: new Date("December 18, 2020 8:00:00"),
     endDate: new Date("December 18, 2020 12:55:00"),
     day: 1,
     name: 'Buổi sáng'

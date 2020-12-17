@@ -9,7 +9,7 @@ import moment from 'moment'
 
 import SubMajorIcon from './SubMajorIcon'
 import PresentationItem from './PresentationItem'
-import ZoomButton from './ZoomButton'
+import ZoomButton from './Button/ZoomButton'
 import getMajorInfos from '../../../helpers/getMajorInfos'
 
 import ClockIcon from '@material-ui/icons/AccessTime';
