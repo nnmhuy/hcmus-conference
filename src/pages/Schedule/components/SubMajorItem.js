@@ -72,7 +72,7 @@ const useStyles = makeStyles(theme => ({
   titleContainer: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: '1.5rem',
@@ -80,6 +80,7 @@ const useStyles = makeStyles(theme => ({
     textTransform: 'uppercase',
     marginTop: 5,
     marginBottom: 5,
+    textAlign: 'center',
   },
   expandIcon: {
     color: `${colors.primaryOrange}`,
@@ -132,6 +133,7 @@ const SubMajorItem = (props) => {
     <Paper elevation={0} className={classes.paper}>
       <div className={classes.summaryRoot} onClick={() => setIsExpanded(!isExpanded)}>
         <SubMajorIcon majorIcon={majorIcon} startDate={startDate} endDate={endDate} />
+        <div className={classes.majorText}>{majorName}</div>
         <div className={classes.title}>{sessionName}</div>
         <div className={classes.numberContainer}>
           <div className={classes.timeContainer}>
@@ -149,7 +151,6 @@ const SubMajorItem = (props) => {
             <span className={classes.timeText}>{presentationList.length} bài thuyết trình</span>
           </div>
         </div>
-        {/* <div className={classes.majorText}>{majorName}</div> */}
         {isExpanded && <ZoomButton linkZoom={linkZoom} size="large" variant="outlined" style={{ }}/>}
         {isExpanded ? <ExpandLessIcon className={classes.expandIcon}/> : <ExpandMoreIcon className={classes.expandIcon}/>}
         <Divider style={{ width: '100%' }}/>
