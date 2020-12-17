@@ -10,9 +10,11 @@ const styles = (theme => ({
   loading: {
     width: '100%',
     height: '100%',
+    position: 'fixed',
     top: 0,
     left: 0,
-    zIndex: 10000
+    zIndex: 10000,
+    opacity: 0.8
   },
   modal: {
     width: '100%',
@@ -37,13 +39,20 @@ const Loading = (props) => {
     return null
   }
   return (
-    <Paper tabIndex={-1} className={classes.loading}>
-      <Modal className={classes.modal} open={isLoading}>
-        <DialogContent className={classes.content}>
-          <Loader color={colors.primaryBlue} />
-        </DialogContent>
-      </Modal>
-    </Paper>
+    <>
+      {
+        isLoading ?
+          <Paper tabIndex={-1} className={classes.loading}>
+            {/* <Modal className={classes.modal} open={isLoading}> */}
+              <DialogContent className={classes.content}>
+                <Loader color={colors.primaryBlue} />
+              </DialogContent>
+            {/* </Modal> */}
+          </Paper>
+          : <></>
+      }
+    </>
+
   )
 }
 
