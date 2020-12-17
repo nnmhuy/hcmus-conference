@@ -63,7 +63,7 @@ const Schedule = (props) => {
 
   return (
     <div className={classes.root}>
-      <HeadingText>Lịch trình</HeadingText>
+      <HeadingText>Chương trình Hội nghị</HeadingText>
       <FilterSection query={query} filter={filter}/>
       <TimelineSection
         allPresentation={allPresentation} 
