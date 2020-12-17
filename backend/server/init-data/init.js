@@ -14,7 +14,7 @@ async function getPresentation(fileNameList, sessionData) {
   })
   let presentationData = await getListCSV(fileNameList)
   presentationData.forEach(element => {
-    let timeList = element.date.split('-')
+    let timeList = element.date.split(/[-–]/)
     element.startDate = convertToJsTime(dayDict[element.sessionId], timeList[0])
     element.endDate = convertToJsTime(dayDict[element.sessionId], timeList[1])
     delete element.date

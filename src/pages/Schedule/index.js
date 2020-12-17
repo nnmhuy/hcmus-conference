@@ -3,16 +3,33 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { useLocation } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
+import colors from '../../constants/colors'
 
 import FilterSection from './components/FilterSection'
 import TimelineSection from './components/TimelineSection'
 import timeSessionList from './components/TimeSessionList'
 
+
+const HeadingText = styled.h2`
+  font-size: 2.3em;
+  margin-bottom: 0;
+  text-align: center;
+  color: black;
+  @media (min-width: 800px) {
+    font-size: 3em;
+  }
+  @media (min-width: 900px) {
+    font-size: 4em;
+  }
+`
+
 const useStyles = makeStyles(theme => ({
   header: {
-    fontSize: 34,
+    fontSize: '3.5rem',
     fontWeight: 600,
     marginTop: 20,
+    padding: '20px 0 10px 0',
     marginBottom: 10,
     textAlign: 'center'
   },
@@ -46,7 +63,7 @@ const Schedule = (props) => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.header}>Chương trình Hội nghị</div>
+      <HeadingText>Lịch trình</HeadingText>
       <FilterSection query={query} filter={filter}/>
       <TimelineSection
         allPresentation={allPresentation} 
