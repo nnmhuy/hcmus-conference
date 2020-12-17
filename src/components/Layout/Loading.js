@@ -14,7 +14,7 @@ const styles = (theme => ({
     top: 0,
     left: 0,
     zIndex: 10000,
-    opacity: 0.8
+    opacity: '0.8'
   },
   modal: {
     width: '100%',
