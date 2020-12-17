@@ -23,11 +23,11 @@ const CourseContainer = styled.div`
   @media (min-width: 568px) {
     text-align: center;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     grid-template-columns: repeat(2, auto);
     grid-gap: 20px 90px;
   }
-  @media (min-width: 1350px) {
+  @media (min-width: 1550px) {
     grid-template-columns: repeat(3, auto);
   }
 `

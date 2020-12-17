@@ -83,7 +83,7 @@ const EventName = styled.h1`
 `
 
 const ButtonWhite = styled.button`
-  color: ${colors.lightBlue};
+  color: ${colors.primaryOrange};
   overflow: hidden;
   background-color: #FFF;
   border-radius: 100px;
@@ -99,10 +99,6 @@ const ButtonWhite = styled.button`
   cursor: pointer;
   outline: none;
   border: none;
-
-  
-  color: ${colors.primaryBlue};
-  
   @media (min-width: 900px) {
     font-size: 1rem;
   }
@@ -119,7 +115,7 @@ const BlobShape = styled.div`
   width: 40px;
   height: 40px;
   // background: #ffa638;
-  background: ${colors.primaryOrange};
+  background: ${colors.logoDarkBlue};
   position: absolute;
   pointer-events: none;
   z-index: 1;

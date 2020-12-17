@@ -2,12 +2,12 @@ const colors = {
   /********* Fix colors below *********/
 
   /* colors from logo */
-  logoLightBlue: '#61acec',
+  logoLightBlue: '#1c8cec',
   logoDarkBlue: '#1e326d',
   logoLightOrange: '#dc902e',
   logoDarkOrange: '#d35a30',
 
-  primaryBlue: '#4053EB',
+  primaryBlue: '#1c8cec',
   primaryOrange: '#ffa61e',
   primaryContrastPurple: 'salmon', //text when hover book-item
   
@@ -16,11 +16,16 @@ const colors = {
 
   /* gradient color */
   //homepage
-  lightGradient: 'linear-gradient(to right, #4361EE, #6962DD, #9B79E8)',
+  // lightGradient: 'linear-gradient(to right, #4361EE, #6962DD, #9B79E8)',
 
   //schedulepage
-  primaryGradientLeft: 'linear-gradient(to left, #4361EE, #3F37C9, #3A0CA3)',
-  primaryGradientRight: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+  lightGradient: 'linear-gradient(to left, #1c8cec, #3780c9, #1e326d)',
+  
+
+  // primaryGradientLeft: 'linear-gradient(to left, #4361EE, #3F37C9, #3A0CA3)',
+  // primaryGradientRight: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
+  primaryGradientLeft: 'linear-gradient(to left, #1c8cec, #3780c9, #1e326d)',
+  primaryGradientRight: 'linear-gradient(to right, #1c8cec, #3780c9, #1e326d)',
   
   /********* Fix colors above *********/
 
