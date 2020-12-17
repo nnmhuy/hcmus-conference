@@ -50,5 +50,13 @@
   "Sponsor": {
     "dataSource": "conferrence-hcmus",
     "public": true
+  },
+  "extra-data": {
+    "dataSource": "conferrence-hcmus",
+    "public": true
+  },
+  "Major": {
+    "dataSource": "conferrence-hcmus",
+    "public": true
   }
 }

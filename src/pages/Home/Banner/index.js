@@ -29,7 +29,7 @@ const BannerContainer = styled.div`
   position: relative;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 90px;
+  margin-bottom: 110px;
   padding: 105px 0 0 0;
   background-size: cover;
   background-repeat: no-repeat;
@@ -38,18 +38,22 @@ const BannerContainer = styled.div`
   
   @media (min-width: 500px) {
     background-image: url(${BgBanner});
-    height: 570px;
+    height: 650px;
     background-position: 90% bottom;
+  }
+  @media (min-width: 800px) {
+    height: 570px;
   }
   @media (min-width: 1286px) {
     background-image: url(${BgBanner});
     background-position: center bottom;
-    // height: 570px;
   }
   @media (min-width: 1480px) {
     background-size: 100% 100%;
   }
-
+  @media (min-width: 2000px) {
+    min-height: 650px;
+  }
 `
 
 function Banner() {
