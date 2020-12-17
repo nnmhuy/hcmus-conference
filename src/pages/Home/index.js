@@ -49,7 +49,7 @@ const recapData = [
   },
   {
     type: 'main',
-    time: new Date("December 19, 2020 16:30:00"),
+    time: new Date("December 19, 2020 16:40:00"),
     title: 'Tổng kết'
   }
 ]
