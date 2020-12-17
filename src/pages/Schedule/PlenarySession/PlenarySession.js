@@ -1,4 +1,5 @@
 import React from 'react'
+import Divider from '@material-ui/core/Divider'
 import { makeStyles } from '@material-ui/core/styles'
 import moment from 'moment'
 import clsx from 'clsx'
@@ -15,6 +16,7 @@ import colors from '../../../constants/colors'
 const useStyles = makeStyles(theme => ({
   root: {
     padding: 20,
+    textAlign: 'center',
   },
   title: {
     fontSize: '1.75rem',
@@ -25,13 +27,14 @@ const useStyles = makeStyles(theme => ({
   timeContainer: {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     marginRight: 5,
     marginTop: 10,
     marginBottom: 10,
     "@media (max-width: 768px)": {
       marginRight: 0,
       marginBottom: 5,
-    }
+    },
   },
   clockIcon: {
     color: `${colors.darkGray}`,
@@ -72,7 +75,9 @@ const PlenarySession = (props) => {
       <ZoomButton 
         size="large" variant="outlined" 
         linkZoom="https://fithcmus.zoom.us/j/98599000132?pwd=d1VYd1lzT3VaUHhDMUlVSnNFSHJzQT09"
+        style={{ marginBottom: 20 }}
       />
+      <Divider style={{ width: '100%' }} />
       <div>
         {
           plenaryPresentationData.map((presentation, index) => (

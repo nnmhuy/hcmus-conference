@@ -152,7 +152,7 @@ const SubMajorItem = (props) => {
             <span className={classes.timeText}>{presentationList.length} bài thuyết trình</span>
           </div>
         </div>
-        {isExpanded && <ZoomButton linkZoom={linkZoom} size="large" variant="outlined" style={{ }}/>}
+        {isExpanded && <ZoomButton linkZoom={linkZoom} size="large" variant="outlined" style={{ marginTop: 10, }}/>}
         {isExpanded ? <ExpandLessIcon className={classes.expandIcon}/> : <ExpandMoreIcon className={classes.expandIcon}/>}
         <Divider style={{ width: '100%' }}/>
       </div>
