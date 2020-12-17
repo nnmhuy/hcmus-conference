@@ -1,10 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles'
 import Timeline from '@material-ui/lab/Timeline';
 import { filter, get, } from 'lodash'
 import moment from 'moment'
 
 import PresentationItem from './PresentationItem'
+import SubMajorItem from './SubMajorItem'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,12 +19,14 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-const PresentationList = (props) => {
+const MajorPresentationList = (props) => {
   const classes = useStyles()
-  const { allPresentation, filter: majorFilter = [], sessionStartDate, sessionEndDate } = props
+  // const { sessionDic } = useSelector(presentation => presentation.sessionDic)
+  // console.log('session dic ', sessionDic)
+
+  const { allPresentation, sessionDic, filter: majorFilter = [], sessionDay } = props
   const getFilteredPresentationList = () => {
     let filteredPresentations = []
-    
     if (majorFilter.length) {
       majorFilter.forEach(majorId => {
         filteredPresentations = [...filteredPresentations, ...get(allPresentation, majorId, [])]
@@ -34,14 +38,17 @@ const PresentationList = (props) => {
     }
     filteredPresentations = filter(filteredPresentations, (presentation) => {
       const { startDate } = presentation
-      return moment(sessionStartDate).isSameOrBefore(moment(startDate))
-      && moment(sessionEndDate).isSameOrAfter(moment(startDate))
+      return sessionDic[presentation.sessionId].day == sessionDay
     })
     return filteredPresentations
   }
+  
+  // console.log("before", allPresentation)
+  
 
   const filteredPresentations = getFilteredPresentationList()
-  console.log("major", filteredPresentations)
+  console.log("dic", sessionDic)
+  console.log("after", filteredPresentations)
 
   return (
     <div className={classes.root}>
@@ -49,9 +56,10 @@ const PresentationList = (props) => {
         {
           filteredPresentations.map((presentation, index) => {
             return (
-              <PresentationItem 
+              <SubMajorItem 
                 key={`presentation-item-${index}-${presentation.title}`} 
                 presentation={presentation}  
+                sessionDic={sessionDic}
               />
             )
           })
@@ -61,4 +69,4 @@ const PresentationList = (props) => {
   );
 }
 
-export default PresentationList
+export default MajorPresentationList

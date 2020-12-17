@@ -12,6 +12,8 @@ let defaultState = {
   allSession: [],
   allSponsorByRank: {},
   statistic: [],
+  allMajor: [],
+  sessionDic: {},
   error: null,
 }
 
@@ -24,7 +26,11 @@ const presentationReducer = handleActions(
       }
     },
     [getAllPresentationSuccess]: (state, { payload: { data } }) => {
-      const { session, presentation, sponsor, stats } = data
+      const { session, presentation, sponsor, stats, major } = data
+      let sessionDic = { }
+      session.forEach(element => {
+        sessionDic[element.sessionId] = element
+      });
       return {
         ...state,
         allSession: session,
@@ -32,6 +38,8 @@ const presentationReducer = handleActions(
         allPresentation: presentation,
         statistic: stats,
         isLoadingAll: false,
+        allMajor: major,
+        sessionDic
       }
     },
     [getAllPresentationFail]: (state, { payload }) => {

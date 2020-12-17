@@ -6,6 +6,7 @@ import { get, filter } from 'lodash'
 import DateTabs from './DateTabs'
 import SessionTabs from './SessionTabs'
 import PresentationList from './PresentationList'
+import SubMajorPresentationList from './SubMajorPresentationList'
 
 import { dateList } from '../../../constants/constants'
 
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 
 const TimelineSection = (props) => {
   const classes = useStyles()
-  const { allSession, allPresentation, filter: majorFilter } = props
+  const { allSession, allPresentation, sessionDic, filter: majorFilter } = props
 
   const [activeDate, setActiveDate] = React.useState(
     moment().isBefore(moment(dateList[0].date), 'day') 
@@ -47,11 +48,18 @@ const TimelineSection = (props) => {
         activeSession={activeSession} 
         handleChangeActiveSession={handleChangeActiveSession}
       />
-      <PresentationList 
+      {/* <PresentationList 
         allPresentation={allPresentation} 
         filter={majorFilter}
         sessionStartDate={get(sessionList, `[${activeSession}].startDate`, '')}
         sessionEndDate={get(sessionList, `[${activeSession}].endDate`, '')}
+      /> */}
+      <SubMajorPresentationList 
+        allPresentation={allPresentation} 
+        filter={majorFilter}
+        // sessionStartDate={get(sessionList, `[${activeSession}].startDate`, '')}
+        sessionDay={get(sessionList, `[${activeSession}].day`, '')}
+        sessionDic={sessionDic}
       />
     </div>
   );

@@ -21,7 +21,7 @@ function* getAllPresentationSaga() {
     sessionList = sessionList.map((session, index) => {
       return ({
         ...session,
-        name: `Session ${index + 1}`
+        // name: `Session ${index + 1}`
       })
     })
 
