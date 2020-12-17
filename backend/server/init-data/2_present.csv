@@ -1,0 +1,47 @@
+sessionId,paperId,date,paperName,author,summary,linkZoom,linkPdf
+2011,166,10:00-10:20,Xạ trị tại bệnh viện ung bướu TP.HCM và đào tạo nguồn nhân lực,"Nguyễn Trung Hiếu
+ (Bệnh viện Ung bướu TP.HCM)",,,
+2011,6,10:20-10:40,Ứng dụng năng lượng nguyên tử trong y tế và công tác đảm bảo an toàn bức xạ tại bệnh viện chợ Rẫy,"Nguyễn Tấn Châu
+ (Bệnh viện Chợ Rẫy)",,,
+2011,116,10:40-11:00,Xạ trị và y học hạt nhân tại Đồng bằng sông Cửu Long và định hướng phát triển,"Vũ Ngọc Tú/Lê Thị Đến
+ (Bệnh viện Đa Khoa Kiên Giang/Bệnh viện ung Bướu Cần Thơ)",,,
+2011,159,11:00-11:15,Development the method of determination of radiostrontium in groundwater,"Phan Long Hồ/Vũ Tuấn Minh
+ (Viện Y tế Công cộng TP.HCM",,,
+2011,39,11:15-11:30,Manufacturing 18F-FDG by pettrace 800 Cyclotron base on proton-neutron reaction application in image diagnose,"Nguyễn Anh Tuấn
+ (Công ty Cổ phần Y học Rạng Đông)",,,
+2011,12,11:30-11:45,Elastic and inelastic transfer in collisisons of oxygen and carbon nuclei,"Nguyễn Trí Toàn Phúc
+ (Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM)",,,
+2011,107,11:45-12:00,Role of pairing correlation in the radiative strength function,"Lê Tấn Phúc
+ (Trường Đại học Duy Tân)",,,
+2021,232,13:30-13:45,Novel crystallization mechanic of the zeolite silicalite-1 at high temperature: a study of nuclear spectroscopies,"Lưu Anh Tuyên
+ (Trung tâm Hạt nhân TP.HCM)",,,
+2021,171,13:45-14:00,Hiệu chỉnh liều kế dạng phim trong ghi đo liều chiếu xạ bằng chùm điện tử 10 MeV,"Cao Văn Chung
+ (Trung tâm ứng dụng và triển khai công nghệ bức xạ",,,
+2021,28,14:00-14:15,Nghiên cứu đặc trưng của hệ đầu dò triệt Compton bằng chương trình Geant4 và MCNP-CP,"Châu Thành Tài 
+ (Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM)",,,
+2021,42,14:15-14:30,Design of a digital multi-channel analyzer based on FPGA for HPGe detector,"Hoàng Minh Vũ
+ (Viện Nghiên cứu hạt nhân)",,,
+2021,20,14:30-14:45,"Estimation of the soil to plant transfer factor and annual effective dose due to ingestion of food crops in Ho Chi Minh city, VietNam","Vũ Ngọc Ba
+ (Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM)",,,
+2021,62,14:45-15:00,Nghiên cứu phương pháp xây dựng đường chuẩn hiệu suất đỉnh năng lượng toàn phần và hiệu suất tổng của đầu dò HPGe bằng các phép đo thực nghiệm và mô phỏng Monte Carlo,"Lý Xuân Bình/Lê Quang Vương
+ (Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM)",,,
+2021,114,15:00-15:15,Xác định nồng độ phần trăm của axit sunfuric bằng phương pháp gamma truyền qua kết hợp với mô phỏng MCNP6,"Trương Thanh Sang
+ (Trường Đại học Sư phạm TP.HCM)",,,
+2021,180,15:15-15:30,Xác định hoạt độ 210Po trong thuốc cam tùng mộc,"Phạm Trần Duy Linh/Lê Công Hảo
+ (Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM)",,,
+2031,15,15:45-16:00,Study the results of biologically effective in High-dose-rate brachytherapy using imaging CT 3D and conventional 2D for treatment planning for cervical cancer,"Lê Thị Đến
+ (Bệnh viện Ung bướu Cần Thơ)",,,
+2031,48,16:00-16:15,"Bước tiến trong đổi mới và nâng cao chất lượng ảnh xạ hình SPECT, SPECT/CT","Trần Văn Phúc
+ (Trường Đại học Y dược TP.HCM)",,,
+2031,14,16:15-16:30,Hàm lượng Kẽm (Zn) trong móng tay và móng chân: một dấu hiệu sinh học cho việc xác định nguy cơ ung thư Đại trực tràng,"Huỳnh Trúc Phương
+ (Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM)",,,
+2031,25,16:30-16:45,Khảo sát Độ dày thành ngực trong chọn lựa phương pháp lập kế hoạch xạ trị ung thư vú đã phẫu thuật,"Nguyễn Thị Cẩm Tú
+ (Bệnh viện 115)",,,
+2031,38,16:45-17:00,Giới thiệu phương pháp hình ảnh học trong xạ trị,"Đặng Quang Huy
+ (Biện viện Quân Y 175)",,,
+2031,131,17:00-17:15,Đảm bảo chất lượng kế hoạch xạ trị VMAT tại bệnh viện ung bướu TP.HCM,"Phan Quốc Uy
+ (Bệnh viện Ung bướu TP.HCM)",,,
+2031,49,17:15-17:30,A realtime radiation monitoring and warning system applying in a radiation therapy room in hospital,"Võ Hải Nhật/Võ Hồng Hải
+ (Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM)",,,
+2031,164,17:30-17:45,Đánh giá kết quả kiểm tra liều lượng hàng ngày của máy xị trị gia tốc Precise Elekta tại bệnh viện ung bướu TP.HCM,"Ngô Trung Nghĩa
+ (Bệnh viện Ung bướu TP.HCM)",,,
