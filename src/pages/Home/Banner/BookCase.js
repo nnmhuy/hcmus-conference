@@ -66,7 +66,7 @@ const bookCaseData = {
 
 const translateResize = [
   ['translate(-20px, -20px)', 'translate(-20px, -20px)', 'translate(-14px, -20px)', 'translate(-30px,-36px)'],
-  ['translate(-20px, 5px)', 'translate(-30px, 10px)', 'translate(-20px, 5px)', 'translate(-37px,8px)'],
+  ['translate(-20px, 5px)', 'translate(-30px, 10px)', 'translate(-24px,15px)', 'translate(-37px,8px)'],
   ['translate(-22px, 28px)', 'translate(-28px, 45px)', 'translate(-29px,52px)', 'translate(-45px,52px)'],
   ['translate(-24px, 53px)', 'translate(-28px, 80px)', 'translate(-40px, 85px)', 'translate(-48px,98px)'],
   ['translate(-25px, -26px)', 'translate(-20px, -22px)', 'translate(-36px,-12px)', 'translate(-50px,8px)'],
@@ -88,9 +88,9 @@ const BookBubble = styled(SuspenseImage)`
     @media (min-width: 1286px) {
       width: 650px;
     }
-    // @media (min-width: 1480px) {
-    //   width: 800px;
-    // }
+    @media (min-width: 2000px) {
+      width: 800px;
+    }
   `
 
 const TopShelf = styled.div`
@@ -143,10 +143,10 @@ const HoverText = styled.div`
     right: -5px;
     bottom: 115px;
   }
-  // @media (min-width: 1480px) {
-  //   right: 0px;
-  //   bottom: 152px;
-  // }
+  @media (min-width: 2000px) {
+    right: 10px;
+    bottom: 160px;
+  }
 `
 
 const BookCaseContainer = styled.div`
@@ -165,8 +165,9 @@ export default function BookCase() {
   const renderBookRow = (rowIndex) => {
     return bookCaseData[rowIndex].map((book, index) => {
       let idx = index
+      
       if (rowIndex !== 0) idx = Number(index)+Number(rowIndex)*3+1
-      return <BookItem key={'bookCaseItem'+index}  courseIndex={idx} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
+      return <BookItem key={'bookCaseItem'+index} courseIndex={idx} course={book} translateResize={translateResize[idx]} setHoverText={renderHoverText}/>
     })
   }
 

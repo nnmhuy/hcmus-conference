@@ -4,6 +4,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import RestConnector from './connectors/RestConnector'
 import colors from './constants/colors'
 
 import Loading from './components/Layout/Loading'
@@ -48,6 +49,7 @@ const theme = createMuiTheme({
 function App(props) {
   const { isLoadingAll, getAllPresentationHandler } = props
   useEffect(() => {
+    RestConnector.get('/extra-data/update-visited-count')
     getAllPresentationHandler()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

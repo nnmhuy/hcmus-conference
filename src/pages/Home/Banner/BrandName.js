@@ -115,7 +115,7 @@ const BlobShape = styled.div`
   width: 40px;
   height: 40px;
   // background: #ffa638;
-  background: ${colors.logoDarkBlue};
+  background: ${colors.primaryBlue};
   position: absolute;
   pointer-events: none;
   z-index: 1;
@@ -151,12 +151,12 @@ function BrandName(props) {
 
   useEffect(() => {
     function getDiffInDate() {
-      const startDate = new Date("2020-12-18T00:00:00.000+07:00")
+      const startDate = new Date("2020-12-18T08:00:00.000+07:00")
       let endDate = startDate
       const currentDate = new Date()
       
       if (currentDate - startDate >= 0) {
-        endDate = new Date("2020-12-19T17:30:00.000+07:00")
+        endDate = new Date("2020-12-19T17:00:00.000+07:00")
       }
 
       const diff = endDate - currentDate
