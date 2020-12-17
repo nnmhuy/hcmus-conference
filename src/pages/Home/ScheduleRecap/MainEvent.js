@@ -60,10 +60,10 @@ const MainEventContainer = styled.div`
   position: relative;
   text-align: center;
   &:hover ${TitleText} {
-    opacity: 1;
+    opacity: ${props => !props.title ? 0 : 1};
   }
   &:hover ${DateText} {
-    opacity: 0;
+    opacity: ${props => !props.title ? 1 : 0};
   }
 `
 
@@ -80,11 +80,17 @@ const MainCircleStraight = styled.div`
 function MainEvent(props) {
   const { title, time } = props.sched
   return (
-    <MainEventContainer>
+    <MainEventContainer title={title}>
+      
       <DateText>{getDayMonthFromTime(time)}</DateText>
-      <TitleText>{title}</TitleText>
+      {
+        !title ? <></> : <TitleText>{title}</TitleText>
+      }
+      
       <MainCircleStraight/>
-      <TimeTextBelow>{getHourMinuteFromTime(time)}</TimeTextBelow>
+      {
+        !title ? <></> : <TimeTextBelow>{getHourMinuteFromTime(time)}</TimeTextBelow>
+      }
     </MainEventContainer>
   )
 }

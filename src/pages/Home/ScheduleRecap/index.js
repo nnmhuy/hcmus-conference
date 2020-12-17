@@ -9,6 +9,7 @@ const RecapContainer = styled.div`
   margin: 0 auto 70px auto;
   width: 80%;
   position: relative;
+  max-width: 900px;
 `
 
 const MainRoad = styled.div`
