@@ -15,8 +15,7 @@ const useStyles = makeStyles(theme => ({
     border: '1px solid #F4F5F8',
     maxWidth: 900,
     margin: "auto",
-    height: '90vh',
-    overflow: "scroll"
+    height: '90vh'
   },
 }))
 

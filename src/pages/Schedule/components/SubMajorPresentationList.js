@@ -13,6 +13,8 @@ import styled from 'styled-components';
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
+    height: '100%',
+    overflowY: 'scroll'
   },
   timelineRoot: {
     padding: 0,
