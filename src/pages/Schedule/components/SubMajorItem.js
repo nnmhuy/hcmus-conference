@@ -137,16 +137,16 @@ const SubMajorItem = (props) => {
         <div className={classes.majorText}>{majorName}</div>
         <div className={classes.title}>{sessionName}</div>
         <div className={classes.numberContainer}>
-          <div className={classes.timeContainer}>
-            <ClockIcon className={classes.clockIcon} />
-            <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")} - ${moment(endDate).format("k:mm A")}`}</span>
-          </div>
           {room &&
             <div className={classes.timeContainer}>
               <MeetingRoomIcon className={classes.clockIcon} />
               <span className={classes.timeText}>{room}</span>
             </div>
           }
+          <div className={classes.timeContainer}>
+            <ClockIcon className={classes.clockIcon} />
+            <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")} - ${moment(endDate).format("k:mm A")}`}</span>
+          </div>
           <div className={classes.timeContainer}>
             <img src={presentationIcon} className={classes.clockIcon} alt="number-presentation-icon" />
             <span className={classes.timeText}>{presentationList.length} bài thuyết trình</span>

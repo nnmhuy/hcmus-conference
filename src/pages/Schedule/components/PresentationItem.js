@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   timelineOpposite: {
     flex: 0, 
-    minWidth: 70,
+    minWidth: 60,
     display: 'flex',
     padding: '6px 6px 6px 0px',
   },
@@ -44,7 +44,8 @@ const useStyles = makeStyles(theme => ({
       flexDirection: 'column',
       justifyContent: 'space-between',
     },
-    alignItems: 'start'
+    alignItems: 'start',
+    marginBottom: 5,
   },
   timeContainer: {
     display: 'flex',
@@ -59,11 +60,11 @@ const useStyles = makeStyles(theme => ({
     color: `${colors.darkGray}`,
     width: '1.3rem',
     height: '1.3rem',
+    marginRight: 5,
   },
   timeText: {
     fontSize: '0.8rem',
     lineHeight: '0.7rem',
-    marginLeft: 5,
     color: `${colors.primaryBlue}`,
     fontWeight: 600
   },
@@ -122,7 +123,7 @@ const PresentationItem = (props) => {
     <TimelineItem>
       <TimelineOppositeContent className={classes.timelineOpposite}>
         <div className={classes.timeContainer}>
-          <span className={classes.timeText}>{`${moment(startDate).format("k:mm A")}`}</span>
+          <span className={classes.timeText}>{`${moment(startDate).format("k:mm")}`}</span>
         </div>
       </TimelineOppositeContent>
       <TimelineSeparator>
@@ -139,7 +140,7 @@ const PresentationItem = (props) => {
                 <span className={classes.timeText}>{room}</span>
               </div>
             }
-            <ZoomButton linkZoom={linkZoom || linkZoomSubMajor} style={{ marginRight:15 }}/>
+            <ZoomButton linkZoom={linkZoom || linkZoomSubMajor} style={{ marginRight: 15, padding: 0, }}/>
             <LinkPaperButton paperLink={paperLink} />
             <AddToCalendarButton
               {...presentation}
