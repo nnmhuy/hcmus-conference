@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   dateTab: {
     display: 'flex',
-    padding: '5px 0',
+    padding: '10px 0',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
@@ -83,6 +83,8 @@ const useStyles = makeStyles(theme => ({
     fontWeight: 600,
     color: `${colors.primaryBlue}`,
     transition: 'all 0.6s',
+    lineHeight: "1.7rem",
+    paddingBottom: "0.3rem"
   },
   activeDateTabTitle: {
     color: theme.palette.white.main,

@@ -151,7 +151,7 @@ function BrandName(props) {
 
   useEffect(() => {
     function getDiffInDate() {
-      const startDate = new Date("2020-12-18T00:00:00.000+07:00")
+      const startDate = new Date("2020-12-18T08:00:00.000+07:00")
       let endDate = startDate
       const currentDate = new Date()
       
