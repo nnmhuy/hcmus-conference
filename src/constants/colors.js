@@ -19,13 +19,13 @@ const colors = {
   // lightGradient: 'linear-gradient(to right, #4361EE, #6962DD, #9B79E8)',
 
   //schedulepage
-  lightGradient: 'linear-gradient(to left, #61e7ec, #1fa3f4, #1469de)',
+  lightGradient: 'linear-gradient(to left, #43d1d6, #1fa3f4, #1469de)',
   
   
   // primaryGradientLeft: 'linear-gradient(to left, #4361EE, #3F37C9, #3A0CA3)',
   // primaryGradientRight: 'linear-gradient(to right, #4361EE, #3F37C9, #3A0CA3)',
-  primaryGradientLeft: 'linear-gradient(to left, #61e7ec, #1fa3f4, #1469de)',
-  primaryGradientRight: 'linear-gradient(to right, #61e7ec, #1fa3f4, #1469de)',
+  primaryGradientLeft: 'linear-gradient(to left, #43d1d6, #1fa3f4, #1469de)',
+  primaryGradientRight: 'linear-gradient(to right, #43d1d6, #1fa3f4, #1469de)',
   
   /********* Fix colors above *********/
 
