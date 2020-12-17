@@ -12,8 +12,7 @@
       "required": true
     },
     "paperId": {
-      "type": "number",
-      "required": true
+      "type": "string"
     },
     "startDate": {
       "type": "date",
@@ -28,8 +27,7 @@
       "required": true
     },
     "author": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "summary": {
       "type": "string"

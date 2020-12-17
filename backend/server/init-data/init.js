@@ -41,8 +41,13 @@ module.exports = async function (app) {
   console.log("running initialization");
 
   // place file in init-data folder
-  let sessionData = await getSession(['8_session.csv'])
-  let presentationData = await getPresentation(['8_presentation.csv'], sessionData)
+  let sessionFileName = [], presentFileName = []
+  for (let i=0; i<=9; i++) {
+    sessionFileName.push(`${i}_session.csv`)
+    presentFileName.push(`${i}_present.csv`)
+  }
+  let sessionData = await getSession(sessionFileName)
+  let presentationData = await getPresentation(presentFileName, sessionData)
 
   function createDefaultAdmin() {
     Account.create(
