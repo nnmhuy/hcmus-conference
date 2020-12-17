@@ -7,7 +7,11 @@
     "validateUpsert": true
   },
   "properties": {
-    "majorId": {
+    "sessionId": {
+      "type": "number",
+      "required": true
+    },
+    "paperId": {
       "type": "number",
       "required": true
     },
@@ -19,25 +23,22 @@
       "type": "date",
       "required": true
     },
-    "title": {
+    "paperName": {
       "type": "string",
       "required": true
-    },
-    "room": {
-      "type": "string"
-    },
-    "paperLink": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "linkZoom": {
-      "type": "string"
     },
     "author": {
       "type": "string",
       "required": true
+    },
+    "summary": {
+      "type": "string"
+    },
+    "linkPdf": {
+      "type": "string"
+    },
+    "linkZoom": {
+      "type": "string"
     }
   },
   "validations": [],
@@ -66,14 +67,14 @@
     },
     {
       "principalType": "ROLE",
-      "principalId": "$everyone",  
-      "permission": "ALLOW",        
+      "principalId": "$everyone",
+      "permission": "ALLOW",
       "property": "initData"
     },
     {
       "principalType": "ROLE",
-      "principalId": "$everyone",  
-      "permission": "ALLOW",        
+      "principalId": "$everyone",
+      "permission": "ALLOW",
       "property": "getAllData"
     }
   ],

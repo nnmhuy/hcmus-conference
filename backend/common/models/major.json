@@ -1,6 +1,5 @@
 {
-  "name": "Session",
-  "plural": "sessions",
+  "name": "major",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,34 +10,8 @@
       "type": "number",
       "required": true
     },
-    "sessionId": {
-      "type": "number",
-      "required": true
-    },
-    "sessionName": {
+    "majorName": {
       "type": "string",
-      "required": true
-    },
-    "sessionName_en": {
-      "type": "string",
-      "required": true
-    },
-    "room": {
-      "type": "string"
-    },
-    "linkZoom": {
-      "type": "string"
-    },
-    "day": {
-      "type": "number",
-      "required": true
-    },
-    "startDate": {
-      "type": "date",
-      "required": true
-    },
-    "endDate": {
-      "type": "date",
       "required": true
     }
   },

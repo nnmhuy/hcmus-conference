@@ -54,5 +54,9 @@
   "extra-data": {
     "dataSource": "conferrence-hcmus",
     "public": true
+  },
+  "major": {
+    "dataSource": "conferrence-hcmus",
+    "public": true
   }
 }
