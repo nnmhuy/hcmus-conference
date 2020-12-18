@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import { makeStyles } from '@material-ui/core/styles'
 import moment from 'moment'
@@ -38,9 +38,9 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-const getStatus = (startDate, endDate) => {
-  if (moment().isAfter(moment(endDate))) return 0
-  if (moment().isBefore(moment(startDate))) return 2
+const getStatus = (currentTime, startDate, endDate) => {
+  if (currentTime.isAfter(moment(endDate))) return 0
+  if (currentTime.isBefore(moment(startDate))) return 2
   return 1
 }
 
@@ -48,8 +48,17 @@ const getStatus = (startDate, endDate) => {
 const SubMajorIcon = (props) => {
   const classes = useStyles()
   const { majorIcon, startDate, endDate } = props
+  const [currentTime, setCurrentTime] = useState(moment())
 
-  const status = getStatus(startDate, endDate)
+  useEffect(() => {
+    const timer = setInterval(function () { 
+      setCurrentTime(moment())
+    }, 60 * 1000)
+    return function () {
+      clearInterval(timer)
+    }
+  }, [])
+  const status = getStatus(currentTime, startDate, endDate)
 
   return (
     <TimelineDot 
