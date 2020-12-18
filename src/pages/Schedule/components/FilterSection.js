@@ -12,6 +12,13 @@ const FilterSection = (props) => {
   const [activeFilters, setActiveFilters] = useState(filter)
   const isMobileLayout = useMediaQuery('(max-width:800px)');
 
+  const updateActiveFilter = (newFilters) => {
+    setActiveFilters(newFilters)
+
+    query.set('filter', JSON.stringify(newFilters))
+    history.push(`/chuong-trinh?${query.toString()}`)
+  }
+
   const toggleFilter = (id) => {
     let newFilters = cloneDeep(activeFilters)
     if (id === -1) {
@@ -23,16 +30,17 @@ const FilterSection = (props) => {
         newFilters.push(id)
       }
     }
-    setActiveFilters(newFilters)
-
-    query.set('filter', JSON.stringify(newFilters))
-    history.push(`/chuong-trinh?${query.toString()}`)
+    updateActiveFilter(newFilters)
   }
 
 
   return (
     isMobileLayout?
-      <MobileFilter activeFilters={activeFilters} toggleFilter={toggleFilter}/>
+      <MobileFilter 
+        activeFilters={activeFilters} 
+        toggleFilter={toggleFilter}
+        updateActiveFilter={updateActiveFilter}
+      />
     :
       <DesktopFilter activeFilters={activeFilters} toggleFilter={toggleFilter}/>
   );

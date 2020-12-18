@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -7,6 +7,7 @@ import Slide from '@material-ui/core/Slide';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
+import { cloneDeep } from 'lodash'
 
 import colors from '../../../constants/colors'
 import { majorList } from '../../../constants/constants'
@@ -62,7 +63,22 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const FilterSection = (props) => {
   const classes = useStyles()
-  const { activeFilters, toggleFilter } = props
+  const { activeFilters, toggleFilter, updateActiveFilter } = props
+  const [currentFilters, setCurrentFilters] = useState(activeFilters)
+
+  const toggleCurrentFilter = (id) => {
+    let newFilters = cloneDeep(currentFilters)
+    if (id === -1) {
+      newFilters = []
+    } else {
+      if (newFilters.includes(id)) {
+        newFilters = newFilters.filter(item => item !== id)
+      } else {
+        newFilters.push(id)
+      }
+    }
+    setCurrentFilters(newFilters)
+  }
 
   const [open, setOpen] = React.useState(false);
 
@@ -74,6 +90,11 @@ const FilterSection = (props) => {
     setOpen(false);
   };
 
+  const handleDone = () => {
+    updateActiveFilter(currentFilters)
+    setOpen(false)
+  }
+
   return (
     <div>
       <Button variant="contained" color="primary" fullWidth
@@ -81,7 +102,7 @@ const FilterSection = (props) => {
         className={classes.showFilterButton} 
         onClick={handleClickOpen}
       >
-        Chọn ngành
+        Chọn tiểu ban
       </Button>
       <Dialog
         open={open}
@@ -90,11 +111,11 @@ const FilterSection = (props) => {
         onClose={handleClose}
         fullScreen
       >
-        <DialogTitle disableTypography className={classes.dialogTitle}>{"Chọn ngành"}</DialogTitle>
+        <DialogTitle disableTypography className={classes.dialogTitle}>{"Chọn tiểu ban"}</DialogTitle>
         <DialogContent className={classes.root}>
           <span
-            className={clsx(classes.majorContainer, !activeFilters.length && classes.activeMajor)}
-            onClick={() => toggleFilter(-1)}
+            className={clsx(classes.majorContainer, !currentFilters.length && classes.activeMajor)}
+            onClick={() => toggleCurrentFilter(-1)}
           >
             Tất cả
           </span>
@@ -104,8 +125,8 @@ const FilterSection = (props) => {
               return (
                 <span
                   key={name}
-                  className={clsx(classes.majorContainer, activeFilters.includes(id) && classes.activeMajor)}
-                  onClick={() => toggleFilter(id)}
+                  className={clsx(classes.majorContainer, currentFilters.includes(id) && classes.activeMajor)}
+                  onClick={() => toggleCurrentFilter(id)}
                 >
                   {name}
                 </span>
@@ -113,7 +134,7 @@ const FilterSection = (props) => {
             })
           }
 
-        <Button variant="outlined" color="primary" fullWidth className={classes.closeButton} onClick={handleClose}>
+        <Button variant="outlined" color="primary" fullWidth className={classes.closeButton} onClick={handleDone}>
             Xong
         </Button>
       </DialogContent>
