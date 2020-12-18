@@ -27,9 +27,10 @@ function* getAllPresentationSaga() {
 
     let statsList = get(data, 'statis', [])
     statsList = statisticNameList.map(field => {
+      const { defaultValue } = field
       return ({
         ...field,
-        value: statsList[field.key] || 0,
+        value: statsList[field.key] || defaultValue || 0,
       })
     })
 

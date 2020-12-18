@@ -10,7 +10,7 @@ const styles = (theme => ({
   loading: {
     width: '100%',
     height: '100%',
-    position: 'fixed',
+    // position: 'fixed',
     top: 0,
     left: 0,
     zIndex: 10000
@@ -34,6 +34,9 @@ const styles = (theme => ({
 
 const Loading = (props) => {
   const { isLoading, classes, Loader = ClimbingBoxLoader } = props
+  if (!isLoading) {
+    return null
+  }
   return (
     <Paper tabIndex={-1} className={classes.loading}>
       <Modal className={classes.modal} open={isLoading}>

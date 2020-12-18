@@ -19,9 +19,10 @@ const dateList = [
 ]
 
 const statisticNameList = [
-  { key: "numberOfMajor", label: "ngành" },
-  { key: "numberOfPresentation", label: "bài báo" },
-  { key: "numberOfAuthor", label: "tác giả" },
+  // { key: "numberOfMajor", label: "tiểu ban" },
+  { key: "numberOfPresentation", label: "báo cáo oral" },
+  { key: "numberOfPosterPresentation", label: "báo cáo poster", defaultValue: 258 },
+  { key: "numberOfAuthorFix", label: "tác giả", defaultValue: "1100+" },
   { key: "numberOfVisitors", label: "lượt truy cập" },
 ]
 
