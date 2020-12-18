@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
     flex: 0, 
     minWidth: 60,
     display: 'flex',
-    padding: '6px 6px 6px 0px',
+    padding: '6px 6px 6px 15px',
   },
   timelineConnector: {
     background: '#F4F5F8',

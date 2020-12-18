@@ -13,6 +13,10 @@ const useStyles = makeStyles(theme => ({
     height: 40,
     borderWidth: 2,
     marginBottom: 5,
+    display: 'flex',
+    alignItems: 'center',
+    width: 'fit-content',
+    height: 'fit-content',
   },
   passedDot: {
     background: '#F5F5F5',
