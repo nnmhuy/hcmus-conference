@@ -33,7 +33,7 @@ module.exports = function(Presentation) {
     }
     else {
       let [sessionData, presentationData, sponsorData, visitedCountModel, majorData, posterData] = await Promise.all([
-        Presentation.app.models.Session.find({order: 'startDate ASC'}),
+        Presentation.app.models.Session.find({order: ['startDate ASC', 'endDate ASC']}),
         Presentation.find({order: 'startDate ASC'}),
         Presentation.app.models.Sponsor.find(),
         Presentation.app.models.ExtraData.findOne({ where: { name: "visited-count" } }),
