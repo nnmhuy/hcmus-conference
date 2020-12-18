@@ -38,6 +38,7 @@ module.exports = async function (app) {
   var Sponsor = app.models.Sponsor;
   var ExtraData = app.models.ExtraData;
   var Major = app.models.Major;
+  var Poster = app.models.Poster;
   console.log("running initialization");
 
   // place file in init-data folder
@@ -48,6 +49,7 @@ module.exports = async function (app) {
   }
   let sessionData = await getSession(sessionFileName)
   let presentationData = await getPresentation(presentFileName, sessionData)
+  let posterData = await getListCSV(['poster.csv'])
 
   function createDefaultAdmin() {
     Account.create(
@@ -67,6 +69,13 @@ module.exports = async function (app) {
     Presentation.create(presentationData, function (err, presentations) {
       if (err) throw err;
       console.log("create presentations", presentations.length);
+    });
+  }
+
+  function createDefaultPoster() {
+    Poster.create(posterData, function (err, posters) {
+      if (err) throw err;
+      console.log("create posters", posters.length);
     });
   }
 
@@ -127,6 +136,12 @@ module.exports = async function (app) {
   Major.find({}, (err, majors) => {
     if (!majors || !majors[0]) {
       createDefaultMajor();
+    }
+  });
+
+  Poster.find({}, (err, posters) => {
+    if (!posters || !posters[0]) {
+      createDefaultPoster();
     }
   });
 };

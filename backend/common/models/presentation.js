@@ -32,12 +32,13 @@ module.exports = function(Presentation) {
       return cacheAllData.data
     }
     else {
-      let [sessionData, presentationData, sponsorData, visitedCountModel, majorData] = await Promise.all([
+      let [sessionData, presentationData, sponsorData, visitedCountModel, majorData, posterData] = await Promise.all([
         Presentation.app.models.Session.find({order: 'startDate ASC'}),
         Presentation.find({order: 'startDate ASC'}),
         Presentation.app.models.Sponsor.find(),
         Presentation.app.models.ExtraData.findOne({ where: { name: "visited-count" } }),
-        Presentation.app.models.Major.find({order: 'majorId ASC'})
+        Presentation.app.models.Major.find({order: 'majorId ASC'}),
+        Presentation.app.models.Poster.find()
       ])
       let numberOfPresentation = presentationData.length
       let numberOfAuthor = 0
@@ -53,6 +54,16 @@ module.exports = function(Presentation) {
         presentationDict[element.sessionId].push(element)
       });
 
+      // cluster poster to major
+      let posterDict = {}
+      posterData.forEach(element => {
+        numberOfAuthor = updateAuthor(numberOfAuthor, authorDict, element.author)
+
+        if (!posterDict[element.majorId])
+          posterDict[element.majorId] = []
+        posterDict[element.majorId].push(element)
+      })
+
       // stat
       let statisData = {
         numberOfMajor: majorData.length,
@@ -66,7 +77,8 @@ module.exports = function(Presentation) {
         'session': sessionData,
         'presentation': presentationDict,
         'sponsor': sponsorData,
-        'statis': statisData
+        'statis': statisData,
+        'poster': posterDict
       }
 
       // update cache
