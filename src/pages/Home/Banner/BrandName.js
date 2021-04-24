@@ -3,9 +3,13 @@ import { withRouter } from 'react-router-dom'
 import styled from 'styled-components'
 import colors from '../../../constants/colors'
 
+const Container = styled.div`
+
+transform: translateY(-30%);
+`
+
 const BorderedContainer = styled.fieldset`
   width: fit-content;
-  transform: translateY(-30%);
   position: relative;
   border: 1px solid ${colors.lightBlue};
 
@@ -167,12 +171,23 @@ function BrandName(props) {
       const minute = parseInt(Math.abs(diff) / (1000 * 60) % 60)
       const second = parseInt(Math.abs(diff) / (1000) % 60)
 
-      setTime({
-        day,
-        hour,
-        minute,
-        second
-      })
+      if (day < 0) {
+        setTime({
+          day: 0,
+          hour: 0,
+          minute: 0,
+          second: 0
+        })
+      } else {
+        setTime({
+          day,
+          hour,
+          minute,
+          second
+        })
+      }
+
+      
     }
     getDiffInDate();
 
@@ -204,6 +219,7 @@ function BrandName(props) {
   }
 
   return (
+    <Container>
     <BorderedContainer>
       <TimerContainer>
         {
@@ -243,6 +259,7 @@ function BrandName(props) {
         <ParaText>Xem lịch trình</ParaText>
       </ButtonWhite>
     </BorderedContainer>
+    </Container>
   )
 }
 
